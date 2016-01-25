@@ -203,16 +203,6 @@ section.success a.active {
     color: #2c3e50;
 }
 
-@media(max-width:767px) {
-    section {
-        padding: 75px 0;
-    }
-
-    section.first {
-        padding-top: 75px;
-    }
-}
-
 #portfolio .portfolio-item {
     right: 0;
     margin: 0 0 15px;
