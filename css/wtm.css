@@ -279,6 +279,11 @@ section.success a.active {
     background: #fff;
 }
 
+.centered {
+    display: block;
+    text-align: center;
+}
+
 .floating-label-form-group {
     position: relative;
     margin-bottom: 0;
