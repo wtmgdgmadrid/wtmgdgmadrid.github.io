@@ -469,3 +469,7 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+
+.col-sm-2 {
+    width: 16.66666667%;
+}
