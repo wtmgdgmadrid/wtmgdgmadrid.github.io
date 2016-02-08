@@ -6,7 +6,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     min-width: 760px;
 }
 
