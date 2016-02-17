@@ -273,6 +273,10 @@ section.success a.active {
     margin : auto;
 }
 
+#sponsors .sponsor-item img{
+    max-height: 75px;    
+}
+
 .btn-outline {
     margin-top: 15px;
     border: solid 2px #fff;
