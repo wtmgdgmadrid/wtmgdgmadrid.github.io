@@ -273,6 +273,10 @@ section.success a.active {
     margin : auto;
 }
 
+#speaker-description .speaker-image img{
+    max-width: 160px;
+}
+
 #sponsors .sponsor-item img{
     max-height: 75px;    
 }
