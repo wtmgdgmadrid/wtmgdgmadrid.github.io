@@ -205,11 +205,6 @@ section.success a.active {
     color: #2c3e50;
 }
 
-#speakers .speaker-item {
-    right: 0;
-    margin: 0 0 15px;
-}
-
 #speakers .speaker-item h4{
     text-align: center;
     height: 40px;
@@ -265,6 +260,17 @@ section.success a.active {
     #speakers .speaker-item {
         margin: 0 0 30px;
     }
+}
+
+@media(max-width:992px) {
+    #speakers .speaker-item img{
+        max-width: 160px;
+    }
+}
+
+#speakers .speaker-item img{
+    display : block;
+    margin : auto;
 }
 
 .btn-outline {
@@ -468,8 +474,4 @@ footer .footer-below {
 .speaker-modal .modal-backdrop {
     display: none;
     opacity: 0;
-}
-
-.col-sm-2 {
-    width: 16.66666667%;
 }
