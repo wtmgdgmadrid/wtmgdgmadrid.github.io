@@ -4,10 +4,14 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+section h2 {
+    margin: 15px!important;
+    font-size:40px!important;
+}
 body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-    min-width: 760px;
+    
 }
 
 p {
