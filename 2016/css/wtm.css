@@ -11,7 +11,7 @@ section h2 {
 body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-
+    
 }
 
 p {
@@ -39,7 +39,7 @@ h5,
 h6 {
     text-transform: uppercase;
     font-family: Roboto;
-
+   
 }
 
 hr.star-light,
@@ -292,32 +292,14 @@ section.success a.active {
 }
 
 #sponsors .sponsor-item img{
-    max-height: 75px;
-}
-
-.success .btn-outline {
-    margin-top: 15px;
-    border: solid 2px #fff;
-    font-size: 20px;
-    color: #fff;
-    background: 0 0;
-    transition: all .3s ease-in-out;
-}
-
-.success .btn-outline:hover,
-.success .btn-outline:focus,
-.success .btn-outline:active,
-.success .btn-outline.active {
-    border: solid 2px #fff;
-    color: #18bc9c;
-    background: #fff;
+    max-height: 75px;    
 }
 
 .btn-outline {
     margin-top: 15px;
-    border: solid 2px #18bc9c;
+    border: solid 2px #fff;
     font-size: 20px;
-    color: #18bc9c;
+    color: #fff;
     background: 0 0;
     transition: all .3s ease-in-out;
 }
@@ -326,9 +308,9 @@ section.success a.active {
 .btn-outline:focus,
 .btn-outline:active,
 .btn-outline.active {
-    border: solid 2px #18bc9c;
-    color: #fff;
-    background: #18bc9c;
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: #fff;
 }
 
 .centered {
