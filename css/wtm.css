@@ -287,12 +287,18 @@ section.success a.active {
     margin : auto;
 }
 
-#speaker-description .speaker-image img{
+#speaker-description .speaker-imabfrgv                                            vvv    vge img{
     max-width: 160px;
 }
 
-#sponsors .sponsor-item img{
-    max-height: 75px;
+#sponsors .sponsor {
+  display: block;
+    margin: 20px 25px 70px 25px;
+}
+
+#sponsors .image-center {
+  display: inline-block;
+  float: none;
 }
 
 .success .btn-outline {
