@@ -235,6 +235,8 @@ section.success a.active {
     max-width: 400px;
 }
 
+
+
 #speakers .speaker-item .speaker-link .caption {
     position: absolute;
     width: 100%;
@@ -440,6 +442,50 @@ footer .footer-below {
 .btn.active {
     outline: 0;
 }
+
+/*New*/
+
+.btn-social2 {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 45px;
+}
+
+
+
+.success .btn-outline2:hover,
+.success .btn-outline2:focus,
+.success .btn-outline2:active,
+.success .btn-outline2.active {
+    border: solid 2px #1CE9B6;
+    color: #1CE9B6;
+    background: #fff;
+}
+
+.btn-outline2 {
+    margin-top: 15px;
+    border: solid 2px #18bc9c;
+    font-size: 20px;
+    color: #18bc9c;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+.btn-outline2:hover,
+.btn-outline2:focus,
+.btn-outline2:active,
+.btn-outline2.active {
+    border: solid 2px #4285f4;
+    color: #fff;
+    background: #4285f4;
+}
+
+
 
 .scroll-top {
     z-index: 1049;
