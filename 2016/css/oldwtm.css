@@ -11,7 +11,7 @@ section h2 {
 body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-
+    
 }
 
 p {
@@ -39,45 +39,7 @@ h5,
 h6 {
     text-transform: uppercase;
     font-family: Roboto;
-
-}
-
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+   
 }
 
 hr.star-light,
@@ -208,15 +170,11 @@ header .intro-text .skills {
 .navbar .navbar-nav {
     letter-spacing: 1px;
 }
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
 
-color: #4285f4!important;
-background-color: #ffffff!important;
-}
 .navbar .navbar-nav li a {
     padding-top: 40px;
     padding-bottom: 40px;
-    color: #00bfa5!important;
+    color: #000000;
 }
 
 .navbar .navbar-nav li a:focus {
@@ -272,8 +230,6 @@ section.success a.active {
     margin: 0 auto;
     max-width: 400px;
 }
-
-
 
 #speakers .speaker-item .speaker-link .caption {
     position: absolute;
@@ -331,43 +287,19 @@ section.success a.active {
     margin : auto;
 }
 
-#speaker-description .speaker-imabfrgv                                            vvv    vge img{
+#speaker-description .speaker-image img{
     max-width: 160px;
 }
 
-#sponsors .sponsor {
-  display: block;
-    margin: 20px 25px 70px 25px;
-}
-
-#sponsors .image-center {
-  display: inline-block;
-  float: none;
-}
-
-.success .btn-outline {
-    margin-top: 15px;
-    border: solid 2px #fff;
-    font-size: 20px;
-    color: #fff;
-    background: 0 0;
-    transition: all .3s ease-in-out;
-}
-
-.success .btn-outline:hover,
-.success .btn-outline:focus,
-.success .btn-outline:active,
-.success .btn-outline.active {
-    border: solid 2px #fff;
-    color: #18bc9c;
-    background: #fff;
+#sponsors .sponsor-item img{
+    max-height: 75px;    
 }
 
 .btn-outline {
     margin-top: 15px;
-    border: solid 2px #18bc9c;
+    border: solid 2px #fff;
     font-size: 20px;
-    color: #18bc9c;
+    color: #fff;
     background: 0 0;
     transition: all .3s ease-in-out;
 }
@@ -376,9 +308,9 @@ section.success a.active {
 .btn-outline:focus,
 .btn-outline:active,
 .btn-outline.active {
-    border: solid 2px #18bc9c;
-    color: #fff;
-    background: #18bc9c;
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: #fff;
 }
 
 .centered {
@@ -481,50 +413,6 @@ footer .footer-below {
     outline: 0;
 }
 
-/*New*/
-
-.btn-social2 {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #fff;
-    border-radius: 100%;
-    text-align: center;
-    font-size: 20px;
-    line-height: 45px;
-}
-
-
-
-.success .btn-outline2:hover,
-.success .btn-outline2:focus,
-.success .btn-outline2:active,
-.success .btn-outline2.active {
-    border: solid 2px #1CE9B6;
-    color: #1CE9B6;
-    background: #fff;
-}
-
-.btn-outline2 {
-    margin-top: 15px;
-    border: solid 2px #18bc9c;
-    font-size: 20px;
-    color: #18bc9c;
-    background: 0 0;
-    transition: all .3s ease-in-out;
-}
-
-.btn-outline2:hover,
-.btn-outline2:focus,
-.btn-outline2:active,
-.btn-outline2.active {
-    border: solid 2px #4285f4;
-    color: #fff;
-    background: #4285f4;
-}
-
-
-
 .scroll-top {
     z-index: 1049;
     position: fixed;
@@ -611,6 +499,6 @@ footer .footer-below {
 }
 
 table.agenda td{
-   border: 2px solid #fff;
-    padding: 8px;
+    border: 2px solid #00bea4;
+    padding: 10px;
 }
