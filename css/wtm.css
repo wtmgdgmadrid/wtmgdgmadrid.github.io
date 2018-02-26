@@ -331,13 +331,17 @@ section.success a.active {
     margin : auto;
 }
 
-#speaker-description .speaker-imabfrgv                                            vvv    vge img{
+#speaker-description .speaker-image img{
     max-width: 160px;
 }
 
 #sponsors .sponsor {
-  display: block;
-    margin: 20px 25px 70px 25px;
+    display: block;
+    margin: 10px 0px 10px 0px;
+}
+
+#sponsors .sponsor-category {
+    padding-bottom: 30px;
 }
 
 #sponsors .image-center {
