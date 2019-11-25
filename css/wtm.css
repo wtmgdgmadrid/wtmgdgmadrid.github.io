@@ -385,6 +385,19 @@ section.success a.active {
     background: #18bc9c;
 }
 
+#sponsors .btn-outline {
+    color:#fff;
+    border: solid 2px #fff;
+}
+
+#sponsors .btn-outline:hover,
+#sponsors .btn-outline:focus,
+#sponsors .btn-outline:active,
+#sponsors .btn-outline.active {
+    color: #18bc9c;
+    background: #fff;
+}
+
 .centered {
     display: block;
     text-align: center;
