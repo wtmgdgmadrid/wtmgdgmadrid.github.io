@@ -385,16 +385,59 @@ section.success a.active {
     background: #18bc9c;
 }
 
-#sponsors .btn-outline {
+.sponsors {
+    background-color:#18bc9c;
+    padding-top:45px;
+    padding-bottom:40px;
+}
+
+.sponsors h2 {
+    color:#fff;
+}
+
+.sponsors p {
+    text-align:center;
+    color:#fff;
+}
+
+.sponsors .btn-outline {
     color:#fff;
     border: solid 2px #fff;
 }
 
-#sponsors .btn-outline:hover,
-#sponsors .btn-outline:focus,
-#sponsors .btn-outline:active,
-#sponsors .btn-outline.active {
+.sponsors .btn-outline:hover,
+.sponsors .btn-outline:focus,
+.sponsors .btn-outline:active,
+.sponsors .btn-outline.active {
     color: #18bc9c;
+    background: #fff;
+}
+
+.call-for-papers {
+    background-color:#2c3e50;
+    padding-top:45px;
+    padding-bottom:40px;
+}
+
+.call-for-papers h2 {
+    color:#fff;
+}
+
+.call-for-papers p {
+    text-align:center;
+    color:#fff;
+}
+
+.call-for-papers .btn-outline {
+    color:#fff;
+    border: solid 2px #fff;
+}
+
+.call-for-papers .btn-outline:hover,
+.call-for-papers .btn-outline:focus,
+.call-for-papers .btn-outline:active,
+.call-for-papers .btn-outline.active {
+    color: #2c3e50;
     background: #fff;
 }
 
