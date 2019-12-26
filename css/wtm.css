@@ -180,6 +180,11 @@ header .intro-text .skills {
     display: none;
 }
 
+.container > .navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+}
+
 @media(min-width:768px) {
     .navbar-fixed-top {
         -webkit-transition: padding .3s;
