@@ -176,6 +176,10 @@ header .intro-text .skills {
     }
 }
 
+.nav > li.only-desktop {
+    display: none;
+}
+
 @media(min-width:768px) {
     .navbar-fixed-top {
         -webkit-transition: padding .3s;
@@ -192,6 +196,10 @@ header .intro-text .skills {
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
         font-size: 1.5em;
+    }
+
+    .nav > li.only-desktop {
+        display: block;
     }
 }
 
@@ -230,6 +238,15 @@ background-color: #ffffff!important;
 
 .navbar-default {
     background-color: #FFFFFF
+}
+
+.navbar-default .navbar-toggle, .navbar-default .navbar-toggle {
+    background-color: #1a242f;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #18bc9c;
+    border-color: #18bc9c;
 }
 
 .header-logo {
