@@ -283,12 +283,16 @@ section.success a.active {
     color: #2c3e50;
 }
 
-#speakers .speaker-item h4{
+.speakers .speaker-item {
+    padding-bottom: 50px;
+}
+
+.speakers .speaker-item h4{
     text-align: center;
     height: 40px;
 }
 
-#speakers .speaker-item .speaker-link {
+.speakers .speaker-item .speaker-link {
     display: block;
     position: relative;
     margin: 0 auto;
@@ -297,7 +301,7 @@ section.success a.active {
 
 
 
-#speakers .speaker-item .speaker-link .caption {
+.speakers .speaker-item .speaker-link .caption {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -308,11 +312,11 @@ section.success a.active {
     transition: all ease .5s;
 }
 
-#speakers .speaker-item .speaker-link .caption:hover {
+.speakers .speaker-item .speaker-link .caption:hover {
     opacity: 1;
 }
 
-#speakers .speaker-item .speaker-link .caption .caption-content {
+.speakers .speaker-item .speaker-link .caption .caption-content {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -323,32 +327,32 @@ section.success a.active {
     color: #fff;
 }
 
-#speakers .speaker-item .speaker-link .caption .caption-content i {
+.speakers .speaker-item .speaker-link .caption .caption-content i {
     margin-top: -12px;
 }
 
-#speakers .speaker-item .speaker-link .caption .caption-content h3,
-#speakers .speaker-item .speaker-link .caption .caption-content h4 {
+.speakers .speaker-item .speaker-link .caption .caption-content h3,
+.speakers .speaker-item .speaker-link .caption .caption-content h4 {
     margin: 0;
 }
 
-#speakers * {
+.speakers * {
     z-index: 2;
 }
 
 @media(min-width:767px) {
-    #speakers .speaker-item {
+    .speakers .speaker-item {
         margin: 0 0 30px;
     }
 }
 
 @media(max-width:992px) {
-    #speakers .speaker-item img{
+    .speakers .speaker-item img{
         max-width: 160px;
     }
 }
 
-#speakers .speaker-item img{
+.speakers .speaker-item img{
     display : block;
     margin : auto;
 }
