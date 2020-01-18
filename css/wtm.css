@@ -259,8 +259,8 @@ background-color: #ffffff!important;
 }
 
 section {
-    padding-top: 85px;
-    padding-bottom:20px;
+    padding-top: 45px;
+    padding-bottom: 40px;
     font-size: 16px;
 }
 
@@ -284,7 +284,7 @@ section.success a.active {
 }
 
 .speakers .speaker-item {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .speakers .speaker-item h4{
@@ -411,32 +411,37 @@ section.success a.active {
     background: #18bc9c;
 }
 
-.sponsors {
+.sponsors-form {
     background-color:#18bc9c;
     padding-top:45px;
     padding-bottom:40px;
 }
 
-.sponsors h2 {
+.sponsors-form h2 {
     color:#fff;
 }
 
-.sponsors p {
+.sponsors-form p {
     text-align:center;
     color:#fff;
 }
 
-.sponsors .btn-outline {
+.sponsors-form .btn-outline {
     color:#fff;
     border: solid 2px #fff;
 }
 
-.sponsors .btn-outline:hover,
-.sponsors .btn-outline:focus,
-.sponsors .btn-outline:active,
-.sponsors .btn-outline.active {
+.sponsors-form .btn-outline:hover,
+.sponsors-form .btn-outline:focus,
+.sponsors-form .btn-outline:active,
+.sponsors-form .btn-outline.active {
     color: #18bc9c;
     background: #fff;
+}
+
+.sponsors {
+    padding-top:45px;
+    padding-bottom:40px;
 }
 
 .call-for-papers {
