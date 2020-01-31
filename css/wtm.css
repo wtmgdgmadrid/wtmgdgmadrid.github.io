@@ -386,6 +386,15 @@ section.success a.active {
     max-width: 160px;
 }
 
+#sponsors {
+    padding-top:45px;
+    padding-bottom:40px;
+}
+
+#sponsors p {
+   text-align: center;
+}
+
 #sponsors .sponsor {
     display: block;
     margin: 10px 0px 10px 0px;
