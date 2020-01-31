@@ -283,6 +283,18 @@ section.success a.active {
     color: #2c3e50;
 }
 
+#tickets {
+    background-color: #18bc9c;
+}
+
+#program {
+    background-color: #4285f4;
+}
+
+#program a {
+    color: #ffffff;
+}
+
 #speakers .speaker-item {
     padding-bottom: 30px;
 }
