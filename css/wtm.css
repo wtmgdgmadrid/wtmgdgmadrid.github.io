@@ -405,8 +405,16 @@ section.success a.active {
 }
 
 #sponsors .image-center {
-  display: inline-block;
-  float: none;
+  display: flex;
+  justify-content: center;
+}
+
+#sponsors .sponsor {
+    margin-top: 30px;
+}
+
+#sponsors .sponsor-silver {
+    max-width: 255px;
 }
 
 .success .btn-outline {
