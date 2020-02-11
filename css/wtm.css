@@ -413,8 +413,20 @@ section.success a.active {
     margin-top: 30px;
 }
 
+#sponsors .sponsor-platinum {
+    max-width: 350px;
+}
+
+#sponsors .sponsor-gold {
+    max-width: 300px;
+}
+
 #sponsors .sponsor-silver {
-    max-width: 255px;
+    max-width: 250px;
+}
+
+#sponsors .sponsor-bronze {
+    max-width: 200px;
 }
 
 .success .btn-outline {
