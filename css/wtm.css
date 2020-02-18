@@ -427,6 +427,10 @@ section.success a.active {
     max-width: 250px;
 }
 
+#sponsors .sponsor-silver.sponsor-silver-square {
+    max-width: 100px;
+}
+
 #sponsors .sponsor-bronze {
     max-width: 200px;
 }
