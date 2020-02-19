@@ -257,7 +257,8 @@ background-color: #ffffff!important;
 }
 
 .header-logo {
-    height: 100px;
+    height: 90px;
+    margin-top: 5px;
 }
 
 section {
