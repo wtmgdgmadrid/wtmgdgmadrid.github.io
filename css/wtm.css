@@ -438,6 +438,10 @@ section.success a.active {
     max-width: 200px;
 }
 
+#sponsors .sponsor-bronze-smaller {
+    max-width: 180px;
+}
+
 .success .btn-outline {
     margin-top: 15px;
     border: solid 2px #fff;
