@@ -772,3 +772,17 @@ table.agenda td{
    border: 2px solid #fff;
     padding: 8px;
 }
+
+/* Changes and announcement */
+.announcement {
+    margin-bottom: 40px;
+}
+
+.announcement h2 {
+    font-size: 28px !important;
+}
+.changes {
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
