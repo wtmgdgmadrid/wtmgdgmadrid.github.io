@@ -775,6 +775,7 @@ table.agenda td{
 
 /* Changes and announcement */
 .announcement {
+    margin-top: 0px !important;
     margin-bottom: 40px !important;
 }
 
