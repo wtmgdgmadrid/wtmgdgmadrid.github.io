@@ -286,6 +286,23 @@ section.success a.active {
     color: #2c3e50;
 }
 
+#aviso {
+    background-color: #2c3e50;
+}
+
+#aviso b {
+    color: #00bea4;
+    font-size: 18px;
+}
+
+#aviso .aviso-tickets b {
+    font-size: 26px;
+}
+
+#aviso .aviso-tickets {
+    margin-top: 20px;
+}
+
 #tickets {
     background-color: #18bc9c;
 }
