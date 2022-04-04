@@ -404,6 +404,10 @@ section.success a.active {
     max-width: 160px;
 }
 
+#agradecimientos .agradecimiento-central {
+    max-width: 350px;
+}
+
 #sponsors {
     padding-top:45px;
     padding-bottom:40px;
