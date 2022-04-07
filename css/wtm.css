@@ -794,6 +794,12 @@ table.agenda td{
     padding: 8px;
 }
 
+table.agenda_unica td{
+    border: 2px solid #fff;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
 /* Changes and announcement */
 .announcement {
     margin-top: 0px !important;
