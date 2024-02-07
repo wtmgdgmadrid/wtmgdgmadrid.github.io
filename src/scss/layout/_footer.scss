@@ -1,0 +1,80 @@
+.footer {
+  background-image: linear-gradient(to bottom, #4ec7ffc4, #00cfb4be);
+  padding: 2rem;
+  text-align: center;
+  padding-block: 3rem;
+
+  &_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+
+    @media (min-width: 768px) {
+      margin-left: 3.5rem;
+    }
+
+    &-icons {
+      color: $white;
+      font-size: 2.5rem;
+      transition: color 0.3s, transform 0.3s;
+      
+      &:hover {
+        color: $blue;
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.sectionFT {
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.fContainer {
+  &_fTitle {
+    @include textStyle($white, $montserrat, 2rem, 500, 1.2);
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &_fText {
+    @include textStyle($white, $montserrat, 1.5rem, 500, 1.2);
+    margin-bottom: 1rem;
+  }
+
+  &_fText2 {
+    @include textStyle($white, $montserrat, 1.2rem, 300, 1.2);
+    margin-bottom: 1.5rem;
+  }
+
+  &_fEmail {
+    @include textStyle($white, $montserrat, 1.2rem, 400, 1.2);
+    margin-bottom: 1.5rem;
+    margin-inline: 0.5rem;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &_fTextCopy {
+    @include textStyle($white, $montserrat, 1.3rem, 300, 1.5);
+    margin-bottom: 1.5rem;
+    margin-top: 3.5rem;
+    text-wrap: pretty;
+    @media (min-width: 768px) {
+      margin-left: 4.5rem;
+    }
+  }
+}
+
+.contact{
+  color:$white;
+  &:hover{
+    color: $blue;
+  }
+}

@@ -1,0 +1,65 @@
+.sectionCode {
+  background-color: $blue50;
+  padding-block: 10rem;
+
+  &__titleC {
+    @include dFlex(column, center, center);
+    @include textStyle($blue, $montserrat, 2rem, bold, 1.5);
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__subTitleC {
+    @include textStyle($blue500, $montserrat, 1.5rem, bold, 1.2);
+    text-align: justify;
+    text-transform: uppercase;
+    padding: 2.5rem 4.5rem;
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+      padding: 3rem 10rem;
+    }
+    @media (min-width: 1024px) {
+      padding: 3rem 16rem;
+    }
+  }
+
+  &__textTitleC {
+    @include textStyle($grey, $montserrat, 1rem, 500, 1.7);
+    text-align: justify;
+    padding: 0 4.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+      padding: 2rem 10rem;
+    }
+    @media (min-width: 1024px) {
+        padding: 3rem 16rem;
+      }
+  }
+}
+
+.boxCode {
+  @include dFlex(column, center, center);
+  &__hugImg {
+    width: 15rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &__creditC {
+    @include textStyle($grey, $montserrat, 1rem, 600, 1.7);
+    text-align: center;
+    padding-inline: 5rem 4.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+      padding: 0em 10rem;
+    }
+  }
+}
+
+.a {
+  color: $turquoise;
+}

@@ -1,0 +1,225 @@
+.diarySection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.sectionDiary {
+  @include dFlex(column, 0, 0);
+  margin-bottom: 6rem;
+}
+
+.titleDiary {
+  @include dFlex(column, 0, center);
+  @include textStyle($blue, $montserrat, 2rem, bold, 1.5);
+  @include padding(0, 2rem);
+  margin-top: 4rem;
+  // border: solid 1px black;
+  // background-color: $blue100;
+  // border-top-left-radius: 5rem;
+  // border-top-right-radius: 5rem;
+  text-transform: uppercase;
+  padding-top: 2rem;
+
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+    @include padding(0, 3rem);
+  }
+}
+
+.diary {
+  @include dFlex(column, center, 0);
+  @include margin(2rem, 0);
+  @include padding(2rem, 2rem);
+  background-color: $background1;
+  border-radius: 2rem;
+  // border-bottom-left-radius: 2rem;
+  // border-bottom-right-radius: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    width: 65rem;
+  }
+  @media (min-width: 1024px) {
+    width: 80rem;
+  }
+  @media (min-width: 1440px) {
+    width: 100rem;
+  }
+
+  &__cel {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__time {
+    width: 5.8rem;
+    text-align: center;
+    @include dFlex(column, space-between, 0);
+    flex: 0 0 auto;
+    background-color: $blue100;
+    border-radius: 1.2rem;
+    border:0.1rem solid black;
+    @include textStyle($black, $montserrat, 1rem, 300, 1.2);
+    @include padding(1rem, 1rem);
+    &--ent {
+      @include textStyle($black, $montserrat, 1.2rem, 400, 1.2);
+
+      @media (min-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.3rem;
+      width: 7rem;
+    }
+  }
+
+  &__act {
+    @include dFlex(0, center, center);
+    flex-direction: column;
+    background: $background1;
+    @include padding(2.5rem, 0.6rem);
+    @include textStyle($grey, $montserrat, 1.3rem, regular, 1);
+    border-radius: 1rem;
+    text-align: center;
+    flex: 1 1 auto;
+
+    @media (min-width: 768px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__presentations {
+    @include dFlex(0, center, 0);
+    flex-direction: column;
+    background-color: $white;
+    @include padding(1.5rem, 1.5rem);
+    @include textStyle($black, $montserrat, 1.2rem, 500, 1.2);
+    cursor: pointer;
+    border-radius: 1rem;
+    text-align: center;
+    flex: 1 1 auto;
+    :last-child {
+      @include textStyle($black, $montserrat, 1.2rem, 300, 1);
+      margin-top: 0.8rem;
+      // text-align: end;
+      // margin-right: 1.5rem;
+      @media (min-width: 768px) {
+        //margin-right: 2rem;
+        font-size: 1.3rem;
+      }
+      // @media (min-width: 1024px) {
+      //   margin-right: 10rem;
+      // }
+      // @media (min-width: 1440px) {
+      //   margin-right: 20rem;
+      // }
+    }
+
+    &:hover {
+      box-shadow: 5px 5px 10px $blackTransparent;
+    }
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.modal {
+  @include dFlex(column, center, center);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%; 
+  background-color: $blackTransparent;
+  overflow: auto; 
+
+  &__container {
+    filter: drop-shadow(0 0 7rem $blue400);
+    text-align: center;
+    background-color: $white;
+    border-radius: 2.5rem;
+    padding: 2rem;
+    width: 70%;
+    box-shadow: 5px 8px 20px $blackTransparent;
+    @media (min-width: 768px) {
+      width: 60rem;
+    }
+    @media (min-width: 1024px) {
+      width: 70rem;
+      @include dFlex(row, center, center);
+    }
+  }
+
+  &__imgM {
+    width: 18rem;
+    margin-bottom: 1.5rem;
+    //clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  &__name {
+    margin-bottom: 1.5rem;
+    @include textStyle($blue, $montserrat, 1.3rem, $bold, 1.5);
+    text-transform: uppercase;
+    //filter: drop-shadow(0 0 2px #4fd5b0);
+  }
+
+  &__titleP {
+    @include textStyle($black, $montserrat, 1.5rem, bold, 1.2);
+    margin-bottom: 2.5rem;
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-inline: 3rem;
+    }
+  }
+
+  .text-column {
+    @media (min-width: 768px) {
+      @include dFlex(column, center, center);
+      margin: auto;
+    }
+  }
+
+  &__text {
+    @include textStyle($black, $montserrat, 1.2rem, regular, 1.6);
+    margin-bottom: 2.5rem;
+    text-align: left;
+    text-wrap:pretty;
+    @media (min-width: 768px) {
+      margin-inline: 3rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__close {
+    @include textStyle($grey, $montserrat, 1.6rem, regular, 1.5);
+    @include btn(none, 3rem, $blue100);
+    text-decoration: none;
+    padding: 0.5rem 2.5rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+}
+// .shadow {
+//   filter: drop-shadow(0 0 10px $blue300);
+// }
+
+.hidden {
+  display: none;
+}
+
+br {
+  content: "";
+  display: block;
+  margin-top: 0.8rem;
+ }
+ 

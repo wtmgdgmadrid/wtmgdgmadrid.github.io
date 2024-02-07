@@ -1,26 +1,51 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
+<div style="text-align:center;"><img src="./src/images/logo-wtm-blue.png" alt="Women's Techmakers" width="300"></div>
 
-[Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, and a working PHP contact form.
+<div style="text-align:center;"> 
 
-## Getting Started
+# Women's Techmakers 2024 
 
-To use this theme, choose one of the following options to get started:
-* Download the latest release on Start Bootstrap
-* Fork this repository on GitHub
+</div>
 
-## Bugs and Issues
 
-Have a bug or an issue with this theme? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-freelancer/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/).
+Bienvenidas al evento anual de Women's Techmakers, una asociación impulsada por un colectivo de mujeres comprometidas con la misión de aumentar la presencia femenina en el sector tecnológico. A través de iniciativas como esta, buscamos fomentar la participación activa de las mujeres en la tecnología y convertirnos en referentes e inspiración para las generaciones más jóvenes.
 
-## Creator
+<div style="text-align:center;"> 
 
-Start Bootstrap was created by and is maintained by **David Miller**, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
+## Objetivos
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+</div>
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-## Copyright and License
+1. **Fomentar Relaciones:** Crear un espacio propicio para fortalecer las relaciones entre mujeres que comparten un interés común en el ámbito tecnológico.
 
-Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-freelancer/blob/gh-pages/LICENSE) license.
+2. **Visibilizar y Dar Voz:** Destacar y compartir las experiencias de las profesionales de la tecnología, ofreciendo una plataforma para que sus voces sean escuchadas.
+
+3. **Formación Tecnológica:** Impartir talleres destinados a niñas y niños, brindándoles oportunidades para explorar y aprender sobre temas tecnológicos desde una edad temprana.
+
+4. **Promover Referentes:** Inspirar a las más jóvenes al proporcionar modelos a seguir, mostrándoles que están más que capacitadas para triunfar en el sector tecnológico.
+
+5. **Crear un Ambiente Seguro:** Organizar un evento acogedor donde todas nos sintamos cómodas y seguras para compartir, aprender y crecer juntas.
+
+<div style="text-align:center;"> 
+
+## Tema: Impactar el Futuro
+
+</div>
+
+El lema de nuestro evento es "Impactar el Futuro". Todas tenemos el poder y la responsabilidad de influir en el futuro de la tecnología y la sociedad. La inteligencia artificial (IA) desempeña un papel crucial en la formación de nuestro mundo, y nos preguntamos: ¿cómo será ese futuro y cómo lo construiremos?
+
+Podemos utilizar nuestras habilidades, creatividad y pasión para generar un cambio positivo y abordar los problemas que nos importan a nosotras y nuestras comunidades. Además, tenemos la capacidad de inspirar a la próxima generación de mujeres en tecnología, quienes continuarán impactando el futuro con sus propias ideas e innovaciones.
+
+Únete a nosotros en este evento, donde celebraremos la diversidad, la innovación y el potencial ilimitado de las mujeres en la tecnología. ¡Juntas, estamos cambiando el juego y construyendo un futuro tecnológico más inclusivo y brillante!
+<div style="text-align:center;"> 
+
+**Fecha:** Aún por determinar  
+**Ubicación:** Aún por determinar  
+
+</div>
+
+¡Esperamos verte allí y juntas impactar el futuro! ✨👩‍💻 #WomenInTech #TechmakersEvent
+
+<div style="text-align:center;">
+  <img src="./src/images/impact-the-future.png" alt="Women's Techmakers" width="300">
+</div>
