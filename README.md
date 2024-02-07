@@ -1,4 +1,4 @@
-<div style="text-align:center;"><img src="./src/images/logo-wtm-blue.png" alt="Women's Techmakers" width="300"></div>
+
 
 <div style="text-align:center;"> 
 
