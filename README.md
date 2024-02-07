@@ -39,8 +39,8 @@ Podemos utilizar nuestras habilidades, creatividad y pasión para generar un cam
 Únete a nosotros en este evento, donde celebraremos la diversidad, la innovación y el potencial ilimitado de las mujeres en la tecnología. ¡Juntas, estamos cambiando el juego y construyendo un futuro tecnológico más inclusivo y brillante!
 <div style="text-align:center;"> 
 
-**Fecha:** Aún por determinar  
-**Ubicación:** Aún por determinar  
+**Fecha:** 27 de abril de 2024 
+**Ubicación:** Talent Garden C. de Juan de Mariana, 15 
 
 </div>
 
