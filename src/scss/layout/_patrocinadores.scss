@@ -38,6 +38,7 @@
         @include dFlex(row, center, center);
         flex-wrap: wrap;
         margin-block: 5rem;
+        gap: 5rem;
       }
     }
   }
