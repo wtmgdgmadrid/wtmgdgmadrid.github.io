@@ -72,15 +72,22 @@
 }
 
 .gold {
-  width: 15rem;
+  width: 15.5rem;
   @media (min-width: 768px) {
     width: 20rem;
   }
 }
 
 .silver {
+  width: 15.5rem;
+  @media (min-width: 768px) {
+    width: 19.5rem;
+  }
+}
+
+.colab{
   width: 10rem;
   @media (min-width: 768px) {
-    width: 17rem;
+    width: 13rem;
   }
 }
