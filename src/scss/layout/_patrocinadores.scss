@@ -21,6 +21,7 @@
         margin-bottom: 1rem;
         text-align: center;
       }
+
       &_unique {
         transition-duration: 0.8s;
         width: 24rem;
@@ -28,12 +29,14 @@
           width: 40rem;
         }
       }
+
       &_a {
         :hover {
           transform: scale(1.1);
           filter: grayscale(100%);
         }
       }
+
       &_pla {
         @include dFlex(row, center, center);
         flex-wrap: wrap;
@@ -42,6 +45,7 @@
       }
     }
   }
+
   &__line {
     height: 3px;
     background-color: $black;
@@ -57,13 +61,16 @@
     margin-inline: auto;
     margin-block: 5rem;
     @include textStyle($white, $montserrat, 1.5rem, $regular, 1.5);
+
     @media (min-width: 768px) {
       font-size: 2rem;
       padding: 15px 20px;
     }
   }
+
   &_a {
     text-decoration: none;
+
     :hover {
       background-color: #4ec7ffc4;
       cursor: pointer;
@@ -79,9 +86,9 @@
 }
 
 .silver {
-  width: 15.5rem;
+  width: 14.5rem;
   @media (min-width: 768px) {
-    width: 19.5rem;
+    width: 18.5rem;
   }
 }
 
