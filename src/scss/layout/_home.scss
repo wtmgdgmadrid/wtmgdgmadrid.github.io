@@ -45,8 +45,9 @@
       width: 30rem;
       border-radius: 2rem;
       text-align: center;
+
       @media (min-width: 768px) {
-        width: 34rem;
+        width: 32rem;
       }
     }
   }
@@ -68,6 +69,7 @@
       justify-content: center;
       gap: 1.5rem;
     }
+
     &-p {
       @include textStyle($black, $montserrat, 1.3rem, 400, 1.8);
       text-align: center;
@@ -76,6 +78,7 @@
         text-align: left;
       }
     }
+
     &-pcenter {
       @include textStyle($black, $montserrat, 1.5rem, 400, 1.8);
       text-align: center;
@@ -84,6 +87,7 @@
         font-size: 1.6rem;
       }
     }
+
     &-button {
       @include btn(none, 3rem, $blue);
       @include textStyle($white, $montserrat, 1.5rem, $regular, 1.5);
