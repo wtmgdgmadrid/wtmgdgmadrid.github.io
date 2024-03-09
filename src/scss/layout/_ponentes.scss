@@ -7,6 +7,7 @@
     text-transform: uppercase;
     @include textStyle($blue, $montserrat, 2rem, bold, 1.5rem);
     margin-bottom: 8rem;
+    
     @media (min-width: 768px) {
       font-size: 3.5rem;
     }
@@ -27,6 +28,7 @@
       align-items: center;
       height: 200px;
       width: 200px;
+
       @media (min-width: 768px) {
         height: 280px;
         width: 280px;
@@ -43,9 +45,11 @@
       text-align: center;
       margin-top: 2rem;
       @include textStyle($black, $montserrat, 1.8rem, 0, 1.5);
+
       &-p {
         margin-bottom: 1.5rem;
       }
+
       &-icon {
         color: $black;
         margin-left: 1rem;
@@ -94,23 +98,25 @@
 
   &__text {
     filter: drop-shadow(0 0 7rem $blue400);
-    background-color: $white;
-    width: 70%;
-    padding: 3rem;
-    max-width: 70%;
-    border-radius: 10px;
     text-align: center;
-    gap: 2rem;
+    background-color: $white;
+    border-radius: 2.5rem;
+    padding: 2.5rem;
+    width: 70%;
+    box-shadow: 5px 8px 20px $blackTransparent;
+
     @media (min-width: 768px) {
       width: 60rem;
     }
+
     @media (min-width: 1024px) {
-      width: 70rem;
-      @include dFlex(column, center, center);
+      width: 73.5rem;
+      @include dFlex(row, center, center);
     }
+
     &_info {
       @include dFlex(column, center, center);
-      @include textStyle($black, $montserrat, 1.2rem, regular, 1.2);
+      @include textStyle($black, $montserrat, 1.2rem, regular, 1.6);
       margin-bottom: 2.5rem;
 
       @media (min-width: 768px) {
@@ -118,15 +124,43 @@
         margin-top: 2rem;
         margin-inline: 3rem;
       }
+
       &_title {
         @include textStyle($blue, $montserrat, 1.5rem, $bold, 1.5);
-    text-transform: uppercase;
+        text-transform: uppercase;
         margin-bottom: 1.5rem;
       }
+
       &_bio {
         margin-bottom: 1.5rem;
+
+        &-icon {
+          color: black;
+          font-size: 1.8rem;
+          margin: 0.8rem;
+        }
       }
     }
+  }
+
+  .text-column {
+    @media (min-width: 768px) {
+      @include dFlex(column, center, center);
+      margin: auto;
+    }
+  }
+}
+
+.rowreverse {
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.space {
+  @media (min-width: 1024px) {
+    margin-top: 3rem;
   }
 }
 

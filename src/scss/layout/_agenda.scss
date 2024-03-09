@@ -61,10 +61,10 @@
     background-color: $blue100;
     border-radius: 1.2rem;
     border:0.1rem solid black;
-    @include textStyle($black, $montserrat, 1rem, 300, 1.2);
+    @include textStyle($black, $montserrat, 1rem, 400, 1.2);
     @include padding(1rem, 1rem);
     &--ent {
-      @include textStyle($black, $montserrat, 1.2rem, 400, 1.2);
+      @include textStyle($black, $montserrat, 1.2rem, 500, 1.2);
 
       @media (min-width: 768px) {
         font-size: 1.5rem;
@@ -97,13 +97,16 @@
     flex-direction: column;
     background-color: $white;
     @include padding(1.5rem, 1.5rem);
-    @include textStyle($black, $montserrat, 1.2rem, 500, 1.2);
+    @include textStyle($black, $montserrat, 1.2rem, 600, 1.2);
     cursor: pointer;
     border-radius: 1rem;
     text-align: center;
     flex: 1 1 auto;
+    @media (min-width: 768px) {
+      @include padding(8.5rem, 1.5rem);
+    }
     :last-child {
-      @include textStyle($black, $montserrat, 1.2rem, 300, 1);
+      @include textStyle($black, $montserrat, 1.2rem, 400, 1);
       margin-top: 0.8rem;
       // text-align: end;
       // margin-right: 1.5rem;
@@ -144,14 +147,16 @@
     text-align: center;
     background-color: $white;
     border-radius: 2.5rem;
-    padding: 2rem;
+    padding: 2.5rem;
     width: 70%;
     box-shadow: 5px 8px 20px $blackTransparent;
+
     @media (min-width: 768px) {
       width: 60rem;
     }
+
     @media (min-width: 1024px) {
-      width: 70rem;
+      width: 73.5rem;
       @include dFlex(row, center, center);
     }
   }
@@ -164,7 +169,7 @@
 
   &__name {
     margin-bottom: 1.5rem;
-    @include textStyle($blue, $montserrat, 1.3rem, $bold, 1.5);
+    @include textStyle($blue, $montserrat, 1.5rem, $bold, 1.5);
     text-transform: uppercase;
     //filter: drop-shadow(0 0 2px #4fd5b0);
   }
@@ -189,9 +194,10 @@
   &__text {
     @include textStyle($black, $montserrat, 1.2rem, regular, 1.6);
     margin-bottom: 2.5rem;
-    text-align: left;
+    text-align: center;
     text-wrap:pretty;
     @media (min-width: 768px) {
+      text-align: justify;
       margin-inline: 3rem;
       font-size: 1.3rem;
     }
