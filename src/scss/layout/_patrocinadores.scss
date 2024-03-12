@@ -43,8 +43,11 @@
         @include dFlex(row, center, center);
         flex-wrap: wrap;
         margin-block: 5rem;
-        margin-inline: 10rem;
         gap: 5rem;
+        
+        @media (min-width: 768px) {
+          margin-inline: 15rem;
+        }
       }
     }
   }
