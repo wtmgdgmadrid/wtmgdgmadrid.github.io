@@ -161,45 +161,59 @@ function closeModal() {
   modalContent.innerHTML = '';
 }
 
-const modalBox = document.getElementById('modalBox');
-const modalText = document.getElementById('modalText');
+'use strict';
 
+// Función para abrir la ventana modal
 function speakerOpen(ponente) {
+  const modalBox = document.getElementById('modalBox');
+  const modalText = document.getElementById('modalText');
+
   modalBox.classList.remove('hid');
 
   const info = ponentesInfo[ponente];
 
   modalText.innerHTML = `
-  <div class="modal__column img-column">
+    <div class="modal__column img-column">
       <div class="shadow">
         <img src="${info.image}" alt="${info.name}" class="modal__imgM">
       </div> 
-        <h2 class="modal__name">${info.name}</h2>
-      </div>
-      <div class="modal__column text-column">
-        <p class="modal__text space">${info.bio}</p>
-        <span>${
-          info.twitter
+      <h2 class="modal__name">${info.name}</h2>
+    </div>
+    <div class="modal__column text-column">
+      <p class="modal__text space">${info.bio}</p>
+      <span>${
+        info.twitter
+          ? `
+        <a class="modalBoxes__text_info_bio-icon" href="${info.twitter}" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+        </a>`
+          : ''
+      }
+        ${
+          info.linkedin
             ? `
-          <a class="modalBoxes__text_info_bio-icon" href="${info.twitter}" target="_blank">
-          <i class="fa-brands fa-x-twitter"></i>
-          </a>`
+        <a class="modalBoxes__text_info_bio-icon" href="${info.linkedin}" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+        </a>`
             : ''
         }
-          ${
-            info.linkedin
-              ? `
-          <a class="modalBoxes__text_info_bio-icon" href="${info.linkedin}" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-          </a>`
-              : ''
-          }
-        </span>
-        <button class="modal__closed" onclick="speakerClosed()">Volver</button>
-      </div>`;
+      </span>
+      <button class="modal__closed" onclick="speakerClosed()">Volver</button>
+    </div>`;
+
+  // Event listener para cerrar la ventana modal si se hace clic fuera de ella
+  modalBox.onclick = function(event) {
+    if (!modalText.contains(event.target)) {
+      speakerClosed();
+    }
+  };
 }
 
+// Función para cerrar la ventana modal
 function speakerClosed() {
+  const modalBox = document.getElementById('modalBox');
+  const modalText = document.getElementById('modalText');
+
   modalBox.classList.add('hid');
   modalText.innerHTML = '';
 }
