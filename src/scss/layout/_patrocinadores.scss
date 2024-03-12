@@ -16,6 +16,7 @@
       @include dFlex(row, center, center);
       flex-wrap: wrap;
       gap: 3rem;
+      
       &_title {
         @include textStyle($black, $montserrat, 2rem, $regular, 1.5rem);
         margin-bottom: 1rem;
@@ -25,6 +26,7 @@
       &_unique {
         transition-duration: 0.8s;
         width: 24rem;
+        margin-inline: 5rem;
         @media (min-width: 768px) {
           width: 40rem;
         }
