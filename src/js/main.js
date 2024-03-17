@@ -15,14 +15,13 @@ const menuLinks = document.querySelectorAll('.js-menu');
 // Controlador de eventos para cada enlace del menú
 menuLinks.forEach((link) => {
   link.onclick = () => {
-    // Remover la clase 'open' del contenedor de elementos
     itemsContainer.classList.remove('open');
-    // Remover la clase 'close' del botón de alternar
     toggleButton.classList.remove('close');
   };
 });
 
 // Scroll
+
 document.addEventListener('DOMContentLoaded', function () {
   const logo = document.querySelector('.navbar_a-logo');
 
@@ -134,6 +133,8 @@ const ponentesInfo = {
   },
 };
 
+/** Agenda **/
+
 const modal = document.getElementById('myModal');
 const modalContent = document.getElementById('modalContent');
 
@@ -154,6 +155,13 @@ function openModal(ponente) {
         <p class="modal__text">${info.info}</p>
         <button class="modal__close" onclick="closeModal()">Volver</button>
       </div>`;
+
+  // Event listener para cerrar la ventana modal si se hace clic fuera de ella
+  modal.onclick = function (event) {
+    if (!modalContent.contains(event.target)) {
+      closeModal();
+    }
+  };
 }
 
 function closeModal() {
@@ -161,13 +169,12 @@ function closeModal() {
   modalContent.innerHTML = '';
 }
 
-'use strict';
+/** Ponentes**/
 
-// Función para abrir la ventana modal
+const modalBox = document.getElementById('modalBox');
+const modalText = document.getElementById('modalText');
+
 function speakerOpen(ponente) {
-  const modalBox = document.getElementById('modalBox');
-  const modalText = document.getElementById('modalText');
-
   modalBox.classList.remove('hid');
 
   const info = ponentesInfo[ponente];
@@ -202,18 +209,14 @@ function speakerOpen(ponente) {
     </div>`;
 
   // Event listener para cerrar la ventana modal si se hace clic fuera de ella
-  modalBox.onclick = function(event) {
+  modalBox.onclick = function (event) {
     if (!modalText.contains(event.target)) {
       speakerClosed();
     }
   };
 }
 
-// Función para cerrar la ventana modal
 function speakerClosed() {
-  const modalBox = document.getElementById('modalBox');
-  const modalText = document.getElementById('modalText');
-
   modalBox.classList.add('hid');
   modalText.innerHTML = '';
 }
