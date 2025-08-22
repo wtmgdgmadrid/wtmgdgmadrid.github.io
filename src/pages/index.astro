@@ -10,11 +10,90 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import TeamMember from '~/components/TeamMember.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 
 const metadata = {
   title: 'Women Techmakers Madrid',
   ignoreTitleTemplate: true,
 };
+
+const team = [
+  {
+    name: 'Maritere Nieto',
+    bio: 'Maria Teresa (Maritere) es ingeniera informática y actualmente trabaja en Telefónica como Senior Product Manager. Desde 2017, ha combinado su trabajo principal con la enseñanza de en universidades españolas. Es embajadora de Women Techmakers, una iniciativa dirigida por Google que proporciona visibilidad, comunidad y recursos para las mujeres en tecnología y lidera la comunidad de WTM Madrid.',
+    image: {
+      src: '~/assets/images/team/maritere.png',
+      alt: 'Foto de Maritere Nieto'
+    },
+    social: {
+      twitter: 'https://twitter.com/_mtnieto',
+      linkedin: 'https://www.linkedin.com/in/mariateresanieto/',
+      bluesky: 'https://bsky.app/profile/mtnieto.es'
+    }
+  },
+  {
+    name: 'María Ángeles Espinosa Molina',
+    bio: 'María Ángeles Espinosa es ingeniera informática y actualmente se desarrolla como Manager en PwC, donde lidera proyectos de transformación digital, innovación, IA y automatización en proyectos internacionales. Ha sido seleccionada en varios programas para el impulso del talento femenino, tanto en escuelas de negocios como dentro de la propia firma. Desde 2016, María Ángeles Espinosa colabora activamente con distintas organizaciones (Creática, Real Academia de Ingeniería, Inspiring Girls, etc.) donde es mentora y anima a las más pequeñas a cursar carreras STEM. Es embajadora de Women Techmakers desde 2023, una iniciativa de Google que proporciona visibilidad, comunidad y recursos para las mujeres en tecnología y lidera la comunidad de WTM Madrid.',
+    image: {
+      src: '~/assets/images/team/mary.jpeg',
+      alt: 'Foto de María Ángeles Espinosa Molina'
+    },
+    social: {
+      twitter: 'https://www.twitter.com/in/Mery_espi',
+      linkedin: 'https://www.linkedin.com/in/mariaangelesespinosa/',
+      bluesky: 'https://bsky.app/profile/marideveloper.bsky.social'
+    }
+  },
+  {
+    name: 'Maribel Soledad Alarcón',
+    bio: 'Maribel comenzó su vida profesional en el mundo de la docencia y la fotografía, pero su curiosidad por la tecnología y sus ganas de crear soluciones la llevaron a reinventarse como desarrolladora web. Ese cambio no fue solo un giro en su carrera, sino una transformación personal: aprendió a salir de su zona de confort, a enfrentar nuevos retos y a descubrir el poder que tiene la tecnología para abrir caminos. Hoy en día es Full Stack Web Developer, apasionada por el aprendizaje, la resolución de problemas y por aportar valor a los proyectos en los que participa. Disfruta del trabajo en equipo, de compartir conocimientos y de seguir creciendo en un entorno que cambia y evoluciona constantemente. Su meta es seguir construyendo soluciones que generen un impacto positivo, mientras se inspira en otras grandes mujeres del mundo tech.',
+    image: {
+      src: '~/assets/images/team/maribel.jpg',
+      alt: 'Foto de Maribel Soledad Alarcón'
+    },
+    social: {
+      linkedin: 'https://www.linkedin.com/in/maribel-alarcon/',
+      twitter: 'https://www.twitter.com/in/maribelsol7',
+    }
+  },
+  {
+    name: 'Nadia Ujovich',
+    bio: 'Nadia es ingeniera en Sistemas de Información, graduada en 2017 en Rosario, Argentina. Cuenta con más de 15 años de experiencia trabajando con tecnologías backend como Java y Python, aunque en los últimos años comenzó a transicionar hacia el desarrollo web.Es fundadora de una comunidad de tecnología orientada a mujeres y minorías llamada Mermelada Tech. Además, es aficionada al triatlón.',
+    image: {
+      src: '~/assets/images/team/nadia.jpeg',
+      alt: 'Foto de Nadia Ujovich'
+    },
+    social: {
+      twitter: 'https://www.twitter.com/in/Nujovich',
+      linkedin: 'https://www.linkedin.com/in/nadiaujovich/',
+      bluesky: 'https://bsky.app/profile/nujovich.bsky.social'
+    }
+  },
+  {
+    name: 'Emma Martínez García',
+    bio: 'Emma es de Almería, aunque ahora vive en Madrid. Estudió Filosofía en la Universidad de Granada, pero su verdadera vocación siempre fue el sector tecnológico, y por eso actualmente cursa Ingeniería Informática. Trabaja como Junior Software Developer en una empresa del sector de la automoción, donde se especializa en automatización y optimización de procesos mediante inteligencia artificial. En sus ratos libres se dedica a actividades de alto riesgo: hacer sudokus y jugar a Lego Batman.',
+    image: {
+      src: '~/assets/images/team/emma.jpeg',
+      alt: 'Foto de Emma Martínez García'
+    },
+    social: {
+      linkedin: 'https://www.linkedin.com/in/emma-mtz/',
+    }
+  },
+  {
+    name: 'Violeta Cique Fernández',
+    bio: 'Violeta Comenzó su trayectoria como profesora de necesidades especiales en el Reino Unido, pero en 2022 decidió reinventarse y dar el salto al mundo del software. Desde entonces, no ha dejado de moverse y aprender, con una idea clara: que la tecnología sea accesible y esté al alcance de todas y todos.',
+    image: {
+      src: '~/assets/images/team/maribel.jpg',
+      alt: 'Foto de Violeta Cique Fernández'
+    },
+    social: {
+      twitter: 'https://www.twitter.com/in/viocodingleta',
+      linkedin: 'https://www.linkedin.com/in/violeta-cf/',
+    }
+  }
+];
 ---
 
 <Layout metadata={metadata}>
@@ -70,6 +149,18 @@ const metadata = {
       },
     ]}
   />
+
+  <!-- Team Members -->
+
+  <Features3
+    id="team"
+    tagline="Nuestro equipo"
+    title="Conoce a nuestras líderes"
+  />
+
+  <div class="grid gap-8 md:grid-cols-2 mb-2">
+    {team.map(member => <TeamMember member={member} />)}
+  </div>
 
   <!-- Content Widget **************** -->
 

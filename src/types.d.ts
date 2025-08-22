@@ -98,6 +98,17 @@ export interface Video {
   type?: string;
 }
 
+export interface TeamMember {
+  name: string;
+  bio: string;
+  image?: Image;
+  social: {
+    twitter?: string;
+    linkedin?: string;
+    bluesky?: string;
+  };
+}
+
 export interface Widget {
   id?: string;
   isDark?: boolean;
