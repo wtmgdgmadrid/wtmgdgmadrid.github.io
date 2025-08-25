@@ -9,7 +9,7 @@ const { member } = Astro.props;
   <header class="flex flex-col items-center gap-4 mb-2">
       <h2 class="text-xl font-bold dark:text-slate-300">{member.name}</h2>
       <Image
-        class="mx-auto rounded-md w-full"
+        class="mx-auto rounded-md w-full h-[576px]"
         widths={[400, 768, 1024, 2040]}
         sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
         loading="eager"
