@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+
+const { member } = Astro.props;
+const maxLength = 50;
+const isLong = member.bio?.length > maxLength;
+const shortBio = isLong ? member.bio.slice(0, maxLength) + '...' : member.bio;
+const bioId = `bio-text-${member.name.replace(/\s/g, '')}`;
+const btnMoreId = `btn-more-${member.name.replace(/\s/g, '')}`;
+const btnLessId = `btn-less-${member.name.replace(/\s/g, '')}`;
+---
+
+<article class="max-w-md mx-auto grid gap-4 p-6 rounded shadow-lg bg-white dark:bg-slate-800 shadow-gray-500">
+  <header class="flex flex-col items-center gap-4 mb-2">
+      <h2 class="text-xl font-bold dark:text-slate-300">{member.name}</h2>
+      <Image
+        class="mx-auto rounded-md w-full h-[350px]"
+        widths={[400, 768, 1024, 2040]}
+        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+        loading="eager"
+        {...member.image}
+      />
+  </header>
+  <p class="text-muted dark:text-slate-400 min-h-[80px] mb-4" id={`bio-${member.name.replace(/\s/g, '')}`}>
+    <span id={bioId}>{shortBio}</span>
+    {isLong && (
+      <>
+        <button
+          id={btnMoreId}
+          type="button"
+          class="ml-2 text-blue-600 underline text-sm"
+          onclick={`
+            document.getElementById('${bioId}').textContent = '${member.bio.replace(/'/g, "\\'")}';
+            document.getElementById('${btnMoreId}').style.display = 'none';
+            document.getElementById('${btnLessId}').style.display = 'inline';
+          `}
+        >
+          Ver más
+        </button>
+        <button
+          id={btnLessId}
+          type="button"
+          class="ml-2 text-blue-600 underline text-sm"
+          style="display:none"
+          onclick={`
+            document.getElementById('${bioId}').textContent = '${shortBio.replace(/'/g, "\\'")}';
+            document.getElementById('${btnLessId}').style.display = 'none';
+            document.getElementById('${btnMoreId}').style.display = 'inline';
+          `}
+        >
+          Ver menos
+        </button>
+      </>
+    )}
+  </p>
+  <footer class="flex gap-3">
+    {member.social.twitter && (
+      <a href={member.social.twitter} target="_blank" rel="noopener" aria-label="Twitter">
+        <Icon name="tabler:brand-twitter" class="w-5 h-5 text-blue-400" />
+      </a>
+    )}
+    {member.social.linkedin && (
+      <a href={member.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+        <Icon name="tabler:brand-linkedin" class="w-5 h-5 text-blue-700" />
+      </a>
+    )}
+    {member.social.bluesky && (
+      <a href={member.social.bluesky} target="_blank" rel="noopener" aria-label="Bluesky">
+        <Icon name="tabler:brand-bluesky" class="w-5 h-5 text-gray-700 dark:text-slate-300" />
+      </a>
+    )}

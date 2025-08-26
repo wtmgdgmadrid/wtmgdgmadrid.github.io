@@ -10,8 +10,9 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import TeamMember from '~/components/TeamMember.astro';
+import TeamMember from '~/components/widgets/TeamMember.astro';
 import Features3 from '~/components/widgets/Features3.astro';
+import Image from '~/components/common/Image.astro';
 
 const metadata = {
   title: 'Women Techmakers Madrid',
@@ -59,7 +60,7 @@ const team = [
   },
   {
     name: 'Nadia Ujovich',
-    bio: 'Nadia es ingeniera en Sistemas de Información, graduada en 2017 en Rosario, Argentina. Cuenta con más de 15 años de experiencia trabajando con tecnologías backend como Java y Python, aunque en los últimos años comenzó a transicionar hacia el desarrollo web.Es fundadora de una comunidad de tecnología orientada a mujeres y minorías llamada Mermelada Tech. Además, es aficionada al triatlón.',
+    bio: 'Nadia Ujovich es ingeniera en Sistemas de Información por la Universidad Nacional de Rosario (2017), con más de 15 años de experiencia en el sector tecnológico. Su carrera comenzó en el ámbito del backend, trabajando principalmente con Java y Python en proyectos de gran escala. Con el tiempo, su interés por la experiencia de usuario y la innovación digital la llevó a dar el salto hacia el desarrollo web, donde hoy combina su sólida base técnica con una mirada integral del producto. Además de su trayectoria profesional, Nadia es fundadora de Mermelada Tech, una comunidad de tecnología orientada a mujeres y minorías que busca generar un espacio inclusivo, de aprendizaje y de apoyo mutuo. Su labor en la comunidad refleja su compromiso con la diversidad en la industria y su convicción de que la tecnología debe ser una herramienta accesible y transformadora para todos. Apasionada del triatlón, Nadia encuentra en el deporte una forma de disciplina y equilibrio que traslada también a su vida profesional:',
     image: {
       src: '~/assets/images/team/nadia.jpeg',
       alt: 'Foto de Nadia Ujovich'
@@ -92,8 +93,37 @@ const team = [
       twitter: 'https://www.twitter.com/in/viocodingleta',
       linkedin: 'https://www.linkedin.com/in/violeta-cf/',
     }
-  }
+  },
+  {
+    name: 'Luísa Ribeiro Bezerra',
+    bio: 'Luísa es graduada en Sistemas de Información por la Universidade Federal de Minas Gerais (UFMG). Tiene experiencia en desarrollo de software desde 2016 y está especializada en Frontend desde 2017. A lo largo de su carrera ha trabajado principalmente con aplicaciones web, aunque también ha explorado áreas como producto, diseño, QA e investigación en machine learning y deep learning. Le apasiona comprender el producto en su totalidad —desde su descubrimiento, hasta su diseño, desarrollo e implementación— y disfruta combinar una visión estratégica con habilidades técnicas para crear soluciones digitales completas, escalables, accesibles y centradas en el usuario final. Fuera del trabajo, ama los deportes, juega al fútbol y es aficionada a la fotografía digital y analógica.',
+    image: {
+      src: '~/assets/images/team/luisa.jpg',
+      alt: 'Foto de Luísa Ribeiro Bezerra'
+    },
+    social: {
+      linkedin: 'https://www.linkedin.com/in/luisarbezerra',
+    }
+  },
 ];
+
+const partners = [
+    {
+      image: { src: '~/assets/images/partners/sirviendo-codigo.svg', alt: 'Sirviendo Código logo' },
+    },
+    {
+      image: { src: '~/assets/images/partners/latinas-in-tech-madrid.png', alt: 'Latinas in Tech Madrid logo' },
+    },
+    {
+      image: { src: '~/assets/images/partners/empower-in-tech.jpg', alt: 'Empower Tech Spain logo' },
+    },
+    {
+      image: { src: '~/assets/images/partners/mermelada-tech.png', alt: 'Mermelada Tech logo' },
+    },
+    {
+      image: { src: '~/assets/images/partners/codemotion.png', alt: 'Codemotion logo' },
+    },
+  ]
 ---
 
 <Layout metadata={metadata}>
@@ -158,9 +188,38 @@ const team = [
     title="Conoce a nuestras líderes"
   />
 
-  <div class="grid gap-8 md:grid-cols-2 mb-2">
+  <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-8">
     {team.map(member => <TeamMember member={member} />)}
   </div>
+
+  <!-- Comunidades amigas -->
+
+  <section id="partners" class="py-12 bg-blue-50">
+  <h2 class="text-3xl font-bold text-center mb-6">Comunidades amigas</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-center">
+    {partners.map(partner => (
+       <Image
+          src={partner.image.src}
+          alt={partner.image.alt}
+          loading="lazy"
+        />
+    ))}
+  </div>
+  <div class="flex items-center gap-2 justify-center mt-8 bg-secondary p-4">
+    Si quieres colaborar con nosotras rellena este
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeyvwGvyQnnRXp6DTsb2y6PS76ZAvwYX-tAk1ROED48PpuwXA/viewform?usp=header"
+      target="_blank"
+      rel="noopener"
+      class="text-base font-medium text-black hover:underline"
+    >
+      formulario de contacto
+    </a>
+  </div>
+</section>
+
+
+
 
   <!-- Content Widget **************** -->
 

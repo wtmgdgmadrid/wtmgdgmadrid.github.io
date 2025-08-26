@@ -100,7 +100,7 @@ export interface Video {
 
 export interface TeamMember {
   name: string;
-  bio: string;
+  bio?: string;
   image?: Image;
   social: {
     twitter?: string;
