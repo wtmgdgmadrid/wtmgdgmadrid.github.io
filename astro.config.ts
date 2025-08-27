@@ -22,8 +22,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  site: 'https://wtmgdgmadrid.github.io/wtm-madrid-landing/',
-  base: '/wtm-madrid-landing/',
+  site: 'https://wtmgdgmadrid.github.io/',
+  base: '/',
   output: 'static',
 
   integrations: [
