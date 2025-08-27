@@ -3,7 +3,7 @@ backend:
   branch: main
 
 media_folder: 'src/assets/images'
-public_folder: '/_astro'
+public_folder: '/wtm-madrid-landing/_astro'
 
 collections:
   - name: 'post'
