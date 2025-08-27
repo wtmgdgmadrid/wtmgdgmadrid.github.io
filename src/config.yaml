@@ -1,6 +1,6 @@
 site:
   name: 'Example'
-  site: 'https://wtmgdgmadrid.github.io/wtm-madrid-landing/'
+  site: 'https://wtmgdgmadrid.github.io/'
   base: '/' # Change this if you need to deploy to Github Pages, for example
   trailingSlash: false # Generate permalinks with or without "/" at the end
 
