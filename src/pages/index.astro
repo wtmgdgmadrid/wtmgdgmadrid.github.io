@@ -86,7 +86,7 @@ const team = [
     name: 'Violeta Cique Fernández',
     bio: 'Violeta comenzó su trayectoria como profesora de necesidades especiales en el Reino Unido, pero en 2022 decidió reinventarse y dar el salto al mundo del software. Desde entonces, no ha dejado de moverse y aprender, con una idea clara: que la tecnología sea accesible y esté al alcance de todas y todos.',
     image: {
-      src: '~/assets/images/team/maribel.jpg',
+      src: '~/assets/images/team/default-avatar.png',
       alt: 'Foto de Violeta Cique Fernández',
     },
     social: {
@@ -110,18 +110,38 @@ const team = [
 const partners = [
   {
     image: { src: '~/assets/images/partners/sirviendo-codigo.svg', alt: 'Sirviendo Código logo' },
+    url: 'https://www.linkedin.com/company/sirviendo-codigo/',
   },
   {
     image: { src: '~/assets/images/partners/latinas-in-tech-madrid.png', alt: 'Latinas in Tech Madrid logo' },
+    url: 'https://www.linkedin.com/company/latinas-in-tech-madrid',
   },
   {
     image: { src: '~/assets/images/partners/empower-in-tech.jpg', alt: 'Empower Tech Spain logo' },
+    url: 'https://www.linkedin.com/company/empowerteches/',
   },
   {
     image: { src: '~/assets/images/partners/mermelada-tech.png', alt: 'Mermelada Tech logo' },
+    url: 'https://www.linkedin.com/company/mermelada-tech/',
   },
   {
     image: { src: '~/assets/images/partners/codemotion.png', alt: 'Codemotion logo' },
+    url: 'https://www.linkedin.com/company/codemotion/',
+  },
+];
+
+const sponsors = [
+  {
+    image: { src: '~/assets/images/sponsors/playtomic.jpg', alt: 'Playtomic logo' },
+    url: 'https://www.linkedin.com/company/playtomic/',
+  },
+  {
+    image: { src: '~/assets/images/sponsors/celonis.png', alt: 'Celonis logo' },
+    url: 'https://www.linkedin.com/company/celonis/',
+  },
+  {
+    image: { src: '~/assets/images/sponsors/next-digital.svg', alt: 'Next Digital logo' },
+    url: 'https://www.linkedin.com/company/nextdigitalhub/',
   },
 ];
 ---
@@ -130,6 +150,7 @@ const partners = [
   <!-- Hero Widget ******************* -->
 
   <Hero
+    actions={[{ text: 'Nosotras', href: '#nosotras' }]}
     actions={[{ text: 'Nosotras', href: '#nosotras' }]}
     image={{ src: '~/assets/images/comunidad.jpg', alt: 'Comunidad' }}
   >
@@ -143,7 +164,7 @@ const partners = [
         <span class="font-semibold">Women Techmakers Madrid</span> es una extensión local de la iniciativa global de Google,
         dedicada a potenciar y apoyar a las mujeres en el ámbito tecnológico de la capital española. Nuestro objetivo es
         crear un ecosistema donde las mujeres sean visibles, tengan una comunidad sólida y acceso a recursos para crecer
-        profesionalmente</span
+        profesionalmente.</span
       >
     </Fragment>
   </Hero>
@@ -183,26 +204,96 @@ const partners = [
 
   <Features3 id="team" tagline="Nuestro equipo" title="Conoce a nuestras líderes" />
 
+
   <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-8">
+    {team.map((member) => <TeamMember member={member} />)}
     {team.map((member) => <TeamMember member={member} />)}
   </div>
 
   <!-- Comunidades amigas -->
 
-  <section id="partners" class="py-12 bg-blue-50">
-    <h2 class="text-3xl font-bold text-center mb-6">Comunidades amigas</h2>
+  <section id="partners" class="bg-blue-50 dark:bg-slate-800">
+    <h2 class="text-3xl font-bold text-center p-6 dark:text-slate-100">Comunidades amigas</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-center">
-      {partners.map((partner) => <Image src={partner.image.src} alt={partner.image.alt} loading="lazy" />)}
+      {
+        partners.map((partner) => (
+          <a class="flex flex-col items-center" href={partner.url} target="_blank" rel="noopener">
+            <Image src={partner.image.src} alt={partner.image.alt} loading="lazy" />
+          </a>
+        ))
+      }
     </div>
-    <div class="flex items-center gap-2 justify-center mt-8 bg-secondary p-4">
-      Si quieres colaborar con nosotras rellena este
+    <div class="flex flex-wrap items-center gap-2 md:gap-1 justify-center mt-8 p-4 bg-secondary">
+      🚀 Si quieres colaborar con nosotras rellena este
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSeyvwGvyQnnRXp6DTsb2y6PS76ZAvwYX-tAk1ROED48PpuwXA/viewform?usp=header"
         target="_blank"
         rel="noopener"
-        class="text-base font-medium text-black hover:underline"
+        class="text-base font-medium text-black dark:text-blue-400 hover:underline"
       >
-        formulario de contacto
+        formulario de contacto 🚀
+      </a>
+    </div>
+  </section>
+  <!-- Sponsors -->
+
+  <Features
+    id="sponsors"
+    tagline="Conviértete en patrocinador"
+    title="Asóciate con Women Techmakers Madrid y apoya nuestra misión"
+    items={[
+      {
+        title: 'Visibilidad de Marca',
+        description:
+          'Asocia tu marca con una causa noble y gana visibilidad entre una audiencia diversa y comprometida en el sector tecnológico de Madrid.',
+        icon: 'tabler:globe',
+      },
+      {
+        title: 'Acceso a Talento',
+        description:
+          'Conéctate con una red de profesionales talentosas y emergentes en tecnología, facilitando oportunidades de reclutamiento y colaboración.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Impacto Social Positivo',
+        description:
+          'Contribuye al empoderamiento de las mujeres en tecnología, promoviendo la diversidad y la inclusión en el sector tecnológico local.',
+        icon: 'tabler:heart',
+      },
+      {
+        title: 'Oportunidades de Networking',
+        description:
+          'Participa en eventos exclusivos que facilitan conexiones valiosas con líderes de la industria, expertos y otros patrocinadores.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <section id="sponsors-who" class="bg-blue-50 dark:bg-slate-800">
+    <h2 class="text-3xl font-bold text-center p-6 dark:text-slate-100">¿Quiénes son nuestros patrocinadores?</h2>
+    <h3 class="text-lg text-center p-6 dark:text-slate-300">
+      Agradecemos profundamente el apoyo de las empresas que se han unido a nuestra misión de empoderar a las mujeres en
+      tecnología. Su compromiso nos permite seguir organizando eventos de impacto, ofrecer recursos valiosos y construir
+      una comunidad sólida en Madrid.
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center items-center">
+      {
+        sponsors.map((sponsor) => (
+          <a class="flex flex-col items-center m-6" href={sponsor.url} target="_blank" rel="noopener">
+            <Image src={sponsor.image.src} alt={sponsor.image.alt} loading="lazy" />
+          </a>
+        ))
+      }
+    </div>
+    <div class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary dark:bg-secondary p-4 dark:text-slate-100">
+      🚀 ¿Quieres ver tu logo aquí?
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfYl9_datjfrhqRuYpd8fDEPff77vqQehHg1dsD9AHgiG-6xA/viewform?usp=header"
+        target="_blank"
+        rel="noopener"
+        class="text-base font-medium text-black dark:text-blue-400 hover:underline"
+      >
+        Contáctanos 🚀
       </a>
     </div>
   </section>
@@ -211,39 +302,45 @@ const partners = [
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Tú puedes ser nuestra próxima ponente"
+    title="Comparte tu experiencia y conocimientos"
     items={[
       {
-        title: 'Built on top of Astro 5.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+        title: 'Inspira a otras mujeres',
+        description: 'Tu historia puede motivar a otras mujeres a seguir sus sueños en el mundo de la tecnología.',
       },
       {
-        title: 'Styled using Tailwind CSS',
+        title: 'Desarrolla tus habilidades',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'Hablar en público es una habilidad valiosa que puede abrirte muchas puertas en tu carrera profesional.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: 'Amplía tu red profesional',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Conectarás con otras profesionales del sector, lo que puede llevar a nuevas oportunidades laborales y colaboraciones.',
+      },
+      {
+        title: 'Contribuye a la comunidad',
+        description:
+          'Al compartir tus conocimientos, estarás ayudando a construir una comunidad más fuerte y diversa en tecnología.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: '~/assets/images/ponente.jpg',
+      alt: 'Imagen de ponente',
     }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+  />
+  <div class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary p-4">
+    😎 Anímate a compartir tu historia!
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSc5G_ML-8d5ObPFxmgG6nHHcOmsZ-3OBWVoQIMHhSSDlpikow/viewform?usp=header"
+      target="_blank"
+      rel="noopener"
+      class="text-base font-medium text-black hover:underline"
+    >
+      Rellena nuestro formulario de ponentes 😎
+    </a>
+  </div>
 
   <!-- Content Widget **************** -->
 
@@ -349,7 +446,7 @@ const partners = [
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      src: '',
       alt: 'Steps image',
     }}
   />

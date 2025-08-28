@@ -71,7 +71,7 @@ export const adaptOpenGraphImages = async (
           };
         }
 
-        let _image;
+        let _image: { src: string; width: number; height?: number } | undefined = undefined;
 
         if (
           typeof resolvedImage === 'string' &&
@@ -87,7 +87,7 @@ export const adaptOpenGraphImages = async (
           _image = (await astroAssetsOptimizer(resolvedImage, [dimensions[0]], dimensions[0], dimensions[1], 'jpg'))[0];
         }
 
-        if (typeof _image === 'object') {
+        if (_image && typeof _image === 'object') {
           return {
             url: 'src' in _image && typeof _image.src === 'string' ? String(new URL(_image.src, astroSite)) : '',
             width: 'width' in _image && typeof _image.width === 'number' ? _image.width : undefined,

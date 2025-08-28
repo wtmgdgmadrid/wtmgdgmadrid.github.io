@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: 'src/assets/images'
+media_folder: '/src/assets/images'
 public_folder: '/_astro'
 
 collections:
