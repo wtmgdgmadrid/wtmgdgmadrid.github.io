@@ -151,6 +151,7 @@ const sponsors = [
 
   <Hero
     actions={[{ text: 'Nosotras', href: '#nosotras' }]}
+    actions={[{ text: 'Nosotras', href: '#nosotras' }]}
     image={{ src: '~/assets/images/comunidad.jpg', alt: 'Comunidad' }}
   >
     <Fragment slot="title">
@@ -204,6 +205,7 @@ const sponsors = [
   <Features3 id="team" tagline="Nuestro equipo" title="Conoce a nuestras líderes" />
 
   <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-8">
+    {team.map((member) => <TeamMember member={member} />)}
     {team.map((member) => <TeamMember member={member} />)}
   </div>
 
@@ -282,7 +284,9 @@ const sponsors = [
         ))
       }
     </div>
-    <div class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary dark:bg-secondary p-4 dark:text-slate-100">
+    <div
+      class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary dark:bg-secondary p-4 dark:text-slate-100"
+    >
       🚀 ¿Quieres ver tu logo aquí?
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSfYl9_datjfrhqRuYpd8fDEPff77vqQehHg1dsD9AHgiG-6xA/viewform?usp=header"
