@@ -1,17 +1,14 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
     {
-
-    text: 'Nosotras',
-     href: '#nosotras' ,
+      text: 'Nosotras',
+      href: '#nosotras',
     },
     {
       text: 'Equipo',
-      href:'#team'
-      
-      
+      href: '#team',
     },
     {
       text: 'Eventos',
@@ -27,7 +24,6 @@ export const headerData = {
       href: '#contactos',
     },
   ],
-  
 };
 
 export const footerData = {
