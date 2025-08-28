@@ -1,7 +1,7 @@
 site:
-  name: 'Example'
+  name: 'Women Techmakers Madrid'
   site: 'https://wtmgdgmadrid.github.io/'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
+  base: '/wtm-madrid-landing/' # Change this if you need to deploy to Github Pages, for example
   trailingSlash: false # Generate permalinks with or without "/" at the end
 
   googleSiteVerificationId: false # Or some value,
@@ -23,8 +23,8 @@ metadata:
         height: 628
     type: website
   twitter:
-    handle: '@@WTMMadrid'
-    site: '@@WTMMadrid'
+    handle: '@WTMMadrid'
+    site: '@WTMMadrid'
     cardType: summary_large_image
 
 i18n:
