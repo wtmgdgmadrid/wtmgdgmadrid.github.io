@@ -342,29 +342,80 @@ const sponsors = [
   </div>
 
   <!-- Steps Widget ****************** -->
+  <section id="eventos">
+    <Steps
+      title="Eventos Próximos"
+      subtitle="No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología."
+      items={[
+        {
+          title: '<span >Salud mental en tech y Ciberseguridad</span>',
+          description:
+            "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
+          icon: 'tabler:letter-case',
+        },
+        {
+          title: 'Taller de empleo: <span class="font-medium">¿Y ahora qué?</span>',
+          description:
+            '¿Cómo podemos abordar los desafíos emocionales y psicológicos a los que nos enfrentamos las mujeres en el sector? En esta charla exploraremos aspectos como las diferencias de género, el síndrome la impostora, el equilibrio entre vida personal y profesional o las neurodivergencias y el enmascaramiento que muchas desarrollan para encajar. Tomar conciencia de estos factores nos permitirá identificar herramientas y estrategias que favorezcan el bienestar y la salud mental.',
+          icon: 'tabler:package',
+        },
+      ]}
+      image={{
+        src: '',
+        alt: 'Steps image',
+      }}
+    />
+  </section>
 
-  <Steps
-    title="Eventos Próximos"
-    subtitle="No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología."
-    items={[
-      {
-        title: '<span >Salud mental en tech y Ciberseguridad</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Taller de empleo: <span class="font-medium">¿Y ahora qué?</span>',
-        description:
-          '¿Cómo podemos abordar los desafíos emocionales y psicológicos a los que nos enfrentamos las mujeres en el sector? En esta charla exploraremos aspectos como las diferencias de género, el síndrome la impostora, el equilibrio entre vida personal y profesional o las neurodivergencias y el enmascaramiento que muchas desarrollan para encajar. Tomar conciencia de estos factores nos permitirá identificar herramientas y estrategias que favorezcan el bienestar y la salud mental.',
-        icon: 'tabler:package',
-      },
-    ]}
-    image={{
-      src: '',
-      alt: 'Steps image',
-    }}
-  />
+  <!-- Contacto RRSS -->
+  <section id="contactos">
+    <Content
+      title="Contacta con nosotras"
+      items={[
+        {
+          icon: 'tabler:mail',
+          title: 'Envíanos un Correo',
+          description: 'Para consultas, sugerencias o simplemente para saludar, no dudes en escribirnos a:',
+          action: {
+            label: 'womentechmakersmadrid@gmail.com',
+            href: 'mailto:womentechmakersmadrid@gmail.com',
+          },
+        },
+        {
+          icon: 'tabler:brand-linkedin',
+          title: 'Conéctate en LinkedIn',
+          description:
+            'Mantente al tanto de nuestras últimas novedades, eventos y oportunidades, y únete a nuestra comunidad activa en:',
+          action: {
+            label: 'www.linkedin.com/in/wtmmadrid',
+            href: 'https://www.linkedin.com/in/wtmmadrid/',
+          },
+        },
+        {
+          icon: 'tabler:brand-instagram',
+          title: 'Búscanos en Instagram',
+          description: 'Allí subimos nuestras mejores fotos sobre los eventos y reels chulos',
+          action: {
+            label: '@wtmmadrid',
+            href: 'https://www.instagram.com/wtmmadrid/',
+          },
+        },
+        {
+          icon: 'tabler:brand-x',
+          title: 'Síguenos en X',
+          description: 'En X informamos acerca de nuestros últimos encuentros',
+          action: {
+            label: '@WTMMadrid',
+            href: 'https://x.com/WTMMadrid',
+          },
+        },
+      ]}
+      image={{
+        src: '~/assets/images/ponente.jpg',
+        alt: 'Imagen de ponente',
+      }}
+    />
+  </section>
 
   <!-- Features2 Widget ************** -->
 
