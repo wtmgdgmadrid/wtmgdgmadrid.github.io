@@ -14,6 +14,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Image from '~/components/common/Image.astro';
 import Headline from '~/components/ui/Headline.astro';
 
+
 const metadata = {
   title: 'Women Techmakers Madrid',
   ignoreTitleTemplate: true,
@@ -150,11 +151,10 @@ const events = [
     title: 'Salud mental en tech y Ciberseguridad',
     description: `
     Dos charlas que no te puedes perder: 
-    1 Mujeres STEM: el reto de la
-    salud mental ¿Cómo enfrentamos los desafíos emocionales y psicológicos
-    n el sector? Hablaremos de diferencias de género, síndrome de la impostora,
+    1- Mujeres STEM: el reto de la salud mental ¿Cómo enfrentamos los desafíos emocionales y psicológicos en el sector?
+    Hablaremos de diferencias de género, síndrome de la impostora,
     equilibrio vida-trabajo, neurodivergencias y herramientas para el bienestar. 
-    2 Ciberseguridad, IA y certificaciones Una guía desde cero para adentrarte en
+    2- Ciberseguridad, IA y certificaciones Una guía desde cero para adentrarte en
     el mundo de la ciberseguridad: ética, tipos de hackers, roadmap técnico y de gestión,
     certificaciones clave y el papel de la IA en la seguridad de redes.`,
 
@@ -442,28 +442,47 @@ const events = [
 
   <!-- Steps Widget ****************** -->
 
-  <div class="py-16 max-w-7xl mx-auto">
-    <Headline
-      title="Eventos Próximos"
-      subtitle="No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología."
-      tagline="Components"
-    />
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center items-start">
-      {
-        events.map((event) => (
-          <a
-            class="block w-full h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 text-left"
-            href={event.url}
-            target="_blank"
-            rel="noopener"
-          >
-            <h3 class="text-xl font-semibold mb-2">{event.title}</h3>
-            <p class="text-gray-600">{event.description}</p>
-          </a>
-        ))
-      }
+<section class="py-20 px-6 bg-blue-50">
+    <div class="max-w-7xl mx-auto text-center mb-12">
+      <p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Components</p>
+      <h2 class="text-3xl font-bold text-gray-900">Eventos Próximos</h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar,
+        formar y conectar a la comunidad de mujeres en tecnología.
+      </p>
     </div>
-  </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {events.map((event) => (
+        <a
+          href={event.url}
+          target="_blank"
+          rel="noopener"
+          class="group block bg-white rounded-2xl border-l-4 border-blue-500 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 p-8 text-left"
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <!-- Icono calendario -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <h3 class="text-2xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+              {event.title}
+            </h3>
+          </div>
+          <p class="text-gray-600 whitespace-pre-line leading-relaxed">
+            {event.description}
+          </p>
+          <div class="mt-4 flex items-center text-blue-600 font-medium group-hover:underline">
+            Ver más
+            <!-- Icono flecha -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
 
   <!-- Features2 Widget ************** -->
 
