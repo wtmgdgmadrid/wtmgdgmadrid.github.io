@@ -515,39 +515,7 @@ const handleShare = (title, url) => {
     </div>
   </section>
 
-  <!-- Script inline para manejar compartir -->
-  <script is:inline>
-    const shareButtons = document.querySelectorAll('button[data-share-url]');
-    shareButtons.forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const title = btn.getAttribute('data-share-title') || document.title;
-        const url = btn.getAttribute('data-share-url') || location.href;
-        const text = "Mira este evento interesante 🚀";
 
-        if (navigator.share) {
-          try {
-            await navigator.share({ title, text, url });
-          } catch (e) {
-            alert('No se pudo compartir el enlace.');
-          }
-        } else if (navigator.clipboard) {
-          try {
-            await navigator.clipboard.writeText(url);
-            btn.classList.add('ring-2','ring-green-500');
-            btn.setAttribute('aria-label','Enlace copiado');
-            setTimeout(() => {
-              btn.classList.remove('ring-2','ring-green-500');
-              btn.setAttribute('aria-label', `Compartir ${title}`);
-            }, 1200);
-          } catch (e) {
-            alert('No se pudo copiar el enlace.'); 
-          }
-        } else {
-          prompt('Copia este enlace:', url);
-        }
-      });
-    });
-  </script>
 
 
   <!-- Features2 Widget ************** -->
