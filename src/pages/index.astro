@@ -14,7 +14,6 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Image from '~/components/common/Image.astro';
 import Headline from '~/components/ui/Headline.astro';
 
-
 const metadata = {
   title: 'Women Techmakers Madrid',
   ignoreTitleTemplate: true,
@@ -167,6 +166,19 @@ const events = [
     url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-taller-de-empleo-y-ahora-que/', // 👈 aquí defines la ruta
   },
 ];
+
+const handleShare = (title, url) => {
+  if (navigator.share) {
+    navigator.share({
+      title,
+      text: "Mira este evento interesante 🚀",
+      url,
+    });
+  } else {
+    navigator.clipboard.writeText(url);
+    alert("🔗 Enlace copiado al portapapeles");
+  }
+};
 ---
 
 <Layout metadata={metadata}>
@@ -441,8 +453,7 @@ const events = [
   </Content> -->
 
   <!-- Steps Widget ****************** -->
-
-<section class="py-20 px-6 bg-blue-50">
+  <section class="py-20 px-6 bg-blue-50">
     <div class="max-w-7xl mx-auto text-center mb-12">
       <p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Components</p>
       <h2 class="text-3xl font-bold text-gray-900">Eventos Próximos</h2>
@@ -454,12 +465,24 @@ const events = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {events.map((event) => (
-        <a
-          href={event.url}
-          target="_blank"
-          rel="noopener"
-          class="group block bg-white rounded-2xl border-l-4 border-blue-500 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 p-8 text-left"
+        <div
+          class="relative group bg-white rounded-2xl border-l-4 border-blue-500 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 p-8 text-left"
         >
+       
+          <button
+            type="button"
+            class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/90 text-blue-600 shadow-md ring-1 ring-black/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            aria-label={`Compartir ${event.title}`}
+            data-share-title={event.title}
+            data-share-url={event.url}
+          >
+            
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 8a3 3 0 106 0 3 3 0 00-6 0zM3 12a3 3 0 106 0 3 3 0 00-6 0zm12 8a3 3 0 106 0 3 3 0 00-6 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.59 13.51l6.82 3.98M15.41 6.51L8.59 10.49" />
+            </svg>
+          </button>
+
           <div class="flex items-center gap-3 mb-4">
             <!-- Icono calendario -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -469,20 +492,63 @@ const events = [
               {event.title}
             </h3>
           </div>
+
           <p class="text-gray-600 whitespace-pre-line leading-relaxed">
             {event.description}
           </p>
-          <div class="mt-4 flex items-center text-blue-600 font-medium group-hover:underline">
-            Ver más
-            <!-- Icono flecha -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
+
+          <div class="mt-6">
+            <a
+              href={event.url}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center text-blue-600 font-medium hover:underline"
+            >
+              Ver más
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   </section>
+
+  <!-- Script inline para manejar compartir -->
+  <script is:inline>
+    const shareButtons = document.querySelectorAll('button[data-share-url]');
+    shareButtons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const title = btn.getAttribute('data-share-title') || document.title;
+        const url = btn.getAttribute('data-share-url') || location.href;
+        const text = "Mira este evento interesante 🚀";
+
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, text, url });
+          } catch (e) {
+            alert('No se pudo compartir el enlace.');
+          }
+        } else if (navigator.clipboard) {
+          try {
+            await navigator.clipboard.writeText(url);
+            btn.classList.add('ring-2','ring-green-500');
+            btn.setAttribute('aria-label','Enlace copiado');
+            setTimeout(() => {
+              btn.classList.remove('ring-2','ring-green-500');
+              btn.setAttribute('aria-label', `Compartir ${title}`);
+            }, 1200);
+          } catch (e) {
+            alert('No se pudo copiar el enlace.'); 
+          }
+        } else {
+          prompt('Copia este enlace:', url);
+        }
+      });
+    });
+  </script>
+
 
   <!-- Features2 Widget ************** -->
 
