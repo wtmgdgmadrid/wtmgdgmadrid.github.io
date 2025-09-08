@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -13,6 +12,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import TeamMember from '~/components/widgets/TeamMember.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Image from '~/components/common/Image.astro';
+import Headline from '~/components/ui/Headline.astro';
 
 const metadata = {
   title: 'Women Techmakers Madrid',
@@ -142,6 +142,29 @@ const sponsors = [
   {
     image: { src: '~/assets/images/sponsors/next-digital.svg', alt: 'Next Digital logo' },
     url: 'https://www.linkedin.com/company/nextdigitalhub/',
+  },
+];
+
+const events = [
+  {
+    title: 'Salud mental en tech y Ciberseguridad',
+    description: `
+    Dos charlas que no te puedes perder: 
+    1 Mujeres STEM: el reto de la
+    salud mental ¿Cómo enfrentamos los desafíos emocionales y psicológicos
+    n el sector? Hablaremos de diferencias de género, síndrome de la impostora,
+    equilibrio vida-trabajo, neurodivergencias y herramientas para el bienestar. 
+    2 Ciberseguridad, IA y certificaciones Una guía desde cero para adentrarte en
+    el mundo de la ciberseguridad: ética, tipos de hackers, roadmap técnico y de gestión,
+    certificaciones clave y el papel de la IA en la seguridad de redes.`,
+
+    url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-salud-mental-en-tech-y-ciberseguridad/', // 👈 aquí defines la ruta
+  },
+  {
+    title: 'Taller de empleo: ¿Y ahora qué?',
+    description:
+      '¿Cómo podemos abordar los desafíos emocionales y psicológicos a los que nos enfrentamos las mujeres en el sector? En esta charla exploraremos aspectos como las diferencias de género, el síndrome la impostora, el equilibrio entre vida personal y profesional o las neurodivergencias y el enmascaramiento que muchas desarrollan para encajar...',
+    url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-taller-de-empleo-y-ahora-que/', // 👈 aquí defines la ruta
   },
 ];
 ---
@@ -381,7 +404,7 @@ const sponsors = [
 
   <!-- Content Widget **************** -->
 
-  <Content
+  <!-- <Content
     isReversed
     isAfterContent
     items={[
@@ -415,32 +438,32 @@ const sponsors = [
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Content>
+  </Content> -->
 
   <!-- Steps Widget ****************** -->
 
-  <Steps
-    title="Eventos Próximos"
-    subtitle="No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología."
-    items={[
+  <div class="py-16 max-w-7xl mx-auto">
+    <Headline
+      title="Eventos Próximos"
+      subtitle="No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología."
+      tagline="Components"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center items-start">
       {
-        title: '<span >Salud mental en tech y Ciberseguridad</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Taller de empleo: <span class="font-medium">¿Y ahora qué?</span>',
-        description:
-          '¿Cómo podemos abordar los desafíos emocionales y psicológicos a los que nos enfrentamos las mujeres en el sector? En esta charla exploraremos aspectos como las diferencias de género, el síndrome la impostora, el equilibrio entre vida personal y profesional o las neurodivergencias y el enmascaramiento que muchas desarrollan para encajar. Tomar conciencia de estos factores nos permitirá identificar herramientas y estrategias que favorezcan el bienestar y la salud mental.',
-        icon: 'tabler:package',
-      },
-    ]}
-    image={{
-      src: '',
-      alt: 'Steps image',
-    }}
-  />
+        events.map((event) => (
+          <a
+            class="block w-full h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 text-left"
+            href={event.url}
+            target="_blank"
+            rel="noopener"
+          >
+            <h3 class="text-xl font-semibold mb-2">{event.title}</h3>
+            <p class="text-gray-600">{event.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 
   <!-- Features2 Widget ************** -->
 
