@@ -147,38 +147,24 @@ const sponsors = [
 
 const events = [
   {
-    title: 'Salud mental en tech y Ciberseguridad',
-    description: `
-    Dos charlas que no te puedes perder: 
-    1- Mujeres STEM: el reto de la salud mental ¿Cómo enfrentamos los desafíos emocionales y psicológicos en el sector?
-    Hablaremos de diferencias de género, síndrome de la impostora,
-    equilibrio vida-trabajo, neurodivergencias y herramientas para el bienestar. 
-    2- Ciberseguridad, IA y certificaciones Una guía desde cero para adentrarte en
-    el mundo de la ciberseguridad: ética, tipos de hackers, roadmap técnico y de gestión,
-    certificaciones clave y el papel de la IA en la seguridad de redes.`,
-
-    url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-salud-mental-en-tech-y-ciberseguridad/', // 👈 aquí defines la ruta
+    title: 'Tech Talk: IA y Machine Learning',
+    status: 'Inscripciones Cerradas',
+    date: '22 Marzo 2024',
+    time: '19:00 - 20:30',
+    location: 'Hub de Innovación',
+    ctaLabel: 'Registrarse',
+    url: 'https://ejemplo.com/registro',
   },
   {
-    title: 'Taller de empleo: ¿Y ahora qué?',
-    description:
-      '¿Cómo podemos abordar los desafíos emocionales y psicológicos a los que nos enfrentamos las mujeres en el sector? En esta charla exploraremos aspectos como las diferencias de género, el síndrome la impostora, el equilibrio entre vida personal y profesional o las neurodivergencias y el enmascaramiento que muchas desarrollan para encajar...',
-    url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-taller-de-empleo-y-ahora-que/', // 👈 aquí defines la ruta
+    title: 'Salud mental en tech y Ciberseguridad',
+    status: 'Inscripciones Abiertas',
+    date: '28 Marzo 2024',
+    time: '18:30 - 20:00',
+    location: 'Campus Madrid',
+    ctaLabel: 'Registrarse',
+    url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-salud-mental-en-tech-y-ciberseguridad/',
   },
 ];
-
-const handleShare = (title, url) => {
-  if (navigator.share) {
-    navigator.share({
-      title,
-      text: "Mira este evento interesante 🚀",
-      url,
-    });
-  } else {
-    navigator.clipboard.writeText(url);
-    alert("🔗 Enlace copiado al portapapeles");
-  }
-};
 ---
 
 <Layout metadata={metadata}>
@@ -452,71 +438,183 @@ const handleShare = (title, url) => {
     </Fragment>
   </Content> -->
 
-  <!-- Steps Widget ****************** -->
+  <!-- Proximos Eventos ****************** -->
   <section class="py-20 px-6 bg-blue-50">
     <div class="max-w-7xl mx-auto text-center mb-12">
       <p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Components</p>
-      <h2 class="text-3xl font-bold text-gray-900">Eventos Próximos</h2>
+      <h2 class="text-3xl font-extrabold text-gray-900">Eventos Próximos</h2>
       <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-        No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar,
-        formar y conectar a la comunidad de mujeres en tecnología.
+        No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la
+        comunidad de mujeres en tecnología.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {events.map((event) => (
-        <div
-          class="relative group bg-white rounded-2xl border-l-4 border-blue-500 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 p-8 text-left"
-        >
-       
-          <button
-            type="button"
-            class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/90 text-blue-600 shadow-md ring-1 ring-black/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-            aria-label={`Compartir ${event.title}`}
-            data-share-title={event.title}
-            data-share-url={event.url}
-          >
-            
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 8a3 3 0 106 0 3 3 0 00-6 0zM3 12a3 3 0 106 0 3 3 0 00-6 0zm12 8a3 3 0 106 0 3 3 0 00-6 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.59 13.51l6.82 3.98M15.41 6.51L8.59 10.49" />
-            </svg>
-          </button>
-
-          <div class="flex items-center gap-3 mb-4">
-            <!-- Icono calendario -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <h3 class="text-2xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
-              {event.title}
-            </h3>
-          </div>
-
-          <p class="text-gray-600 whitespace-pre-line leading-relaxed">
-            {event.description}
-          </p>
-
-          <div class="mt-6">
-            <a
-              href={event.url}
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center text-blue-600 font-medium hover:underline"
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        events.map((e) => (
+          <article class="relative bg-white rounded-3xl p-8 shadow-sm ring-1 ring-black/5 hover:shadow-md transition">
+            <button
+              type="button"
+              class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/90 text-blue-600 shadow-md ring-1 ring-black/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+              aria-label={`Compartir ${e.title}`}
+              data-share-title={e.title}
+              data-share-url={e.url}
             >
-              Ver más
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 8a3 3 0 106 0 3 3 0 00-6 0zM3 12a3 3 0 106 0 3 3 0 00-6 0zm12 8a3 3 0 106 0 3 3 0 00-6 0z"
+                />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.59 13.51l6.82 3.98M15.41 6.51L8.59 10.49" />
               </svg>
-            </a>
-          </div>
-        </div>
-      ))}
+            </button>
+
+            <div class="flex items-center justify-between">
+              {e.status && (
+                <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-500 text-white text-sm font-semibold shadow-sm">
+                  {e.status}
+                </span>
+              )}
+              {e.category && (
+                <span class="inline-flex items-center px-4 py-1.5 rounded-full border text-purple-600 border-purple-300 bg-white text-sm font-semibold">
+                  {e.category}
+                </span>
+              )}
+            </div>
+
+            <h3 class="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900">{e.title}</h3>
+
+            <ul class="mt-6 space-y-5 text-[1.125rem] text-slate-600">
+              {e.date && (
+                <li class="flex items-center gap-3">
+                  <svg
+                    class="w-6 h-6 text-emerald-500"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8 7V3m8 4V3M5 8h14M5 21h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span>{e.date}</span>
+                </li>
+              )}
+              {e.time && (
+                <li class="flex items-center gap-3">
+                  <svg
+                    class="w-6 h-6 text-sky-500"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 8v4l3 3M12 22a10 10 0 100-20 10 10 0 000 20z"
+                    />
+                  </svg>
+                  <span>{e.time}</span>
+                </li>
+              )}
+              {e.location && (
+                <li class="flex items-center gap-3">
+                  <svg
+                    class="w-6 h-6 text-pink-500"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 11a3 3 0 100-6 3 3 0 000 6z" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 10.5c0 5.25-7.5 10.5-7.5 10.5S4.5 15.75 4.5 10.5a7.5 7.5 0 1115 0z"
+                    />
+                  </svg>
+                  <span>{e.location}</span>
+                </li>
+              )}
+              {typeof e.attendees === 'number' && (
+                <li class="flex items-center gap-3">
+                  <svg
+                    class="w-6 h-6 text-violet-500"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M13 7a4 4 0 11-8 0 4 4 0 018 0zM21 20v-2a4 4 0 00-3-3.87"
+                    />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 3.13a4 4 0 010 7.75" />
+                  </svg>
+                  <span>{e.attendees} asistentes</span>
+                </li>
+              )}
+            </ul>
+
+            <div class="mt-8">
+              <div class="p-1 rounded-full ring-2 ring-emerald-400/90">
+                <a
+                  href={e.url}
+                  target="_blank"
+                  rel="noopener"
+                  class="block w-full text-center rounded-full py-4 font-semibold text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90 transition"
+                >
+                  {e.ctaLabel || 'Registrarse'}
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 
+  <!-- Compartir: Web Share API + fallback a portapapeles -->
+  <script is:inline>
+    const shareButtons = document.querySelectorAll('button[data-share-url]');
+    shareButtons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const title = btn.getAttribute('data-share-title') || document.title;
+        const url = btn.getAttribute('data-share-url') || location.href;
+        const text = 'Mira este evento interesante 🚀';
 
-
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, text, url });
+          } catch {}
+        } else if (navigator.clipboard) {
+          try {
+            await navigator.clipboard.writeText(url);
+            // feedback visual rápido
+            btn.classList.add('ring-2', 'ring-green-500');
+            setTimeout(() => btn.classList.remove('ring-2', 'ring-green-500'), 1000);
+          } catch {
+            alert('No se pudo copiar el enlace.');
+          }
+        } else {
+          prompt('Copia este enlace:', url);
+        }
+      });
+    });
+  </script>
 
   <!-- Features2 Widget ************** -->
 
