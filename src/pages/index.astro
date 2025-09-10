@@ -153,7 +153,7 @@ const events = [
     time: '19:00 - 20:30',
     location: 'NEXT DIGITAL, 9 Paseo de La Habana, Madrid',
     ctaLabel: 'Registrarse',
-    url: 'https://ejemplo.com/registro',
+    url: 'https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-salud-mental-en-tech-y-ciberseguridad/',
   },
   {
     title: 'Salud mental en tech y Ciberseguridad',
@@ -483,11 +483,6 @@ const events = [
                   {e.status}
                 </span>
               )}
-              {e.category && (
-                <span class="inline-flex items-center px-4 py-1.5 rounded-full border text-purple-600 border-purple-300 bg-white text-sm font-semibold">
-                  {e.category}
-                </span>
-              )}
             </div>
 
             <h3 class="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900">{e.title}</h3>
@@ -546,25 +541,6 @@ const events = [
                     />
                   </svg>
                   <span>{e.location}</span>
-                </li>
-              )}
-              {typeof e.attendees === 'number' && (
-                <li class="flex items-center gap-3">
-                  <svg
-                    class="w-6 h-6 text-violet-500"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M13 7a4 4 0 11-8 0 4 4 0 018 0zM21 20v-2a4 4 0 00-3-3.87"
-                    />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 3.13a4 4 0 010 7.75" />
-                  </svg>
-                  <span>{e.attendees} asistentes</span>
                 </li>
               )}
             </ul>
