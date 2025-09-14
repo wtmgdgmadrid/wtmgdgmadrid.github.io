@@ -32,7 +32,7 @@ const btnLessId = `btn-less-${member.name.replace(/\s/g, '')}`;
           <button
             id={btnMoreId}
             type="button"
-            class="ml-2 text-blue-600 underline text-sm"
+            class="ml-2 text-blue-600 dark:text-white underline text-sm"
             onclick={`
             document.getElementById('${bioId}').textContent = '${member.bio.replace(/'/g, "\\'")}';
             document.getElementById('${btnMoreId}').style.display = 'none';
@@ -44,7 +44,7 @@ const btnLessId = `btn-less-${member.name.replace(/\s/g, '')}`;
           <button
             id={btnLessId}
             type="button"
-            class="ml-2 text-blue-600 underline text-sm"
+            class="ml-2 text-blue-600 dark:text-white underline text-sm"
             style="display:none"
             onclick={`
             document.getElementById('${bioId}').textContent = '${shortBio.replace(/'/g, "\\'")}';
