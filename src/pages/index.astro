@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -13,6 +12,9 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import TeamMember from '~/components/widgets/TeamMember.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Image from '~/components/common/Image.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Events from '~/components/Events.jsx';
+import events from '~/data/events.json';
 
 const metadata = {
   title: 'Women Techmakers Madrid',
@@ -341,31 +343,8 @@ const sponsors = [
     </a>
   </div>
 
-  <!-- Steps Widget ****************** -->
-  <section id="eventos">
-    <Steps
-      title="Eventos Próximos"
-      subtitle="No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología."
-      items={[
-        {
-          title: '<span >Salud mental en tech y Ciberseguridad</span>',
-          description:
-            "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-          icon: 'tabler:letter-case',
-        },
-        {
-          title: 'Taller de empleo: <span class="font-medium">¿Y ahora qué?</span>',
-          description:
-            '¿Cómo podemos abordar los desafíos emocionales y psicológicos a los que nos enfrentamos las mujeres en el sector? En esta charla exploraremos aspectos como las diferencias de género, el síndrome la impostora, el equilibrio entre vida personal y profesional o las neurodivergencias y el enmascaramiento que muchas desarrollan para encajar. Tomar conciencia de estos factores nos permitirá identificar herramientas y estrategias que favorezcan el bienestar y la salud mental.',
-          icon: 'tabler:package',
-        },
-      ]}
-      image={{
-        src: '',
-        alt: 'Steps image',
-      }}
-    />
-  </section>
+  <!-- Proximos Eventos ****************** -->
+  <Events client:load events={events} />
 
   <!-- Contacto RRSS -->
   <section id="contactos">
