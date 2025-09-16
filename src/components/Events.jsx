@@ -6,11 +6,9 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
   TelegramShareButton,
-  WhatsappShareButton,
   LinkedinIcon,
   TwitterIcon,
   TelegramIcon,
-  WhatsappIcon,
 } from 'react-share';
 
 // Botón fallback para Instagram (copia enlace / Web Share API)
@@ -63,10 +61,6 @@ function SocialShare({ url, title }) {
       <TelegramShareButton url={url} title={title} aria-label={`Compartir en Telegram: ${title}`}>
         <TelegramIcon size={32} round />
       </TelegramShareButton>
-      <WhatsappShareButton url={url} title={title} aria-label={`Compartir en WhatsApp: ${title}`}>
-        <WhatsappIcon size={32} round />
-      </WhatsappShareButton>
-      <InstagramShareFallback url={url} title={title} />
     </div>
   );
 }
