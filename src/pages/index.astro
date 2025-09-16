@@ -439,11 +439,10 @@ const events = [
   </Content> -->
 
   <!-- Proximos Eventos ****************** -->
-  <section class="py-20 px-6 bg-blue-50">
+  <section class="py-20 px-6">
     <div class="max-w-7xl mx-auto text-center mb-12">
-      <p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Components</p>
-      <h2 class="text-3xl font-extrabold text-gray-900">Eventos Próximos</h2>
-      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-bg-white">Eventos Próximos</h2>
+      <p class="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">
         No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la
         comunidad de mujeres en tecnología.
       </p>
@@ -564,6 +563,9 @@ const events = [
   </section>
 
   <!-- Compartir: Web Share API + fallback a portapapeles -->
+  <!-- Barra de compartir -->
+  <!-- Script para Web Share API + fallback -->
+
   <script is:inline>
     const shareButtons = document.querySelectorAll('button[data-share-url]');
     shareButtons.forEach((btn) => {
