@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import { LinkedinShareButton, TwitterShareButton, TelegramShareButton, WhatsappShareButton } from 'react-share';
-import { LinkedinIcon, TwitterIcon, TelegramIcon, WhatsappIcon } from 'react-share';
-
 // Nota importante: Instagram no ofrece una URL de "share" pública desde web.
 // Mostramos un botón que copia el enlace al portapapeles y, si el navegador
 // soporta Web Share API, ofrece compartir nativo en móvil.
+import React, { useState } from 'react';
+import {
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  LinkedinIcon,
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon,
+} from 'react-share';
+
+// Botón fallback para Instagram (copia enlace / Web Share API)
 function InstagramShareFallback({ url, title }) {
   const [copied, setCopied] = useState(false);
-
   const handleClick = async () => {
     try {
-      // Si el navegador soporta compartir nativo (móvil), usarlo primero
       if (navigator.share) {
         await navigator.share({ title, url });
         return;
@@ -18,18 +25,16 @@ function InstagramShareFallback({ url, title }) {
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (e) {
-      // Si falla, intentar al menos copiar
+    } catch {
       try {
         await navigator.clipboard.writeText(url);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
-      } catch (_) {
+      } catch {
         alert('No se pudo compartir ni copiar el enlace.');
       }
     }
   };
-
   return (
     <button
       type="button"
@@ -38,7 +43,6 @@ function InstagramShareFallback({ url, title }) {
       className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 text-pink-600 shadow ring-1 ring-black/5 hover:bg-pink-600 hover:text-white transition"
       title={copied ? '¡Copiado!' : 'Instagram (copiar enlace)'}
     >
-      {/* Icono de Instagram (simple SVG) */}
       <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden>
         <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A5.5 5.5 0 1 1 6.5 13 5.51 5.51 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1.6 1.2 1 1 0 0 1 1.6-1.2z" />
       </svg>
@@ -53,20 +57,15 @@ function SocialShare({ url, title }) {
       <LinkedinShareButton url={url} title={title} aria-label={`Compartir en LinkedIn: ${title}`}>
         <LinkedinIcon size={32} round />
       </LinkedinShareButton>
-
       <TwitterShareButton url={url} title={title} aria-label={`Compartir en X/Twitter: ${title}`}>
         <TwitterIcon size={32} round />
       </TwitterShareButton>
-
       <TelegramShareButton url={url} title={title} aria-label={`Compartir en Telegram: ${title}`}>
         <TelegramIcon size={32} round />
       </TelegramShareButton>
-
       <WhatsappShareButton url={url} title={title} aria-label={`Compartir en WhatsApp: ${title}`}>
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
-
-      {/* Fallback para Instagram */}
       <InstagramShareFallback url={url} title={title} />
     </div>
   );
