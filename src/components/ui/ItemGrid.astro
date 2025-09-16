@@ -32,7 +32,7 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+      {items.map(({ title, description, icon, callToAction, action, classes: itemClasses = {} }) => (
         <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
           <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
             <div class="flex justify-center">
@@ -54,6 +54,18 @@ const {
               {callToAction && (
                 <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
                   <Button variant="link" {...callToAction} />
+                </div>
+              )}
+              {action && (
+                <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.action)}>
+                  <a
+                    href={action.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative font-medium text-[#2253C8] after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-[#2253C8] after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300"
+                  >
+                    {action.label}
+                  </a>
                 </div>
               )}
             </div>

@@ -88,7 +88,7 @@ const team = [
     name: 'Violeta Cique Fernández',
     bio: 'Violeta comenzó su trayectoria como profesora de necesidades especiales en el Reino Unido, pero en 2022 decidió reinventarse y dar el salto al mundo del software. Desde entonces, no ha dejado de moverse y aprender, con una idea clara: que la tecnología sea accesible y esté al alcance de todas y todos.',
     image: {
-      src: '~/assets/images/team/default-avatar.png',
+      src: '~/assets/images/team/violeta.jpeg',
       alt: 'Foto de Violeta Cique Fernández',
     },
     social: {
@@ -152,7 +152,6 @@ const sponsors = [
   <!-- Hero Widget ******************* -->
 
   <Hero
-    actions={[{ text: 'Nosotras', href: '#nosotras' }]}
     actions={[{ text: 'Nosotras', href: '#nosotras' }]}
     image={{ src: '~/assets/images/comunidad.jpg', alt: 'Comunidad' }}
   >
@@ -344,115 +343,58 @@ const sponsors = [
     </a>
   </div>
 
-  <!-- Content Widget **************** -->
-
-  <!-- <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content> -->
-
-  <!-- Content Widget **************** -->
-
-  <!-- <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content> -->
-
   <!-- Proximos Eventos ****************** -->
   <Events client:load events={events} />
 
-  <!-- Compartir: Web Share API + fallback a portapapeles -->
-  <!-- Barra de compartir -->
-  <!-- Script para Web Share API + fallback -->
-
-  <!-- <script is:inline>
-    const shareButtons = document.querySelectorAll('button[data-share-url]');
-    shareButtons.forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const title = btn.getAttribute('data-share-title') || document.title;
-        const url = btn.getAttribute('data-share-url') || location.href;
-        const text = 'Mira este evento interesante 🚀';
-
-        if (navigator.share) {
-          try {
-            await navigator.share({ title, text, url });
-          } catch {}
-        } else if (navigator.clipboard) {
-          try {
-            await navigator.clipboard.writeText(url);
-            // feedback visual rápido
-            btn.classList.add('ring-2', 'ring-green-500');
-            setTimeout(() => btn.classList.remove('ring-2', 'ring-green-500'), 1000);
-          } catch {
-            alert('No se pudo copiar el enlace.');
-          }
-        } else {
-          prompt('Copia este enlace:', url);
-        }
-      });
-    });
-  </script> -->
+  <!-- Contacto RRSS -->
+  <section id="contactos">
+    <Content
+      title="Contacta con nosotras"
+      items={[
+        {
+          icon: 'tabler:mail',
+          title: 'Envíanos un Correo',
+          description: 'Para consultas, sugerencias o simplemente para saludar, no dudes en escribirnos a:',
+          action: {
+            label: 'womentechmakersmadrid@gmail.com',
+            href: 'mailto:womentechmakersmadrid@gmail.com',
+          },
+        },
+        {
+          icon: 'tabler:brand-linkedin',
+          title: 'Conéctate en LinkedIn',
+          description:
+            'Mantente al tanto de nuestras últimas novedades, eventos y oportunidades, y únete a nuestra comunidad activa en:',
+          action: {
+            label: 'www.linkedin.com/in/wtmmadrid',
+            href: 'https://www.linkedin.com/in/wtmmadrid/',
+          },
+        },
+        {
+          icon: 'tabler:brand-instagram',
+          title: 'Búscanos en Instagram',
+          description: 'Allí subimos nuestras mejores fotos sobre los eventos y reels chulos',
+          action: {
+            label: '@wtmmadrid',
+            href: 'https://www.instagram.com/wtmmadrid/',
+          },
+        },
+        {
+          icon: 'tabler:brand-x',
+          title: 'Síguenos en X',
+          description: 'En X informamos acerca de nuestros últimos encuentros',
+          action: {
+            label: '@WTMMadrid',
+            href: 'https://x.com/WTMMadrid',
+          },
+        },
+      ]}
+      image={{
+        src: '~/assets/images/WTM-contacto.jpg',
+        alt: 'Imagen de grupo de personas en un evento de WTM Madrid',
+      }}
+    />
+  </section>
 
   <!-- Features2 Widget ************** -->
 
