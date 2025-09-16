@@ -9,6 +9,7 @@ import {
   LinkedinIcon,
   TwitterIcon,
   TelegramIcon,
+  XIcon,
 } from 'react-share';
 
 // Botón fallback para Instagram (copia enlace / Web Share API)
@@ -56,7 +57,7 @@ function SocialShare({ url, title }) {
         <LinkedinIcon size={32} round />
       </LinkedinShareButton>
       <TwitterShareButton url={url} title={title} aria-label={`Compartir en X/Twitter: ${title}`}>
-        <TwitterIcon size={32} round />
+        <XIcon size={32} round />
       </TwitterShareButton>
       <TelegramShareButton url={url} title={title} aria-label={`Compartir en Telegram: ${title}`}>
         <TelegramIcon size={32} round />
