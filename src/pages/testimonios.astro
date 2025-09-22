@@ -1,0 +1,40 @@
+---
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import elena from '../assets/images/testimonios/ elena.jpg';
+import mia from '../assets/images/testimonios/ mia.jpg';
+import irene from '../assets/images/testimonios/irene.jpg';
+---
+
+<Testimonials
+  title="Testimonios"
+  testimonials={[
+    {
+      testimonial: `WTM Madrid ha sido para mí una referencia, un apoyo constante, una comunidad de compañeras, mentoras y amigas. Un espacio seguro donde expresarnos con libertad, compartir experiencias, aprender unas de otras y sentirnos escuchadas. Es una fuente de inspiración y un motor de innovación para todas las mujeres en tecnología.`,
+      name: 'Elena Jiang',
+      job: 'Software Engineer',
+      image: {
+        src: elena,
+        alt: 'Elena Jiang Image',
+      },
+    },
+    {
+      testimonial: `WTM Madrid siempre va a tener un huequito especial en mi corazón. En estos eventos he tenido la oportunidad de conocer a personas maravillosas y, también, de compartir proyectos o temas que me apasionan. Siempre me he sentido muy apoyada y querida en esta comunidad pro sus organizadoras y todas las personas que lo forman`,
+      name: 'Mia Salazar',
+      job: 'Front-end developer',
+      image: {
+        src: mia,
+        alt: 'Mia Salazar Image',
+      },
+    },
+    {
+      testimonial: `WTM ha sido una comunidad de apoyo, un lugar donde todas podemos crecer juntas, y una fuente constante de inspiración. Un espacio seguro en el que encontrarnos y aprender en cada sesión, no solo en las charlas y talleres, sino en las conversaciones que se generan durante los momentos de networking.
+                    ¡Gracias por vuestra labor (sabemos que hay mucho trabajo tras cada evento) y por contar conmigo!`,
+      name: 'Irene Morgado',
+      job: 'People, Culture & Brand for tech companies',
+      image: {
+        src: irene,
+        alt: 'Irene Morgado Image',
+      },
+    },
+  ]}
+/>
