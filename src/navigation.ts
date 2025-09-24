@@ -16,7 +16,10 @@ export const headerData = {
       text: 'Comunidades Amigas',
       href: '#partners',
     },
-
+    {
+      text: 'Sponsors',
+      href: '#sponsors-who',
+    },
     {
       text: 'Contacto',
       href: '#contactos',
