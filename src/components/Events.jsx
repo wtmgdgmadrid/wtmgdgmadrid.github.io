@@ -31,7 +31,7 @@ function SocialShare({ url, title }) {
 
 export default function Events({ events }) {
   return (
-    <section className="py-20 px-6">
+    <section id='eventos' className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-extrabold text-bg-white">Eventos Próximos</h2>
         <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">
