@@ -1,0 +1,79 @@
+---
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from 'astro-swiper';
+import Image from '~/components/common/Image.astro';
+
+const { images = [], height, width, slidesPerView = 3 } = Astro.props;
+---
+
+<style>
+  /* Colores y tamaño de bullets (aplican a todo el slider) */
+  .my-swiper {
+    --swiper-pagination-color: #2563eb; /* activo */
+    --swiper-pagination-bullet-inactive-color: #ffffff; /* inactivo */
+    --swiper-pagination-bullet-inactive-opacity: 0.6;
+    --swiper-pagination-bullet-size: 10px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+  }
+
+  /* Posición de la paginación (usar :global por el CSS scoped de Astro) */
+  .my-swiper :global(.swiper) {
+    position: relative;
+    padding-bottom: 40px; /* deja espacio para los bullets dentro */
+  }
+
+  .my-swiper :global(.swiper-pagination) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .my-swiper :global(.swiper-pagination) {
+    position: static;
+    margin-top: 14px;
+  }
+  .my-swiper :global(.swiper) {
+    padding-bottom: 0;
+  }
+</style>
+
+<Swiper
+  class="my-swiper"
+  options={{
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    loop: true,
+    autoplay: { delay: 3000 },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      640: { slidesPerView: Math.min(2, slidesPerView) },
+      1024: { slidesPerView },
+    },
+  }}
+>
+  <SwiperWrapper>
+    {
+      images.map((img, i) => (
+        <SwiperSlide>
+          <div class="my-slide flex justify-center items-center">
+            <Image
+              class="rounded-md"
+              src={img.image.src}
+              alt={img.image.alt || `Imagen ${i + 1}`}
+              loading="lazy"
+              height={height}
+              width={width}
+              style="object-fit: contain;"
+            />
+            {img.link && <a href={img.link} class="absolute inset-0" />}
+          </div>
+        </SwiperSlide>
+      ))
+    }
+  </SwiperWrapper>
+
+  <SwiperPagination />
+</Swiper>
