@@ -1,20 +1,20 @@
 [
   {
-    "title": "Tech Talk: IA y Machine Learning",
-    "status": "Inscripciones Cerradas",
-    "date": "10 de Septiembre 2025",
-    "time": "19:00 - 20:30",
-    "location": "NEXT DIGITAL, 9 Paseo de La Habana, Madrid",
-    "ctaLabel": "Cerrado",
-    "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-salud-mental-en-tech-y-ciberseguridad/"
-  },
-  {
     "title": "Salud mental en tech y Ciberseguridad",
-    "status": "Inscripciones Abiertas",
+    "status": "Inscripciones Cerradas",
     "date": "24 de Septiembre 2025",
     "time": "18:30 - 21:00",
     "location": "Google for Startups Campus, 2 Calle de Moreno Nieto, Madrid",
-    "ctaLabel": "Registrarse",
+    "ctaLabel": "Cerrado",
     "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-salud-mental-en-tech-y-ciberseguridad/"
+  },
+   {
+    "title": "Realidad Virtual en salud y estrategia de digital",
+    "status": "Inscripciones Abiertas",
+    "date": "23 de Octubre 2025",
+    "time": "18:30 - 21:00",
+    "location": "Celonis SL, 2 Plaza de Manuel Gómez-Moreno, Madrid",
+    "ctaLabel": "Registrarse",
+    "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-realidad-virtual-en-salud-y-estrategia-de-digital/"
   }
 ]
