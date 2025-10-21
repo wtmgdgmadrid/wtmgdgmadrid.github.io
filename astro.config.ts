@@ -22,7 +22,6 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   site: 'https://wtmgdmadrid.github.io',
-  base: '/wtm-madrid-landing/',
   output: 'static',
 
   integrations: [
