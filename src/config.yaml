@@ -1,7 +1,6 @@
 site:
   name: 'WTM Madrid'
   site: 'https://wtmgdgmadrid.github.io/'
-  trailingSlash: false # Generate permalinks with or without "/" at the end
 
   googleSiteVerificationId: false # Or some value,
 
