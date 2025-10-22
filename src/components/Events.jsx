@@ -56,10 +56,15 @@ export default function Events({ events }) {
                       {e.status}
                     </span>
                   )}
+                  {isPast && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-400 text-white text-sm font-semibold shadow-sm">
+                      Inscripciones cerradas
+                    </span>
+                  )}
                   {!isPast && <SocialShare url={e.url} title={e.title} />}
                 </div>
 
-                <h3 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900">{e.title}</h3>
+                <h3 className={`${isPast ? 'mt-2' : 'mt-5'} text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900`}>{e.title}</h3>
 
                 <ul className="mt-6 space-y-5 text-[1.125rem] text-slate-600">
                   {e.date && (
@@ -138,7 +143,7 @@ export default function Events({ events }) {
                     aria-disabled={isPast ? 'true' : 'false'}
                     {...(isPast ? { onClick: e => e.preventDefault() } : {})}
                   >
-                    {isPast ? 'Inscripciones cerradas' : (e.ctaLabel || 'Registrarse')}
+                    Me apunto
                   </a>
                 </div>
               </div>
