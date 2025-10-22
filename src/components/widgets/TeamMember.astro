@@ -18,17 +18,25 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
 ---
 
 <article
-  class="flex flex-col items-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-md p-6 h-full transition hover:scale-[1.025] hover:shadow-xl"
+  class="flex flex-col items-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-md p-6 h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-100 dark:hover:shadow-slate-700/50"
 >
   <div class="flex flex-col items-center w-full">
-    <Image
-      class="rounded-xl border-2 border-blue-200 dark:border-slate-700 shadow w-full h-[180px] object-cover object-top mb-4"
-      widths={[400, 768, 1024]}
-      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-      loading="eager"
-      {...member.image}
-    />
-    <h2 class="text-2xl font-bold text-center mb-2 dark:text-slate-100">{member.name}</h2>
+    <div
+      class="relative w-full aspect-square mb-4 overflow-hidden rounded-xl border-2 border-blue-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-shadow"
+    >
+      <Image
+        class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+        width={300}
+        height={300}
+        widths={[200, 300, 400]}
+        sizes="(max-width: 767px) 200px, (max-width: 1023px) 250px, 300px"
+        loading="lazy"
+        format="webp"
+        quality={85}
+        {...member.image}
+      />
+    </div>
+    <h2 class="text-xl font-bold text-center mb-2 dark:text-slate-100 leading-tight">{member.name}</h2>
   </div>
   <style>
     /* Scrollbar delgado y discreto solo para la bio */
@@ -48,8 +56,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
   <div class="relative w-full">
     <p
       id={pId}
-      class="text-slate-600 dark:text-slate-300 text-center rounded-md px-4 py-2 min-h-[100px] max-h-[160px] overflow-hidden transition-all bio-scrollbar"
-      id={`bio-${member.name.replace(/\s/g, '')}`}
+      class="text-slate-600 dark:text-slate-300 text-sm text-center rounded-md px-3 py-2 min-h-[80px] max-h-[140px] overflow-hidden transition-all bio-scrollbar leading-relaxed"
     >
       <span id={bioId}>{shortBio}</span>
       {
