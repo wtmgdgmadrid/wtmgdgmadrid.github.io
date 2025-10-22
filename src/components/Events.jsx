@@ -15,15 +15,15 @@ import {
 
 function SocialShare({ url, title }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-1.5">
       <LinkedinShareButton url={url} title={title} aria-label={`Compartir en LinkedIn: ${title}`}>
-        <LinkedinIcon size={28} round />
+        <LinkedinIcon size={24} round />
       </LinkedinShareButton>
       <TwitterShareButton url={url} title={title} aria-label={`Compartir en X/Twitter: ${title}`}>
-        <XIcon size={28} round />
+        <XIcon size={24} round />
       </TwitterShareButton>
       <TelegramShareButton url={url} title={title} aria-label={`Compartir en Telegram: ${title}`}>
-        <TelegramIcon size={28} round />
+        <TelegramIcon size={24} round />
       </TelegramShareButton>
     </div>
   );
@@ -50,7 +50,7 @@ export default function Events({ events }) {
               className="relative bg-white rounded-3xl p-8 shadow-sm ring-1 ring-black/5 hover:shadow-md transition flex flex-col justify-between h-full"
             >
               <div className="flex flex-col gap-2 flex-grow">
-                <div className="flex items-center justify-between min-h-[40px]">
+                <div className="flex items-center justify-between gap-4 min-h-[40px]">
                   {e.status === "Inscripciones Abiertas" && (
                     <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-500 text-white text-sm font-semibold shadow-sm">
                       {e.status}
