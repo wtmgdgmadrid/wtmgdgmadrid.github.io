@@ -2,7 +2,7 @@ site:
   name: 'WTM Madrid'
   site: 'https://wtmgdgmadrid.github.io/'
 
-  googleSiteVerificationId: true # Or some value,
+  googleSiteVerificationId: 'zGRbRfMbMns9icMgJylVJ6sLzGrVODOsKCPuECNVMzI'
 
 # Default SEO metadata
 metadata:
