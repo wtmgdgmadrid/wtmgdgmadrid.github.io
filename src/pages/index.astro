@@ -139,16 +139,21 @@ const sponsors = [
     image: { src: '~/assets/images/sponsors/next-digital.svg', alt: 'Next Digital logo' },
     url: 'https://www.linkedin.com/company/nextdigitalhub/',
   },
+  {
+    image: { src: '~/assets/images/sponsors/esw.png', alt: 'ESW logo' },
+    url: 'https://www.linkedin.com/company/esw/',
+  },
+  {
+    image: { src: '~/assets/images/sponsors/euroformac.jpg', alt: 'Euroformac logo' },
+    url: 'https://www.linkedin.com/school/fp-euroformac-madrid/',
+  },
 ];
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    actions={[{ text: 'Nosotras', href: '#nosotras' }]}
-    image={{ src: '~/assets/images/comunidad.jpg', alt: 'Comunidad' }}
-  >
+  <Hero image={{ src: '~/assets/images/comunidad.jpg', alt: 'Comunidad' }}>
     <Fragment slot="title">
       Comunidad de <span class="xl:inline">Women Techmakers</span>
       <span class="text-accent dark:text-white"> Madrid</span>
@@ -156,10 +161,9 @@ const sponsors = [
 
     <Fragment slot="subtitle">
       <span class="sm:inline">
-        <span class="font-semibold">Women Techmakers Madrid</span> es una extensión local de la iniciativa global de Google,
-        dedicada a potenciar y apoyar a las mujeres en el ámbito tecnológico de la capital española. Nuestro objetivo es
-        crear un ecosistema donde las mujeres sean visibles, tengan una comunidad sólida y acceso a recursos para crecer
-        profesionalmente.</span
+        <span class="font-semibold">Women Techmakers Madrid</span> es una comunidad dedicada a potenciar y apoyar a las mujeres
+        en el ámbito tecnológico de la capital española. Nuestro objetivo es crear un ecosistema donde las mujeres sean visibles,
+        tengan una comunidad sólida y acceso a recursos para crecer profesionalmente.</span
       >
     </Fragment>
   </Hero>
@@ -264,7 +268,7 @@ const sponsors = [
       una comunidad sólida en Madrid.
     </h3>
     <div class="max-w-3xl mx-auto">
-      <ImageCarousel images={sponsors} height={200} width={200} slidesPerView={2} />
+      <ImageCarousel images={sponsors} height={200} width={200} slidesPerView={3} />
     </div>
     <div
       class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary dark:bg-secondary p-4 text-white"
@@ -415,4 +419,7 @@ const sponsors = [
       ]}
     />
   </section>
+
+  <!-- Feedback y Testimonios ************** -->
+  <Testimonios />
 </Layout>

@@ -49,7 +49,7 @@ const { images = [], height, width, slidesPerView = 3 } = Astro.props;
     autoplay: { delay: 3000 },
     breakpoints: {
       0: { slidesPerView: 1 },
-      640: { slidesPerView: Math.min(2, slidesPerView) },
+      640: { slidesPerView: Math.min(1, slidesPerView) },
       1024: { slidesPerView },
     },
   }}
@@ -58,17 +58,30 @@ const { images = [], height, width, slidesPerView = 3 } = Astro.props;
     {
       images.map((img, i) => (
         <SwiperSlide>
-          <div class="my-slide flex justify-center items-center">
-            <Image
-              class="rounded-md"
-              src={img.image.src}
-              alt={img.image.alt || `Imagen ${i + 1}`}
-              loading="lazy"
-              height={height}
-              width={width}
-              style="object-fit: contain;"
-            />
-            {img.link && <a href={img.link} class="absolute inset-0" />}
+          <div class="my-slide flex justify-center items-center relative">
+            {img.url ? (
+              <a href={img.url} target="_blank" rel="noopener" class="block">
+                <Image
+                  class="rounded-md"
+                  src={img.image.src}
+                  alt={img.image.alt || `Imagen ${i + 1}`}
+                  loading="lazy"
+                  height={height}
+                  width={width}
+                  style="object-fit: contain;"
+                />
+              </a>
+            ) : (
+              <Image
+                class="rounded-md"
+                src={img.image.src}
+                alt={img.image.alt || `Imagen ${i + 1}`}
+                loading="lazy"
+                height={height}
+                width={width}
+                style="object-fit: contain;"
+              />
+            )}
           </div>
         </SwiperSlide>
       ))
