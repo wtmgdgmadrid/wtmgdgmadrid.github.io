@@ -66,7 +66,11 @@ export default function Events({ events }) {
                   {!isPast && <SocialShare url={e.url} title={e.title} />}
                 </div>
 
-                <h3 className={`${isPast ? 'mt-2' : 'mt-5'} text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900`}>{e.title}</h3>
+                <h3
+                  className={`${isPast ? 'mt-2' : 'mt-5'} text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900`}
+                >
+                  {e.title}
+                </h3>
 
                 <ul className="mt-6 space-y-5 text-[1.125rem] text-slate-600">
                   {e.date && (
