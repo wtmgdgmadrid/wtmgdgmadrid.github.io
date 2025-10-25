@@ -12,7 +12,6 @@ import {
   XIcon,
 } from 'react-share';
 
-
 function SocialShare({ url, title }) {
   return (
     <div className="absolute top-3 right-3 flex gap-2">
@@ -31,7 +30,7 @@ function SocialShare({ url, title }) {
 
 export default function Events({ events }) {
   return (
-    <section id='eventos' className="py-20 px-6">
+    <section id="eventos" className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-extrabold text-bg-white">Eventos Próximos</h2>
         <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">
@@ -52,8 +51,11 @@ export default function Events({ events }) {
               {!isPast && <SocialShare url={e.url} title={e.title} />}
               <div className="flex flex-col gap-2 flex-grow">
                 <div className="flex items-center justify-between min-h-[40px]">
-                  {e.status === "Inscripciones Abiertas" && (
-                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-500 text-white text-sm font-semibold shadow-sm">
+                  {e.status === 'Inscripciones Abiertas' && (
+                    <span
+                      className="inline-flex items-center px-4 py-1.5 rounded-full text-white text-sm font-semibold shadow-sm"
+                      style={{ backgroundColor: 'var(--aw-color-secondary)' }}
+                    >
                       {e.status}
                     </span>
                   )}
@@ -128,7 +130,9 @@ export default function Events({ events }) {
               </div>
 
               <div className="mt-8 flex-shrink-0">
-                <div className={`p-1 rounded-full ring-2 ${isPast ? 'ring-gray-400/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}> 
+                <div
+                  className={`p-1 rounded-full ring-2 ${isPast ? 'ring-gray-400/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
+                >
                   <a
                     href={isPast ? undefined : e.url}
                     target="_blank"
@@ -136,9 +140,9 @@ export default function Events({ events }) {
                     className={`block w-full text-center rounded-full py-4 font-semibold transition ${isPast ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-70' : 'text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90'}`}
                     tabIndex={isPast ? -1 : 0}
                     aria-disabled={isPast ? 'true' : 'false'}
-                    {...(isPast ? { onClick: e => e.preventDefault() } : {})}
+                    {...(isPast ? { onClick: (e) => e.preventDefault() } : {})}
                   >
-                    {isPast ? 'Inscripciones cerradas' : (e.ctaLabel || 'Registrarse')}
+                    {isPast ? 'Inscripciones cerradas' : e.ctaLabel || 'Registrarse'}
                   </a>
                 </div>
               </div>
