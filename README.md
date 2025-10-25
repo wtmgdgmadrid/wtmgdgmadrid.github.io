@@ -1,31 +1,29 @@
-# 🚀 AstroWind
+# 🚀 WTM Madrid
 
 <img src="https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+     alt="WTM Madrid Lighthouse Score" width="100" height="358">
 
-🌟 _Most *starred* & *forked* Astro theme in 2022, 2023 & 2024_. 🌟
+🌟 _Women Techmakers Madrid official website_ 🌟
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+**WTM Madrid** website built with **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. This is the official landing page for Women Techmakers Madrid community, designed with web best practices in mind.
 
 - ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
+- ✅ Integration with **Tailwind CSS** supporting **Dark mode**.
+- ✅ **Fast and SEO friendly** with automatic **RSS feed**, **MDX** support for events and blog posts.
 - ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
 - ✅ Generation of **project sitemap** based on your routes.
 - ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
+- ✅ **Analytics** built-in Google Analytics integration.
+- ✅ **Events management** and community showcase.
 
 <br>
 
-![AstroWind Theme Screenshot](https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/screenshot-astrowind-1.0.png)
-
-[![arthelokyo](https://custom-icon-badges.demolab.com/badge/made%20by%20-arthelokyo-556bf2?style=flat-square&logo=arthelokyo&logoColor=white&labelColor=101827)](https://github.com/arthelokyo)
-[![License](https://img.shields.io/github/license/arthelokyo/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/arthelokyo/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/arthelokyo/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/arthelokyo/astrowind)
-[![Stars](https://img.shields.io/github/stars/arthelokyo/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
-[![Forks](https://img.shields.io/github/forks/arthelokyo/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
+[![WTM Madrid](https://custom-icon-badges.demolab.com/badge/WTM-Madrid-556bf2?style=flat-square&logoColor=white&labelColor=101827)](https://github.com/wtmgdgmadrid)
+[![License](https://img.shields.io/github/license/wtmgdgmadrid/wtmgdgmadrid.github.io?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io/blob/main/LICENSE.md)
+[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/wtmgdgmadrid)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io#contributing)
+[![Stars](https://img.shields.io/github/stars/wtmgdgmadrid/wtmgdgmadrid.github.io.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io)
+[![Forks](https://img.shields.io/github/forks/wtmgdgmadrid/wtmgdgmadrid.github.io.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io)
 
 <br>
 
@@ -33,15 +31,13 @@
 <summary>Table of Contents</summary>
 
 - [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
+- [About WTM Madrid](#about-wtm-madrid)
 - [TL;DR](#tldr)
 - [Getting started](#getting-started)
   - [Project structure](#project-structure)
   - [Commands](#commands)
   - [Configuration](#configuration)
   - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Related Projects](#related-projects)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
@@ -52,35 +48,43 @@
 
 ## Demo
 
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
+📌 [https://wtmgdgmadrid.github.io/](https://wtmgdgmadrid.github.io/)
 
 <br>
 
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
+## About WTM Madrid
 
-We're embarking on an exciting journey with **AstroWind 2.0**, and we want you to be a part of it! We're currently taking the first steps in developing this new version and your insights are invaluable. Join the discussion and share your feedback, ideas, and suggestions to help shape the future of **AstroWind**. Let's make **AstroWind 2.0** even better, together!
+**Women Techmakers Madrid** is a community that provides visibility, networking and resources for women in technology. We create more inclusive and supportive environments where women in tech can thrive and reach their full potential.
 
-[Share Your Feedback in Our Discussion!](https://github.com/arthelokyo/astrowind/discussions/392)
+Our website serves as the central hub for:
+
+- 📅 **Events and Workshops** - Regular meetups, talks, and hands-on workshops
+- 🤝 **Community** - Connect with like-minded women in tech
+- 📰 **News and Updates** - Latest announcements and opportunities
+- 👥 **Team** - Meet our organizing team and ambassadors
 
 <br>
 
 ## TL;DR
 
 ```shell
-npm create astro@latest -- --template arthelokyo/astrowind
+git clone https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io.git
+cd wtmgdgmadrid.github.io
+npm install
+npm run dev
 ```
 
 ## Getting started
 
-**AstroWind** tries to give you quick access to creating a website using [Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
+**WTM Madrid** website is built using [Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). The site focuses on simplicity, good practices and high performance to showcase our community and events.
 
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
+The site uses minimal vanilla JavaScript to provide basic functionality, with React components for interactive elements like event listings and forms.
 
-In this version the template supports all the options in the `output` configuration, `static`, `hybrid` and `server`, but the blog only works with `prerender = true`. We are working on the next version and aim to make it fully compatible with SSR.
+The website supports static generation and is optimized for GitHub Pages deployment.
 
 ### Project structure
 
-Inside **AstroWind** template, you'll see the following folders and files:
+Inside the **WTM Madrid** website, you'll see the following folders and files:
 
 ```
 /
@@ -137,9 +141,9 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/arthelokyo/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/arthelokyo/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/arthelokyo/astrowind)
+[![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/wtmgdgmadrid/wtmgdgmadrid.github.io)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
+> 👩‍� **Ready to contribute?** Check our [Contributing](#contributing) section below!
 
 <br>
 
@@ -261,42 +265,53 @@ Now, your website is ready to be deployed. All generated files are located at
 `dist` folder, which you can deploy the folder to any hosting service you
 prefer.
 
+#### Deploy to GitHub Pages
+
+The site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+
 #### Deploy to Netlify
 
-Clone this repository on your own GitHub account and deploy it to Netlify:
+Fork this repository and deploy it to Netlify:
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/arthelokyo/astrowind)
+[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io)
 
 #### Deploy to Vercel
 
-Clone this repository on your own GitHub account and deploy to Vercel:
+Fork this repository and deploy to Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farthelokyo%2Fastrowind)
-
-<br>
-
-## Frequently Asked Questions
-
-- Why?
--
--
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwtmgdgmadrid%2Fwtmgdgmadrid.github.io)
 
 <br>
-
-## Related projects
-
-- [TailNext](https://tailnext.vercel.app/) - Free template using Next.js 14 and Tailwind CSS with the new App Router.
-- [Qwind](https://qwind.pages.dev/) - Free template to make your website using Qwik + Tailwind CSS.
 
 ## Contributing
 
-If you have any ideas, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
+We welcome contributions from the community! Here's how you can help:
+
+### Ways to contribute:
+
+- 🐛 **Report bugs** - Open an issue if you find any problems
+- 💡 **Suggest features** - Share your ideas for improving the website
+- 📝 **Content updates** - Help us keep event information and content up to date
+- 🎨 **Design improvements** - Suggest UI/UX enhancements
+- 🔧 **Code contributions** - Fix bugs or implement new features
+
+### How to contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
+
+Please ensure your contributions align with our community values and maintain the inclusive nature of WTM Madrid.
 
 ## Acknowledgements
 
-Initially created by **Arthelokyo** and maintained by a community of [contributors](https://github.com/arthelokyo/astrowind/graphs/contributors).
+Built with ❤️ by the WTM Madrid community. Based on the [AstroWind](https://github.com/arthelokyo/astrowind) template.
+
+Special thanks to all our [contributors](https://github.com/wtmgdgmadrid/wtmgdgmadrid.github.io/graphs/contributors) who help make this website better.
 
 ## License
 
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+**WTM Madrid** website is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.

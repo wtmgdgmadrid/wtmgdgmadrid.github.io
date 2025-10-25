@@ -14,15 +14,15 @@ import {
 
 function SocialShare({ url, title }) {
   return (
-    <div className="absolute top-3 right-3 flex gap-2">
+    <div className="flex gap-1.5">
       <LinkedinShareButton url={url} title={title} aria-label={`Compartir en LinkedIn: ${title}`}>
-        <LinkedinIcon size={32} round />
+        <LinkedinIcon size={24} round />
       </LinkedinShareButton>
       <TwitterShareButton url={url} title={title} aria-label={`Compartir en X/Twitter: ${title}`}>
-        <XIcon size={32} round />
+        <XIcon size={24} round />
       </TwitterShareButton>
       <TelegramShareButton url={url} title={title} aria-label={`Compartir en Telegram: ${title}`}>
-        <TelegramIcon size={32} round />
+        <TelegramIcon size={24} round />
       </TelegramShareButton>
     </div>
   );
@@ -48,7 +48,6 @@ export default function Events({ events }) {
               key={`${e.title}-${idx}`}
               className="relative bg-white rounded-3xl p-8 shadow-sm ring-1 ring-black/5 hover:shadow-md transition flex flex-col justify-between h-full"
             >
-              {!isPast && <SocialShare url={e.url} title={e.title} />}
               <div className="flex flex-col gap-2 flex-grow">
                 <div className="flex items-center justify-between min-h-[40px]">
                   {e.status === 'Inscripciones Abiertas' && (
@@ -59,9 +58,15 @@ export default function Events({ events }) {
                       {e.status}
                     </span>
                   )}
+                  {isPast && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-400 text-white text-sm font-semibold shadow-sm">
+                      Inscripciones cerradas
+                    </span>
+                  )}
+                  {!isPast && <SocialShare url={e.url} title={e.title} />}
                 </div>
 
-                <h3 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900">{e.title}</h3>
+                <h3 className={`${isPast ? 'mt-2' : 'mt-5'} text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900`}>{e.title}</h3>
 
                 <ul className="mt-6 space-y-5 text-[1.125rem] text-slate-600">
                   {e.date && (
