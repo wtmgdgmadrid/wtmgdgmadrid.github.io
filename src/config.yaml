@@ -1,17 +1,15 @@
 site:
   name: 'WTM Madrid'
   site: 'https://wtmgdgmadrid.github.io/'
-  base: '/wtm-madrid-landing' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
 
-  googleSiteVerificationId: false # Or some value,
+  googleSiteVerificationId: 'zGRbRfMbMns9icMgJylVJ6sLzGrVODOsKCPuECNVMzI'
 
 # Default SEO metadata
 metadata:
   title:
     default: 'Women Techmarkers Madrid'
     template: '%s — Women Techmarkers Madrid'
-  description: 'This is the default meta description of Women Techmarkers Madrid website'
+  description: 'This is the official website of Women Techmakers Madrid, a community that supports and empowers women in technology.'
   robots:
     index: true
     follow: true
@@ -26,6 +24,9 @@ metadata:
     handle: '@WTMMadrid'
     site: '@WTMMadrid'
     cardType: summary_large_image
+  sitemap:
+    url: 'https://wtmgdgmadrid.github.io/sitemap.xml'
+    lastmod: '2025-10-23'
 
 i18n:
   language: en

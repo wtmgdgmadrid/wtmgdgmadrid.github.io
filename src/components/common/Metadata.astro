@@ -66,3 +66,6 @@ const seoProps: AstroSeoProps = merge(
 ---
 
 <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+
+<!-- Sitemap Link -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />

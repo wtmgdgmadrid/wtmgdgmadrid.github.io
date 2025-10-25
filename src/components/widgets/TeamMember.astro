@@ -18,17 +18,25 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
 ---
 
 <article
-  class="flex flex-col items-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-md p-6 h-full transition hover:scale-[1.025] hover:shadow-xl"
+  class="flex flex-col items-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-md p-3 sm:p-6 h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-100 dark:hover:shadow-slate-700/50"
 >
   <div class="flex flex-col items-center w-full">
-    <Image
-      class="rounded-xl border-2 border-blue-200 dark:border-slate-700 shadow w-full h-[180px] object-cover object-top mb-4"
-      widths={[400, 768, 1024]}
-      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-      loading="eager"
-      {...member.image}
-    />
-    <h2 class="text-2xl font-bold text-center mb-2 dark:text-slate-100">{member.name}</h2>
+    <div class="mb-3 sm:mb-4 flex justify-center">
+      <Image
+        class="rounded-xl border-2 border-blue-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 w-auto h-auto max-w-[240px] sm:max-w-[280px] max-h-[320px] sm:max-h-[360px] object-contain"
+        width={280}
+        height={350}
+        widths={[200, 280, 350]}
+        sizes="(max-width: 639px) 240px, (max-width: 1023px) 220px, 280px"
+        loading="lazy"
+        format="webp"
+        quality={85}
+        {...member.image}
+      />
+    </div>
+    <h2 class="text-lg sm:text-xl font-bold text-center mb-1.5 sm:mb-2 dark:text-slate-100 leading-tight">
+      {member.name}
+    </h2>
   </div>
   <style>
     /* Scrollbar delgado y discreto solo para la bio */
@@ -48,8 +56,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
   <div class="relative w-full">
     <p
       id={pId}
-      class="text-slate-600 dark:text-slate-300 text-center rounded-md px-4 py-2 min-h-[100px] max-h-[160px] overflow-hidden transition-all bio-scrollbar"
-      id={`bio-${member.name.replace(/\s/g, '')}`}
+      class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm text-center rounded-md px-2 sm:px-3 py-1.5 sm:py-2 min-h-[50px] sm:min-h-[80px] max-h-[100px] sm:max-h-[140px] overflow-hidden transition-all bio-scrollbar leading-relaxed"
     >
       <span id={bioId}>{shortBio}</span>
       {
@@ -92,7 +99,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
       }
     </p>
   </div>
-  <footer class="flex gap-4 mt-4">
+  <footer class="flex gap-2 sm:gap-4 mt-2 sm:mt-4">
     {
       member.social.twitter && (
         <a
@@ -101,9 +108,9 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
           rel="noopener"
           aria-label="X"
           title="X"
-          class="rounded-full bg-blue-50 dark:bg-slate-700 p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
+          class="rounded-full bg-blue-50 dark:bg-slate-700 p-1.5 sm:p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
         >
-          <Icon name="tabler:brand-x" class="w-6 h-6 text-blue-400 dark:text-blue-300" />
+          <Icon name="tabler:brand-x" class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 dark:text-blue-300" />
         </a>
       )
     }
@@ -115,9 +122,9 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
           rel="noopener"
           aria-label="LinkedIn"
           title="LinkedIn"
-          class="rounded-full bg-blue-50 dark:bg-slate-700 p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
+          class="rounded-full bg-blue-50 dark:bg-slate-700 p-1.5 sm:p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
         >
-          <Icon name="tabler:brand-linkedin" class="w-6 h-6 text-blue-700 dark:text-blue-400" />
+          <Icon name="tabler:brand-linkedin" class="w-5 h-5 sm:w-6 sm:h-6 text-blue-700 dark:text-blue-400" />
         </a>
       )
     }
@@ -129,9 +136,9 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
           rel="noopener"
           aria-label="Bluesky"
           title="Bluesky"
-          class="rounded-full bg-blue-50 dark:bg-slate-700 p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
+          class="rounded-full bg-blue-50 dark:bg-slate-700 p-1.5 sm:p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
         >
-          <Icon name="tabler:brand-bluesky" class="w-6 h-6 text-slate-700 dark:text-slate-200" />
+          <Icon name="tabler:brand-bluesky" class="w-5 h-5 sm:w-6 sm:h-6 text-slate-700 dark:text-slate-200" />
         </a>
       )
     }
