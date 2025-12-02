@@ -1,20 +1,20 @@
 [
   {
-    "title": "Realidad Virtual en salud y estrategia de digital",
-    "status": "Inscripciones Cerradas",
-    "date": "23 de Octubre 2025",
-    "time": "18:30 - 21:00",
-    "location": "Celonis SL, 2 Plaza de Manuel Gómez-Moreno, Madrid",
-    "ctaLabel": "Cerrado",
-    "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-realidad-virtual-en-salud-y-estrategia-de-digital/"
-  },
-  {
     "title": "Dashboards, datos y gestión de estrés",
-    "status": "Inscripciones Abiertas",
+    "status": "Inscripciones Cerradas",
     "date": "27 de Noviembre 2025",
     "time": "18:45 - 21:00",
     "location": "Bluetab, 11 Plaza Pablo Ruiz Picasso, Madrid, 28020 ",
-    "ctaLabel": "Registrarse",
+    "ctaLabel": "Cerrado",
     "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-dashboards-datos-y-gestion-de-estres/"
+  } ,
+  {
+    "title": "Hasta Siempre Google Campus: Legacy, Futuro y Comunidad",
+    "status": "Inscripciones Abiertas",
+    "date": "15 de Diciembre del 2025",
+    "time": "18:00 - 22:00",
+    "location": "Google for Startups Campus, 2 Calle de Moreno Nieto, Madrid, 28005 ",
+    "ctaLabel": "Registrarse",
+    "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-hasta-siempre-google-campus-legacy-futuro-y-comunidad/"
   }
 ]
