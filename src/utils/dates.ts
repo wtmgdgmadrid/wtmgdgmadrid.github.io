@@ -1,5 +1,5 @@
 // Convierte una fecha en español tipo "10 de Septiembre 2025" a Date
-export function parseSpanishDate(dateStr) {
+export function parseSpanishDate(dateStr: string) {
   const meses = [
     'enero',
     'febrero',
@@ -25,7 +25,7 @@ export function parseSpanishDate(dateStr) {
 }
 
 // Devuelve true si la fecha es pasada respecto a hoy
-export function isPastEvent(dateStr) {
+export function isPastEvent(dateStr: string) {
   const date = parseSpanishDate(dateStr);
   if (!date) return false;
   const now = new Date();
