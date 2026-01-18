@@ -1,0 +1,14 @@
+---
+import LayoutIwd from '~/layouts/LayoutIwd.astro';
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<LayoutIwd metadata={metadata}>
+  <slot />
+</LayoutIwd>

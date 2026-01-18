@@ -1,32 +1,8 @@
 export const headerData = {
   links: [
     {
-      text: 'IWD 2026 🚀',
-      href: '/iwd',
-    },
-    {
-      text: 'Nosotras',
-      href: '/#nosotras',
-    },
-    {
-      text: 'Equipo',
-      href: '/#team',
-    },
-    {
-      text: 'Eventos',
-      href: '/#eventos',
-    },
-    {
-      text: 'Comunidades Amigas',
-      href: '/#partners',
-    },
-    {
-      text: 'Sponsors',
-      href: '/#sponsors-who',
-    },
-    {
-      text: 'Contacto',
-      href: '/#contactos',
+      text: 'Home',
+      href: '/',
     },
   ],
 };

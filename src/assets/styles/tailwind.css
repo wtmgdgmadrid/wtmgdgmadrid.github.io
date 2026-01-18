@@ -18,6 +18,12 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+  .iwd-bg-dark {
+    background-color: var(--aw-color-iwd-bg-dark);
+  }
+  .iwd-bg-light {
+    background-color: var(--aw-color-iwd-bg-light);
+  }
 }
 
 @layer components {
