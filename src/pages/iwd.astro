@@ -1,0 +1,367 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Image from '~/components/common/Image.astro';
+
+const metadata = {
+  title: 'IWD 2026 - Women Techmakers Madrid',
+  description: 'Día Internacional de la Mujer 2026 - Women Techmakers Madrid. Save The Date: 17 de abril de 2026',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section - Save The Date -->
+  <Hero>
+    <Fragment slot="title">
+      Día Internacional de la Mujer
+      <span class="text-accent dark:text-white"> 2026</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="space-y-4">
+        <p class="text-2xl md:text-3xl font-bold text-primary dark:text-blue-300 mb-6">📅 Save The Date</p>
+        <p class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200">17 de abril de 2026</p>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mt-4">
+          Únete a nosotras en esta celebración especial donde destacaremos el talento, la innovación y el liderazgo de
+          las mujeres en tecnología.
+        </p>
+      </div>
+    </Fragment>
+
+    <!-- Logo adaptativo según el tema -->
+    <div slot="image" class="relative w-full max-w-4xl mx-auto">
+      <!-- Logo blanco para modo dark -->
+      <div class="iwd-logo-dark dark:block hidden animate-logo-float">
+        <Image
+          src="~/assets/images/iwd26/White Logo-BCK.svg"
+          alt="IWD 2026 Logo"
+          class="w-full h-auto"
+          width={1024}
+          height={576}
+        />
+      </div>
+      <!-- Logo negro para modo light -->
+      <div class="iwd-logo-light dark:hidden block animate-logo-float">
+        <Image
+          src="~/assets/images/iwd26/Black Logo- With BCK.svg"
+          alt="IWD 2026 Logo"
+          class="w-full h-auto"
+          width={1024}
+          height={576}
+        />
+      </div>
+    </div>
+  </Hero>
+
+  <!-- Call for Papers Section -->
+  <section
+    id="call-for-papers"
+    class="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
+          Comparte tu conocimiento con nuestra comunidad
+        </h2>
+        <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 dark:text-gray-300">
+          <p class="text-xl font-semibold text-primary dark:text-blue-300">
+            🎤 ¿Tienes una historia que contar? ¿Un proyecto que mostrar? ¿Experiencias que compartir?
+          </p>
+          <p>
+            En Women Techmakers Madrid creemos firmemente que cada mujer tiene algo valioso que aportar. Tu voz es
+            importante y tu experiencia puede inspirar a otras mujeres a seguir sus sueños en tecnología.
+          </p>
+          <p>
+            <strong class="text-primary dark:text-blue-300">No importa tu nivel de experiencia</strong> - si eres estudiante,
+            recién graduada, profesional con años de trayectoria o estás cambiando de carrera, tu perspectiva es única y
+            merece ser escuchada.
+          </p>
+          <p>
+            Este es tu momento para brillar, para compartir lo que has aprendido y para ser parte de una comunidad que
+            celebra la diversidad y el crecimiento mutuo. Juntas podemos crear un evento memorable que inspire a más
+            mujeres a unirse al mundo tech.
+          </p>
+          <div class="bg-white dark:bg-slate-700 rounded-lg p-6 md:p-8 shadow-lg mt-8">
+            <p class="text-2xl font-bold text-gray-800 dark:text-white mb-4">✨ ¡Anímate a ser ponente! ✨</p>
+            <p class="text-lg mb-6 text-gray-700 dark:text-gray-300">
+              Estamos buscando charlas sobre tecnología, desarrollo profesional, liderazgo, innovación, y cualquier tema
+              que pueda inspirar y empoderar a nuestra comunidad.
+            </p>
+            <!-- Placeholder para el link del Call for Papers -->
+            <div class="mt-8">
+              <a
+                id="cfp-link"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold text-lg rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 dark:bg-blue-600 dark:hover:bg-blue-700"
+              >
+                🚀 Envía tu propuesta aquí
+              </a>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                (El link al formulario se agregará próximamente)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Participate Section -->
+  <Features
+    id="por-que-participar"
+    tagline="¿Por qué participar?"
+    title="Razones para ser parte de IWD 2026"
+    items={[
+      {
+        title: 'Visibilidad y Reconocimiento',
+        description:
+          'Gana visibilidad en la comunidad tech de Madrid y construye tu marca personal como experta en tu campo.',
+        icon: 'tabler:star',
+      },
+      {
+        title: 'Desarrollo Profesional',
+        description: 'Mejora tus habilidades de comunicación y presentación, esenciales para avanzar en tu carrera.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Networking de Calidad',
+        description:
+          'Conecta con profesionales del sector, posibles colaboradores y mentores que pueden abrirte nuevas oportunidades.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Impacto Positivo',
+        description:
+          'Inspira a otras mujeres a seguir sus pasos y contribuye a crear un ecosistema tech más diverso e inclusivo.',
+        icon: 'tabler:heart',
+      },
+      {
+        title: 'Aprendizaje Mutuo',
+        description: 'Aprende de otras ponentes y participantes mientras compartes tus conocimientos con la comunidad.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Experiencia Única',
+        description:
+          'Forma parte de un evento especial que celebra el talento femenino y crea recuerdos que durarán toda la vida.',
+        icon: 'tabler:sparkles',
+      },
+    ]}
+  />
+
+  <!-- Event Details Section -->
+  <Content
+    isReversed
+    tagline="Detalles del evento"
+    title='IWD 2026 - <span class="break-pattern-text inline-block"><span class="break-word-animated" style="animation-delay: 0s;">Break</span> <span class="break-word-animated" style="animation-delay: 0.2s;">the</span> <span class="break-word-animated" style="animation-delay: 0.4s;">pattern</span></span>'
+    items={[
+      {
+        title: 'Fecha y Hora',
+        description: '17 de abril de 2026 - Más detalles próximamente',
+      },
+      {
+        title: 'Formato',
+        description: 'Evento presencial en Madrid con charlas técnicas, networking y actividades especiales',
+      },
+      {
+        title: 'Comunidad',
+        description: 'Un espacio seguro e inclusivo donde todas las mujeres en tecnología son bienvenidas',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/iwd26/Background 4.svg',
+      alt: 'IWD 2026 Logo',
+    }}
+  />
+
+  <!-- CTA Final Section -->
+  <section class="py-16 md:py-24 bg-primary dark:bg-blue-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Lista para ser parte de esta celebración?</h2>
+      <p class="text-xl mb-8 text-blue-100">
+        No dejes pasar esta oportunidad de compartir tu conocimiento y ser parte de un evento que marcará la diferencia.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          id="cfp-link-bottom"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          class="inline-block px-8 py-4 bg-white text-primary font-bold text-lg rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+        >
+          🚀 Envía tu propuesta
+        </a>
+        <a
+          href="#contactos"
+          class="inline-block px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-lg hover:bg-white hover:text-primary transition-all duration-300"
+        >
+          📧 Contáctanos
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Animación del logo flotante */
+  @keyframes logoFloat {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+    }
+    50% {
+      transform: translateY(-15px) scale(1.02);
+      filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.5));
+    }
+  }
+
+  .animate-logo-float {
+    animation: logoFloat 4s ease-in-out infinite;
+  }
+
+  /* Animaciones para "Break the Pattern" */
+  @keyframes breakWordPulse {
+    0%,
+    100% {
+      transform: scale(1) translateY(0);
+      text-shadow: 0 0 0 rgba(59, 130, 246, 0);
+      color: inherit;
+    }
+    25% {
+      transform: scale(1.05) translateY(-3px);
+      text-shadow:
+        0 4px 12px rgba(59, 130, 246, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.2);
+      color: rgb(59, 130, 246);
+    }
+    50% {
+      transform: scale(1.1) translateY(-5px);
+      text-shadow:
+        0 6px 20px rgba(59, 130, 246, 0.6),
+        0 0 30px rgba(59, 130, 246, 0.4);
+      color: rgb(37, 99, 235);
+    }
+    75% {
+      transform: scale(1.05) translateY(-3px);
+      text-shadow:
+        0 4px 12px rgba(59, 130, 246, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.2);
+      color: rgb(59, 130, 246);
+    }
+  }
+
+  @keyframes breakWordGlow {
+    0%,
+    100% {
+      text-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      text-shadow:
+        0 0 20px rgba(59, 130, 246, 0.8),
+        0 0 30px rgba(59, 130, 246, 0.5);
+    }
+  }
+
+  .break-pattern-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .break-word-animated {
+    display: inline-block;
+    animation:
+      breakWordPulse 3s ease-in-out infinite,
+      breakWordGlow 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  .break-word-animated:hover {
+    transform: scale(1.15) translateY(-8px) !important;
+    text-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.8),
+      0 0 40px rgba(59, 130, 246, 0.6) !important;
+  }
+
+  /* Efecto de rotura visual alrededor del texto */
+  .break-pattern-text::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    right: -10px;
+    bottom: -5px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    opacity: 0;
+    animation: borderPulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes borderPulse {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    }
+  }
+
+  /* Efecto de ondas expansivas */
+  .break-word-animated::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: waveExpand 2s ease-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes waveExpand {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.8;
+    }
+    100% {
+      width: 150px;
+      height: 150px;
+      opacity: 0;
+    }
+  }
+
+  /* Modo dark - ajustes de color */
+  .dark .break-word-animated {
+    color: rgb(147, 197, 253);
+  }
+
+  .dark .break-word-animated:hover {
+    color: rgb(191, 219, 254);
+  }
+
+  .dark .break-pattern-text::before {
+    border-color: rgba(147, 197, 253, 0.4);
+    box-shadow: 0 0 30px rgba(147, 197, 253, 0.3);
+  }
+
+  .dark .break-word-animated::after {
+    border-color: rgba(147, 197, 253, 0.6);
+  }
+</style>
