@@ -1,0 +1,61 @@
+---
+// Definimos las fechas límite
+const FECHA_INICIO = new Date('2026-01-20T00:00:00');
+const FECHA_CIERRE = new Date('2026-02-16T23:59:59');
+const hoy = new Date();
+
+let mensaje = '';
+
+// Lógica de estados en español de España
+if (hoy < FECHA_INICIO) {
+  mensaje = 'Próximamente: envía tu propuesta desde el 20 de enero';
+} else if (hoy >= FECHA_INICIO && hoy <= FECHA_CIERRE) {
+  mensaje = '¡Convocatoria abierta! Envía tu propuesta hasta el 15 de febrero';
+} else {
+  mensaje = 'Convocatoria cerrada - ¡Gracias por participar!';
+}
+
+const items = Array(10).fill(mensaje);
+---
+
+<div class="relative flex overflow-x-hidden border-y-2 border-black bg-[#1ce9b6] py-4 mt-6">
+  <div class="animate-marquee whitespace-nowrap flex">
+    {
+      items.map((texto) => (
+        <div class="flex items-center">
+          <span class="mx-4 text-sm md:text-lg font-bold uppercase tracking-tight text-black bg-white border-2 border-black px-4 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            {texto}
+          </span>
+        </div>
+      ))
+    }
+
+    {
+      items.map((texto) => (
+        <div class="flex items-center">
+          <span class="mx-4 text-sm md:text-lg font-bold uppercase tracking-tight text-black bg-white border-2 border-black px-4 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            {texto}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  /* Por si no quieres tocar el tailwind.config, puedes poner la animación aquí */
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 70s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
