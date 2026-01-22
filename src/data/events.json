@@ -1,21 +1,22 @@
 [
   {
-    "title": "Hasta Siempre Google Campus: Legacy, Futuro y Comunidad",
-    "status": "Inscripciones cerradas",
-    "date": "15 de Diciembre 2025",
-    "time": "18:00 - 22:00",
-    "location": "Google for Startups Campus, 2 Calle de Moreno Nieto, Madrid, 28005 ",
-    "ctaLabel": "Inscripciones cerradas",
-    "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-hasta-siempre-google-campus-legacy-futuro-y-comunidad/"
-  },
-  {
     "title": " Superando el síndrome de la impostora y creciendo en tech",
-    "status": "Inscripciones Abiertas",
+    "status": "Inscripciones cerradas",
     "date": "21 de Enero 2026",
     "time": "18:30 - 21:30",
     "location": "Puerta Innovación, 110 Calle de Toledo, Madrid, 28005",
-    "ctaLabel": "Registrarse",
+    "ctaLabel": "Inscripciones cerradas",
     "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-superando-el-sindrome-de-la-impostora-y-creciendo-en-tech/"
+  },
+  {
+    "title": " Dos visiones de producto: Diseño y tecnología",
+    "status": "Inscripciones Abiertas",
+    "date": "19 de Febrero 2026",
+    "time": "18:30 - 21:00",
+    "location": "The Bridge - Digital Talent Accelerator, 1 Plaza Pablo Ruiz Picasso, Madrid, 28020",
+    "ctaLabel": "Registrarse",
+    "url": "https://gdg.community.dev/events/details/google-gdg-madrid-presents-wtm-madrid-meetup-dos-visiones-de-producto-diseno-y-tecnologia/"
   } 
   
 ]
+
