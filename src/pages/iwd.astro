@@ -4,7 +4,21 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Image from '~/components/common/Image.astro';
 import C4PSatus from '~/components/C4pSatus.astro';
-
+import Brands from '~/components/widgets/Brands.astro';
+import celonisLogo from '~/assets/images/sponsors/celonis.png';
+import sirviendoCodigoLogo from '~/assets/images/partners/sirviendo-codigo.svg';
+import esw from '~/assets/images/sponsors/esw.png';
+import euroformac from '~/assets/images/sponsors/euroformac.jpg';
+import nextdigital from '~/assets/images/sponsors/next-digital.png';
+import playtomic from '~/assets/images/sponsors/playtomic.jpg';
+import capgemini from '~/assets/images/sponsors/Capgemini_logo.svg';
+import medallaOro from '~/assets/images/iwd26/medallaOro.png';
+import medallaBronce from '~/assets/images/iwd26/medallaBronce.png';
+import medallaPlata from '~/assets/images/iwd26/medallaPlata.png';
+import codemotion from '~/assets/images/partners/codemotion.png';
+import latinasInTech from '~/assets/images/partners/latinas-in-tech-madrid.png';
+import empowerInTech from '~/assets/images/partners/empower-in-tech.jpg';
+import mermeladaTech from '~/assets/images/partners/mermelada-tech.png';
 // Use the local path for the logo so the image resolver can load it (keeps original filename with spaces)
 
 const metadata = {
@@ -175,6 +189,144 @@ const celonisData = {
         >
           🤝 Ser sponsor
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion Sponsors -->
+  <section class="py-20 bg-[#CAE6FF] dark:bg-[#165185]">
+    <div class="mx-auto max-w-7xl px-6">
+      <!-- Título -->
+      <h2 class="text-center text-2xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Sponsors</h2>
+
+      <div class="space-y-14">
+        <!-- Sponsor principal -->
+        <div
+          class="relative mt-6 rounded-2xl border border-[#54A7ED] p-4
+                bg-white text-center dark:border-[#54A7ED] dark:bg-white"
+        >
+          <span
+            class="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full bg-[#D1ECE3]
+                     px-4 py-2 text-lg font-semibold text-[#0F7C67] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
+          >
+            MAIN SPONSOR
+            <img src={medallaOro.src} alt="Gold medal" class="h-7 w-7 shrink-0 object-contain" />
+          </span>
+          <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
+            <img
+              src={celonisLogo.src}
+              alt="Celonis"
+              class="block mx-auto max-h-14 w-auto max-w-[240px] object-contain md:max-h-16"
+            />
+          </div>
+        </div>
+
+        <!-- Sponsor Gold -->
+        <div
+          class="relative mt-6 rounded-2xl border border-[#54A7ED] p-4
+                bg-white text-center dark:border-[#54A7ED] dark:bg-white"
+        >
+          <span
+            class="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full bg-[#D1ECE3]
+                     px-4 py-2 text-lg font-semibold text-[#0F7C67] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
+          >
+            GOLD SPONSOR
+            <img src={medallaBronce.src} alt="Bronze medal" class="h-7 w-7 shrink-0 object-contain" />
+          </span>
+          <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
+            <img
+              src={nextdigital.src}
+              alt="Next Digital"
+              class="block mx-auto max-h-14 w-auto max-w-[240px] object-contain md:max-h-16"
+            />
+          </div>
+        </div>
+
+        <!-- Sponsor Silver -->
+        <div
+          class="relative mt-6 rounded-2xl border border-[#54A7ED] p-4
+                bg-white text-center dark:border-[#54A7ED] dark:bg-white"
+        >
+          <span
+            class="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full bg-[#CAE6FF]
+                     px-4 py-2 text-lg font-semibold text-[#165185] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
+          >
+            SILVER SPONSOR
+            <img src={medallaPlata.src} alt="Silver medal" class="h-7 w-7 shrink-0 object-contain" />
+          </span>
+          <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
+            <img
+              src={capgemini.src}
+              alt="Capgemini"
+              class="block mx-auto max-h-14 w-auto max-w-[240px] object-contain md:max-h-16"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion Paternern -->
+  <section class="bg-[#54A7ED] py-20 dark:bg-[#165185]">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Título -->
+      <div class="relative mb-16">
+        <h2 class="text-center text-4xl font-bold text-gray-800 dark:text-white mb-4">Partners</h2>
+        <!-- Línea decorativa -->
+        <div class="absolute left-0 top-full mt-4 h-[2px] w-full bg-[#165185] dark:bg-[#54A7ED]"></div>
+      </div>
+
+      <!-- Grid de logos -->
+      <div
+        class="rounded-lg border border-[#2480F0]/40 bg-white py-12 px-6 md:px-10 dark:border-[#54A7ED]/40 dark:bg-white"
+      >
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-10 gap-y-12 place-items-center">
+          {
+            [
+              {
+                src: codemotion.src,
+                alt: 'Codemotion',
+              },
+              {
+                src: latinasInTech.src,
+                alt: 'Latinas in Tech Madrid',
+              },
+              {
+                src: sirviendoCodigoLogo.src,
+                alt: 'Sirviendo Codigo',
+              },
+              {
+                src: esw.src,
+                alt: 'ESW',
+              },
+              {
+                src: euroformac.src,
+                alt: 'Euroformac',
+              },
+              {
+                src: playtomic.src,
+                alt: 'Playtomic',
+              },
+              {
+                src: empowerInTech.src,
+                alt: 'Empower in Tech',
+              },
+              {
+                src: mermeladaTech.src,
+                alt: 'Mermelada Tech',
+              },
+            ].map((logo) => (
+              <div class="flex h-20 w-full items-center justify-center">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  class="max-h-16 w-auto max-w-[180px] object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
