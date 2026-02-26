@@ -19,6 +19,26 @@ import codemotion from '~/assets/images/partners/codemotion.png';
 import latinasInTech from '~/assets/images/partners/latinas-in-tech-madrid.png';
 import empowerInTech from '~/assets/images/partners/empower-in-tech.jpg';
 import mermeladaTech from '~/assets/images/partners/mermelada-tech.png';
+import audiense from '~/assets/images/partners/audiense.png';
+import autentia from '~/assets/images/partners/autentia.jpg';
+import bq from '~/assets/images/partners/bq.png';
+import codely from '~/assets/images/partners/codely.svg';
+import commit from '~/assets/images/partners/commit.webp';
+import gft from '~/assets/images/partners/gft.svg';
+import gt from '~/assets/images/partners/GT.png';
+import idealista from '~/assets/images/partners/idealista.png';
+import indra from '~/assets/images/partners/indra.png';
+import izertis from '~/assets/images/partners/Izertis.png';
+import kairos from '~/assets/images/partners/kairos.png';
+import kaleidos from '~/assets/images/partners/kaleidos.svg';
+import kSchool from '~/assets/images/partners/kSchool.png';
+import stickermule from '~/assets/images/partners/stickermule.png';
+import openbank from '~/assets/images/partners/openbank.jpg';
+import paradigma from '~/assets/images/partners/paradigma.png';
+import seedtag from '~/assets/images/partners/seedtag.png';
+import tecnoFor from '~/assets/images/partners/TecnoFor.png';
+import womenalia from '~/assets/images/partners/womenalia.png';
+import cart from '~/assets/images/partners/cart.png';
 // Use the local path for the logo so the image resolver can load it (keeps original filename with spaces)
 
 const metadata = {
@@ -315,14 +335,108 @@ const celonisData = {
                 src: mermeladaTech.src,
                 alt: 'Mermelada Tech',
               },
+
+              {
+                src: audiense.src,
+                alt: 'Audiense',
+              },
+              {
+                src: autentia.src,
+                alt: 'Autentia',
+              },
+              {
+                src: bq.src,
+                alt: 'BQ',
+              },
+              {
+                src: codely.src,
+                alt: 'Codely',
+              },
+              {
+                src: commit.src,
+                alt: 'Commit',
+              },
+              {
+                src: gft.src,
+                alt: 'GFT',
+              },
+              {
+                src: gt.src,
+                alt: 'GT',
+              },
+              {
+                src: idealista.src,
+                alt: 'Idealista',
+              },
+              {
+                src: indra.src,
+                alt: 'Indra',
+              },
+              {
+                src: izertis.src,
+                alt: 'Izertis',
+              },
+              {
+                src: kairos.src,
+                alt: 'Kairos',
+              },
+              {
+                src: kaleidos.src,
+                alt: 'Kaleidos',
+              },
+              {
+                src: kSchool.src,
+                alt: 'KSchool',
+              },
+              {
+                src: stickermule.src,
+                alt: 'Sticker Mule',
+                href: 'https://www.stickermule.com/es/pegatinas-personalizadas',
+                class: 'max-h-20 max-w-[220px]',
+              },
+              {
+                src: openbank.src,
+                alt: 'Openbank',
+              },
+              {
+                src: paradigma.src,
+                alt: 'Paradigma',
+              },
+              {
+                src: seedtag.src,
+                alt: 'Seedtag',
+              },
+              {
+                src: tecnoFor.src,
+                alt: 'TecnoFor',
+              },
+              {
+                src: womenalia.src,
+                alt: 'Womenalia',
+              },
+              {
+                src: cart.src,
+                alt: 'Cart',
+              },
             ].map((logo) => (
               <div class="flex h-20 w-full items-center justify-center">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  class="max-h-16 w-auto max-w-[180px] object-contain"
-                  loading="lazy"
-                />
+                {logo.href ? (
+                  <a href={logo.href} target="_blank" rel="noopener noreferrer" aria-label={logo.alt}>
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      class={`w-auto object-contain ${logo.class ?? 'max-h-16 max-w-[180px]'}`}
+                      loading="lazy"
+                    />
+                  </a>
+                ) : (
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    class={`w-auto object-contain ${logo.class ?? 'max-h-16 max-w-[180px]'}`}
+                    loading="lazy"
+                  />
+                )}
               </div>
             ))
           }
