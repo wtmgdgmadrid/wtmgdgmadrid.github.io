@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "astro": {
+      "source": "astrolicious/agent-skills",
+      "sourceType": "github",
+      "computedHash": "ab44e2f297b232ff433e219664ee7df199bd8dd1dff4b8ee42408b880e8d7359"
+    }
+  }
+}
