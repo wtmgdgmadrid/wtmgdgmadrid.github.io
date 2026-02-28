@@ -17,6 +17,7 @@ npm run fix          # Auto-fix ESLint violations and formatting
 ```
 
 Individual checks:
+
 ```bash
 npm run check:astro      # Astro type checking only
 npm run check:eslint     # ESLint only
