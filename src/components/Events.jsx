@@ -50,7 +50,7 @@ export default function Events({ events }) {
             >
               <div className="flex flex-col gap-2 flex-grow">
                 <div className="flex items-center justify-between min-h-[40px]">
-                  {e.status === 'Inscripciones Abiertas' && (
+                  {e.status === 'Inscripciones Abiertas' && !isPast && (
                     <span
                       className="inline-flex items-center px-4 py-1.5 rounded-full text-white text-sm font-semibold shadow-sm"
                       style={{ backgroundColor: 'var(--aw-color-secondary)' }}
