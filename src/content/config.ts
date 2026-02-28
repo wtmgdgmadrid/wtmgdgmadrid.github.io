@@ -1,5 +1,5 @@
 import { z, defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 
 const metadataDefinition = () =>
   z
@@ -65,6 +65,55 @@ const postCollection = defineCollection({
   }),
 });
 
+const teamCollection = defineCollection({
+  loader: glob({ pattern: '*.md', base: 'src/data/team' }),
+  schema: z.object({
+    name: z.string(),
+    bio: z.string(),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    social: z.object({
+      twitter: z.string().url().optional(),
+      linkedin: z.string().url().optional(),
+      bluesky: z.string().url().optional(),
+    }),
+    order: z.number().optional(),
+  }),
+});
+
+const partnerCollection = defineCollection({
+  loader: file('src/data/partners.json'),
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    url: z.string().url(),
+    order: z.number().optional(),
+  }),
+});
+
+const sponsorCollection = defineCollection({
+  loader: file('src/data/sponsors.json'),
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    url: z.string().url(),
+    order: z.number().optional(),
+  }),
+});
+
 export const collections = {
   post: postCollection,
+  team: teamCollection,
+  partner: partnerCollection,
+  sponsor: sponsorCollection,
 };

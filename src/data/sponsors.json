@@ -1,0 +1,52 @@
+[
+  {
+    "id": "playtomic",
+    "name": "Playtomic",
+    "image": {
+      "src": "~/assets/images/sponsors/playtomic.jpg",
+      "alt": "Playtomic logo"
+    },
+    "url": "https://www.linkedin.com/company/playtomic/",
+    "order": 1
+  },
+  {
+    "id": "celonis",
+    "name": "Celonis",
+    "image": {
+      "src": "~/assets/images/sponsors/celonis.png",
+      "alt": "Celonis logo"
+    },
+    "url": "https://www.linkedin.com/company/celonis/",
+    "order": 2
+  },
+  {
+    "id": "next-digital",
+    "name": "Next Digital",
+    "image": {
+      "src": "~/assets/images/sponsors/next-digital.svg",
+      "alt": "Next Digital logo"
+    },
+    "url": "https://www.linkedin.com/company/nextdigitalhub/",
+    "order": 3
+  },
+  {
+    "id": "esw",
+    "name": "ESW",
+    "image": {
+      "src": "~/assets/images/sponsors/esw.png",
+      "alt": "ESW logo"
+    },
+    "url": "https://www.linkedin.com/company/esw/",
+    "order": 4
+  },
+  {
+    "id": "euroformac",
+    "name": "Euroformac",
+    "image": {
+      "src": "~/assets/images/sponsors/euroformac.jpg",
+      "alt": "Euroformac logo"
+    },
+    "url": "https://www.linkedin.com/school/fp-euroformac-madrid/",
+    "order": 5
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "sirviendo-codigo",
+    "name": "Sirviendo Código",
+    "image": {
+      "src": "~/assets/images/partners/sirviendo-codigo.svg",
+      "alt": "Sirviendo Código logo"
+    },
+    "url": "https://www.linkedin.com/company/sirviendo-codigo/",
+    "order": 1
+  },
+  {
+    "id": "latinas-in-tech-madrid",
+    "name": "Latinas in Tech Madrid",
+    "image": {
+      "src": "~/assets/images/partners/latinas-in-tech-madrid.png",
+      "alt": "Latinas in Tech Madrid logo"
+    },
+    "url": "https://www.linkedin.com/company/latinas-in-tech-madrid",
+    "order": 2
+  },
+  {
+    "id": "empower-in-tech",
+    "name": "Empower Tech Spain",
+    "image": {
+      "src": "~/assets/images/partners/empower-in-tech.jpg",
+      "alt": "Empower Tech Spain logo"
+    },
+    "url": "https://www.linkedin.com/company/empowerteches/",
+    "order": 3
+  },
+  {
+    "id": "mermelada-tech",
+    "name": "Mermelada Tech",
+    "image": {
+      "src": "~/assets/images/partners/mermelada-tech.png",
+      "alt": "Mermelada Tech logo"
+    },
+    "url": "https://www.linkedin.com/company/mermelada-tech/",
+    "order": 4
+  },
+  {
+    "id": "codemotion",
+    "name": "Codemotion",
+    "image": {
+      "src": "~/assets/images/partners/codemotion.png",
+      "alt": "Codemotion logo"
+    },
+    "url": "https://www.linkedin.com/company/codemotion/",
+    "order": 5
+  }
+]
