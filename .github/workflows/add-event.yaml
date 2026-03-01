@@ -89,7 +89,9 @@ jobs:
       - name: Create branch and commit
         id: commit
         run: |
-          BRANCH_NAME="evento/${{ steps.inputs.outputs.branch_slug }}"
+          ISSUE_NUM="${{ github.event.issue.number }}"
+          SUFFIX="${ISSUE_NUM:+"-${ISSUE_NUM}"}"
+          BRANCH_NAME="evento/${{ steps.inputs.outputs.branch_slug }}${SUFFIX}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH_NAME"
