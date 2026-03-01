@@ -1,0 +1,76 @@
+name: Nuevo Evento
+description: Añade un nuevo evento a la web de WTM Madrid
+title: '[Evento] '
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Rellena los campos de abajo para añadir un nuevo evento a la web.
+        Una vez enviado, añade la etiqueta **`evento`** al issue para que la automatización lo procese.
+
+  - type: input
+    id: title
+    attributes:
+      label: Título del evento
+      description: Nombre completo del evento tal como aparecerá en la web.
+      placeholder: 'Superando el síndrome de la impostora y creciendo en tech'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Estado de las inscripciones
+      description: Selecciona el estado actual del evento.
+      options:
+        - Inscripciones Abiertas
+        - Inscripciones cerradas
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Fecha del evento
+      description: 'Formato ISO recomendado (YYYY-MM-DD). Ejemplo: 2026-03-21'
+      placeholder: '2026-03-21'
+    validations:
+      required: true
+
+  - type: input
+    id: time
+    attributes:
+      label: Horario
+      description: Hora de inicio y fin del evento.
+      placeholder: '18:30 - 21:30'
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Lugar
+      description: Dirección completa del evento.
+      placeholder: 'Puerta Innovación, 110 Calle de Toledo, Madrid, 28005'
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL del evento
+      description: Enlace a la página del evento en gdg.community.dev.
+      placeholder: 'https://gdg.community.dev/events/details/...'
+    validations:
+      required: true
+
+  - type: input
+    id: cta_label
+    attributes:
+      label: Texto del botón CTA
+      description: Texto del botón de acción. Deja vacío para usar "Registrarse" por defecto.
+      placeholder: 'Registrarse'
+    validations:
+      required: false

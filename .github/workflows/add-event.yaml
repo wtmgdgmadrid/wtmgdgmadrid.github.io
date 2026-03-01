@@ -1,0 +1,131 @@
+name: Añadir Nuevo Evento
+
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Título del evento
+        required: true
+        type: string
+      status:
+        description: Estado de las inscripciones
+        required: true
+        type: choice
+        options:
+          - Inscripciones Abiertas
+          - Inscripciones cerradas
+        default: Inscripciones Abiertas
+      date:
+        description: Fecha del evento (YYYY-MM-DD)
+        required: true
+        type: string
+      time:
+        description: 'Horario (ej. 18:30 - 21:30)'
+        required: true
+        type: string
+      location:
+        description: Lugar del evento
+        required: true
+        type: string
+      url:
+        description: URL del evento en gdg.community.dev
+        required: true
+        type: string
+      cta_label:
+        description: 'Texto del botón CTA (por defecto "Registrarse")'
+        required: false
+        type: string
+        default: Registrarse
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  add-event:
+    runs-on: ubuntu-latest
+    # Only run when triggered by the 'evento' label, or directly via workflow_dispatch
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'evento'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Extract inputs and update events.json
+        id: inputs
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_TITLE: ${{ inputs.title }}
+          INPUT_STATUS: ${{ inputs.status }}
+          INPUT_DATE: ${{ inputs.date }}
+          INPUT_TIME: ${{ inputs.time }}
+          INPUT_LOCATION: ${{ inputs.location }}
+          INPUT_URL: ${{ inputs.url }}
+          INPUT_CTA_LABEL: ${{ inputs.cta_label }}
+        run: node .github/scripts/add-event.js
+
+      - name: Format events.json with Prettier
+        run: npx prettier --write src/data/events.json
+
+      - name: Create branch and commit
+        id: commit
+        run: |
+          BRANCH_NAME="evento/${{ steps.inputs.outputs.branch_slug }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH_NAME"
+          git add src/data/events.json
+          git commit -m "feat: add event '${{ steps.inputs.outputs.event_title }}'"
+          git push origin "$BRANCH_NAME"
+          echo "branch=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Create Pull Request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ISSUE_REF=""
+          if [ "${{ github.event_name }}" = "issues" ]; then
+            ISSUE_REF="Closes #${{ github.event.issue.number }}"
+          fi
+
+          PR_URL=$(gh pr create \
+            --title "feat: nuevo evento - ${{ steps.inputs.outputs.event_title }}" \
+            --body "## Nuevo evento añadido
+
+          **Título:** ${{ steps.inputs.outputs.event_title }}
+          **Fecha:** ${{ steps.inputs.outputs.event_date_es }}
+          **Horario:** ${{ steps.inputs.outputs.event_time }}
+          **Lugar:** ${{ steps.inputs.outputs.event_location }}
+          **URL:** ${{ steps.inputs.outputs.event_url }}
+
+          ${ISSUE_REF}
+
+          > Generado automáticamente por el workflow \`add-event.yaml\`" \
+            --base main \
+            --head "${{ steps.commit.outputs.branch }}")
+
+          echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on issue with PR link
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --body "El evento ha sido procesado correctamente. Puedes revisar y aprobar los cambios en la siguiente PR: ${{ steps.pr.outputs.pr_url }}"
