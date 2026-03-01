@@ -2,7 +2,7 @@ name: Añadir Nuevo Evento
 
 on:
   issues:
-    types: [labeled]
+    types: [opened, labeled]
   workflow_dispatch:
     inputs:
       title:
@@ -47,8 +47,12 @@ permissions:
 jobs:
   add-event:
     runs-on: ubuntu-latest
-    # Only run when triggered by the 'evento' label, or directly via workflow_dispatch
-    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'evento'
+    # Run on workflow_dispatch, when the 'evento' label is added, or when an issue is opened with that label
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.label.name == 'evento' ||
+      (github.event_name == 'issues' && github.event.action == 'opened' &&
+        contains(github.event.issue.labels.*.name, 'evento'))
 
     steps:
       - name: Checkout repository
