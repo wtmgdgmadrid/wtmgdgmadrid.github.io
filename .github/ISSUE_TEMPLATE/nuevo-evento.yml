@@ -1,14 +1,14 @@
 name: Nuevo Evento
 description: Añade un nuevo evento a la web de WTM Madrid
 title: '[Evento] '
-labels: []
+labels: ['evento']
 assignees: []
 body:
   - type: markdown
     attributes:
       value: |
         Rellena los campos de abajo para añadir un nuevo evento a la web.
-        Una vez enviado, añade la etiqueta **`evento`** al issue para que la automatización lo procese.
+        Una vez enviado, la automatización procesará el issue automáticamente.
 
   - type: input
     id: title
