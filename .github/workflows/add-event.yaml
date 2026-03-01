@@ -47,12 +47,12 @@ permissions:
 jobs:
   add-event:
     runs-on: ubuntu-latest
-    # Run on workflow_dispatch, when the 'evento' label is added, or when an issue is opened with that label
-    if: >
+    # Run on workflow_dispatch, when the 'evento' label is added to any issue,
+    # or when an issue created from the event template is opened (title always starts with '[Evento]')
+    if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event.label.name == 'evento' ||
-      (github.event_name == 'issues' && github.event.action == 'opened' &&
-        contains(github.event.issue.labels.*.name, 'evento'))
+      (github.event.action == 'opened' && startsWith(github.event.issue.title, '[Evento]'))
 
     steps:
       - name: Checkout repository
