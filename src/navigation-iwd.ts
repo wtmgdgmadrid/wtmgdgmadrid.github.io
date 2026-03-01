@@ -4,6 +4,14 @@ export const headerData = {
       text: 'Home',
       href: '/',
     },
+    {
+      text: 'Ponentes',
+      href: '/iwd#ponentes',
+    },
+    {
+      text: 'Agenda',
+      href: '/iwd#agenda',
+    },
   ],
 };
 

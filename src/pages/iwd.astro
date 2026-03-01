@@ -52,7 +52,7 @@ const celonisData = {
       <div class="absolute inset-0 iwd-bg-light dark:iwd-bg-dark" aria-hidden="true"></div>
     </div>
 
-    <div slot="image" class="flex justify-center items-center px-4">
+    <div slot="image" class="flex flex-col justify-center items-center px-4">
       <!-- Light theme: show first image -->
       <div class="block dark:hidden w-full max-w-4xl">
         <Image
@@ -73,6 +73,20 @@ const celonisData = {
           height={576}
         />
       </div>
+      <div class="max-w-4xl mx-auto px-4 mt-8 sm:px-6 text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6">
+          Con el apoyo de
+        </p>
+        <div class="flex justify-center">
+          <Image
+            src="~/assets/images/build-with-ia-logo.png"
+            alt="Built with AI - Google"
+            class="h-16 w-auto"
+            width={400}
+            height={64}
+          />
+        </div>
+      </div>
     </div>
   </Hero>
 
@@ -80,7 +94,7 @@ const celonisData = {
   <section id="call-for-papers" class="bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
+        <h2 class="text-4xl py-6 md:text-5xl font-bold mb-6 dark:text-white">
           Comparte tu conocimiento con nuestra comunidad
         </h2>
         <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 dark:text-gray-300">
@@ -108,18 +122,9 @@ const celonisData = {
           </p>
           <div class="bg-slate-100 dark:bg-slate-700 rounded-lg p-6 md:p-8 shadow-lg mt-8">
             <p class="text-2xl font-bold text-gray-800 dark:text-white mb-4">✨ ¡Anímate a ser ponente! ✨</p>
-            <!-- Placeholder para el link del Call for Papers -->
-            <div class="mt-8">
-              <a
-                id="cfp-link"
-                href="https://forms.gle/acA7jY8GjWSPguVaA"
-                target="_blank"
-                rel="noopener"
-                class="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold text-lg rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 dark:bg-blue-600 dark:hover:bg-blue-700"
-              >
-                🚀 Envía tu propuesta aquí
-              </a>
-            </div>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mt-4">
+              🔒 El plazo de envío de propuestas ha finalizado. Pronto anunciaremos las ponentes seleccionadas.
+            </p>
           </div>
         </div>
       </div>
@@ -153,6 +158,36 @@ const celonisData = {
       alt: 'IWD 2026 Event Details Image',
     }}
   />
+
+  <!-- Ponentes Section -->
+  <section
+    id="ponentes"
+    class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-slate-900 dark:to-slate-800"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">Ponentes</h2>
+      <p class="text-xl text-primary dark:text-blue-300 font-semibold mb-4">🎤 Próximamente</p>
+      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+        Pronto anunciaremos las increíbles mujeres que compartirán su conocimiento y experiencia con nuestra comunidad.
+        ¡Mantente atenta!
+      </p>
+    </div>
+  </section>
+
+  <!-- Agenda Section -->
+  <section
+    id="agenda"
+    class="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">Agenda</h2>
+      <p class="text-xl text-primary dark:text-blue-300 font-semibold mb-4">📅 Próximamente</p>
+      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+        La agenda del evento estará disponible próximamente. Prepárate para una jornada llena de charlas técnicas,
+        networking y actividades especiales.
+      </p>
+    </div>
+  </section>
 
   <!-- Sponsor Section -->
   <section class="py-16 md:py-24 bg-green-700 dark:bg-blue-900 text-white">
