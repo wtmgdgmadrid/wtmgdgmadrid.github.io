@@ -42,7 +42,7 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           SPREADSHEET_ID: ${{ inputs.spreadsheet_id || secrets.SPREADSHEET_ID }}
           SHEET_NAME: ${{ inputs.sheet_name || 'Eventos' }}
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
           GH_REPO: ${{ github.repository }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: node .github/scripts/sync-events-sheet.js
