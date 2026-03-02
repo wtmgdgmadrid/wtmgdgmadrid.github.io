@@ -48,9 +48,9 @@ const { images = [], height, width, slidesPerView = 3 } = Astro.props;
     loop: true,
     autoplay: { delay: 3000 },
     breakpoints: {
-      0: { slidesPerView: 1 },
-      640: { slidesPerView: Math.min(1, slidesPerView) },
-      1024: { slidesPerView },
+      0: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: Math.min(2, slidesPerView), spaceBetween: 24 },
+      1024: { slidesPerView, spaceBetween: 30 },
     },
   }}
 >
