@@ -5,6 +5,10 @@ export const headerData = {
       href: '/',
     },
     {
+      text: 'Sponsors & Partners',
+      href: '/iwd#sponsors-partners',
+    },
+    {
       text: 'Ponentes',
       href: '/iwd#ponentes',
     },
