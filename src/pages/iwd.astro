@@ -52,7 +52,7 @@ const celonisData = {
       <div class="absolute inset-0 iwd-bg-light dark:iwd-bg-dark" aria-hidden="true"></div>
     </div>
 
-    <div slot="image" class="flex flex-col justify-center items-center px-4">
+    <div slot="image" class="flex flex-col justify-center items-center w-full px-4">
       <!-- Light theme: show first image -->
       <div class="block dark:hidden w-full max-w-4xl">
         <Image
@@ -73,12 +73,12 @@ const celonisData = {
           height={576}
         />
       </div>
-      <div class="max-w-4xl mx-auto px-4 mt-8 sm:px-6 text-center">
+      <div class="w-full max-w-4xl mx-auto mt-6 sm:mt-8 text-center">
         <div class="flex justify-center">
           <Image
             src="~/assets/images/build-with-ia-logo.png"
             alt="Built with AI - Google"
-            class="h-16 w-auto"
+            class="h-10 sm:h-14 md:h-16 w-auto max-w-full"
             width={400}
             height={64}
           />
