@@ -4,7 +4,8 @@ import LayoutIwd from '~/layouts/LayoutIwd.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Image from '~/components/common/Image.astro';
-import C4PSatus from '~/components/C4pSatus.astro';
+import SpeakersIwd from '~/components/widgets/SpeakersIwd.astro';
+import AgendaIwd from '~/components/widgets/AgendaIwd.astro';
 import celonisLogo from '~/assets/images/sponsors/celonis.png';
 import nextdigital from '~/assets/images/sponsors/next-digital.png';
 import medallaOro from '~/assets/images/iwd26/medallaOro.png';
@@ -104,49 +105,98 @@ const iwdPartners = (await getCollection('partner'))
     </div>
   </Hero>
 
-  <!-- Call for Papers Section -->
-  <section id="call-for-papers" class="bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl py-6 md:text-5xl font-bold mb-6 dark:text-white">
-          Comparte tu conocimiento con nuestra comunidad
-        </h2>
-        <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 dark:text-gray-300">
-          <p class="text-xl font-semibold text-primary dark:text-blue-300">🎤 ¿Sobre qué puedes hablar?</p>
-          <p>
-            En Women Techmakers Madrid creemos firmemente que cada mujer tiene algo valioso que aportar. Tu voz es
-            importante y tu experiencia puede inspirar a otras mujeres a seguir sus sueños en tecnología.
-          </p>
-          <p>
-            <strong class="text-primary dark:text-blue-300">No importa tu nivel de experiencia</strong> - si eres estudiante,
-            recién graduada o profesional con años de trayectoria, tu perspectiva es única y merece ser escuchada.
-          </p>
-          <p>
-            En nuestras charlas, las ponentes comparten experiencias y aprendizajes prácticos que nos dejan ideas,
-            herramientas o técnicas aplicables. Piensa en lo que haces en tu día a día y cómo podría ayudar a otras
-            profesionales a mejorar, ahorrar tiempo o cambiar la forma de trabajar:
+  <!-- Countdown Section -->
+  <section
+    id="countdown"
+    class="bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900 py-16 md:py-24"
+  >
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary dark:text-[#1ce9b6] mb-3">
+        17 de abril de 2026 · Madrid
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">¡El programa está listo!</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        Charlas, talleres y mentorías para inspirarte. Queda poco para el IWD 2026.
+      </p>
 
-            <ul class="list-inside mt-4 space-y-2 list-none">
-              <li>🔧 Herramientas y tecnologías que utilizas</li>
-              <li>💡 Buenas prácticas y metodologías</li>
-              <li>🚀 Proyectos interesantes en los que has trabajado</li>
-              <li>📈 Consejos para el desarrollo profesional y liderazgo</li>
-              <li>🌐 Innovaciones y tendencias en el sector tecnológico</li>
-            </ul>
-          </p>
-          <div class="bg-slate-100 dark:bg-slate-700 rounded-lg p-6 md:p-8 shadow-lg mt-8">
-            <p class="text-2xl font-bold text-gray-800 dark:text-white mb-4">✨ ¡Anímate a ser ponente! ✨</p>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mt-4">
-              🔒 El plazo de envío de propuestas ha finalizado. Pronto anunciaremos las ponentes seleccionadas.
-            </p>
-          </div>
-        </div>
+      <!-- Countdown -->
+      <div class="flex justify-center gap-4 sm:gap-8 mb-12">
+        {
+          [
+            { id: 'cd-days', label: 'Días' },
+            { id: 'cd-hours', label: 'Horas' },
+            { id: 'cd-minutes', label: 'Minutos' },
+            { id: 'cd-seconds', label: 'Segundos' },
+          ].map(({ id, label }) => (
+            <div class="flex flex-col items-center">
+              <span
+                id={id}
+                class="text-5xl sm:text-6xl font-extrabold tabular-nums text-[#0334ab] dark:text-[#1ce9b6] leading-none"
+              >
+                --
+              </span>
+              <span class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider">
+                {label}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#ponentes"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-[#0334ab] text-white px-7 py-3 text-sm font-semibold hover:bg-[#0228a0] transition-colors"
+        >
+          🎤 Ver ponentes
+        </a>
+        <a
+          href="#agenda"
+          class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#0334ab] text-[#0334ab] dark:border-[#1ce9b6] dark:text-[#1ce9b6] px-7 py-3 text-sm font-semibold hover:bg-[#0334ab]/10 transition-colors"
+        >
+          📅 Ver agenda
+        </a>
       </div>
     </div>
-    <div class="w-full">
-      <C4PSatus />
-    </div>
   </section>
+
+  <script>
+    function updateCountdown() {
+      const target = new Date('2026-04-17T16:00:00+02:00').getTime();
+      const now = Date.now();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        ['cd-days', 'cd-hours', 'cd-minutes', 'cd-seconds'].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '00';
+        });
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      const pad = (n: number) => String(n).padStart(2, '0');
+
+      const els: Record<string, number> = {
+        'cd-days': days,
+        'cd-hours': hours,
+        'cd-minutes': minutes,
+        'cd-seconds': seconds,
+      };
+      for (const [id, val] of Object.entries(els)) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = pad(val);
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 
   <!-- Event Details Section -->
   <Content
@@ -245,10 +295,12 @@ const iwdPartners = (await getCollection('partner'))
       <div
         class="rounded-lg border border-[#2480F0]/40 bg-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-10 dark:border-[#54A7ED]/40 dark:bg-white"
       >
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 sm:gap-x-10 gap-y-8 sm:gap-y-12 place-items-center">
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-x-4 sm:gap-x-8 md:gap-x-10 gap-y-6 sm:gap-y-10 place-items-center"
+        >
           {
             iwdPartners.map((partner) => (
-              <div class="flex h-24 sm:h-28 w-full items-center justify-center px-3 sm:px-4">
+              <div class="flex h-20 sm:h-24 md:h-28 w-full items-center justify-center px-2 sm:px-4">
                 <a
                   href={partner.data.url}
                   target="_blank"
@@ -259,9 +311,10 @@ const iwdPartners = (await getCollection('partner'))
                   <Image
                     src={partner.data.image.src}
                     alt={partner.data.image.alt}
-                    class="max-h-16 sm:max-h-20 max-w-full"
-                    style="object-fit: contain; width: auto;"
-                    width={240}
+                    class="max-h-12 sm:max-h-16 md:max-h-20 max-w-full w-auto"
+                    style="object-fit: contain;"
+                    widths={[120, 200, 280]}
+                    sizes="(max-width: 640px) 120px, (max-width: 1024px) 200px, 280px"
                     loading="lazy"
                   />
                 </a>
@@ -274,34 +327,10 @@ const iwdPartners = (await getCollection('partner'))
   </section>
 
   <!-- Ponentes Section -->
-  <section
-    id="ponentes"
-    class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-slate-900 dark:to-slate-800"
-  >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">Ponentes</h2>
-      <p class="text-xl text-primary dark:text-blue-300 font-semibold mb-4">🎤 Próximamente</p>
-      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-        Pronto anunciaremos las increíbles mujeres que compartirán su conocimiento y experiencia con nuestra comunidad.
-        ¡Mantente atenta!
-      </p>
-    </div>
-  </section>
+  <SpeakersIwd />
 
   <!-- Agenda Section -->
-  <section
-    id="agenda"
-    class="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900"
-  >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">Agenda</h2>
-      <p class="text-xl text-primary dark:text-blue-300 font-semibold mb-4">📅 Próximamente</p>
-      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-        La agenda del evento estará disponible próximamente. Prepárate para una jornada llena de charlas técnicas,
-        networking y actividades especiales.
-      </p>
-    </div>
-  </section>
+  <AgendaIwd />
 </LayoutIwd>
 
 <style>
