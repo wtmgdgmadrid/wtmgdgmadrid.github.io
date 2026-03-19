@@ -94,6 +94,7 @@ const partnerCollection = defineCollection({
     }),
     url: z.string().url(),
     order: z.number().optional(),
+    iwdPartner: z.boolean().optional(),
   }),
 });
 

@@ -25,6 +25,9 @@ The collection schema (defined in `src/content/config.ts`) requires:
 | `image.alt` | string | yes |
 | `url` | URL string | yes |
 | `order` | number | no (defaults to 99 in sort) |
+| `iwdPartner` | boolean | no (defaults to `false`) |
+
+> **Note:** `iwdPartner: true` makes the partner appear in the IWD event page (`src/pages/iwd.astro`). New partners should default to `false`.
 
 ## Step-by-step instructions
 
@@ -55,7 +58,8 @@ Edit `src/data/partners.json` by appending a new object to the array:
     "alt": "<Community Name> logo"
   },
   "url": "<url>",
-  "order": <number>
+  "order": <number>,
+  "iwdPartner": false
 }
 ```
 
@@ -93,6 +97,7 @@ Run `npm run check:astro` to confirm the updated JSON passes schema validation.
     "alt": "Tech Diversa logo"
   },
   "url": "https://www.linkedin.com/company/tech-diversa/",
-  "order": 6
+  "order": 6,
+  "iwdPartner": false
 }
 ```

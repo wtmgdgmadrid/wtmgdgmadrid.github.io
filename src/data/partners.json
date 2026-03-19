@@ -7,7 +7,8 @@
       "alt": "Sirviendo Código logo"
     },
     "url": "https://www.linkedin.com/company/sirviendo-codigo/",
-    "order": 1
+    "order": 1,
+    "iwdPartner": false
   },
   {
     "id": "latinas-in-tech-madrid",
@@ -17,7 +18,8 @@
       "alt": "Latinas in Tech Madrid logo"
     },
     "url": "https://www.linkedin.com/company/latinas-in-tech-madrid",
-    "order": 2
+    "order": 2,
+    "iwdPartner": false
   },
   {
     "id": "empower-in-tech",
@@ -27,7 +29,8 @@
       "alt": "Empower Tech Spain logo"
     },
     "url": "https://www.linkedin.com/company/empowerteches/",
-    "order": 3
+    "order": 3,
+    "iwdPartner": false
   },
   {
     "id": "mermelada-tech",
@@ -37,7 +40,8 @@
       "alt": "Mermelada Tech logo"
     },
     "url": "https://www.linkedin.com/company/mermelada-tech/",
-    "order": 4
+    "order": 4,
+    "iwdPartner": false
   },
   {
     "id": "codemotion",
@@ -47,6 +51,40 @@
       "alt": "Codemotion logo"
     },
     "url": "https://www.linkedin.com/company/codemotion/",
-    "order": 5
+    "order": 5,
+    "iwdPartner": true
+  },
+  {
+    "id": "t3chfest",
+    "name": "T3chFest",
+    "image": {
+      "src": "~/assets/images/partners/techfest.svg",
+      "alt": "T3chFest logo"
+    },
+    "url": "https://t3chfest.es",
+    "order": 6,
+    "iwdPartner": true
+  },
+  {
+    "id": "commit",
+    "name": "Commit Conf",
+    "image": {
+      "src": "~/assets/images/partners/commit.webp",
+      "alt": "Commit Conf logo"
+    },
+    "url": "https://commit-conf.com/",
+    "order": 7,
+    "iwdPartner": true
+  },
+  {
+    "id": "stickermule",
+    "name": "Sticker Mule",
+    "image": {
+      "src": "~/assets/images/partners/stickermule.png",
+      "alt": "Sticker Mule logo"
+    },
+    "url": "https://www.stickermule.com/es/pegatinas-personalizadas",
+    "order": 8,
+    "iwdPartner": true
   }
 ]

@@ -1,42 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import LayoutIwd from '~/layouts/LayoutIwd.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Image from '~/components/common/Image.astro';
 import C4PSatus from '~/components/C4pSatus.astro';
 import celonisLogo from '~/assets/images/sponsors/celonis.png';
-import sirviendoCodigoLogo from '~/assets/images/partners/sirviendo-codigo.svg';
-import esw from '~/assets/images/sponsors/esw.png';
-import euroformac from '~/assets/images/sponsors/euroformac.jpg';
 import nextdigital from '~/assets/images/sponsors/next-digital.png';
-import playtomic from '~/assets/images/sponsors/playtomic.jpg';
 import medallaOro from '~/assets/images/iwd26/medallaOro.png';
 import medallaBronce from '~/assets/images/iwd26/medallaBronce.png';
-import codemotion from '~/assets/images/partners/codemotion.png';
-import latinasInTech from '~/assets/images/partners/latinas-in-tech-madrid.png';
-import empowerInTech from '~/assets/images/partners/empower-in-tech.jpg';
-import mermeladaTech from '~/assets/images/partners/mermelada-tech.png';
-import audiense from '~/assets/images/partners/audiense.png';
-import autentia from '~/assets/images/partners/autentia.jpg';
-import bq from '~/assets/images/partners/bq.png';
-import codely from '~/assets/images/partners/codely.svg';
-import commit from '~/assets/images/partners/commit.webp';
-import gft from '~/assets/images/partners/gft.svg';
-import gt from '~/assets/images/partners/GT.png';
-import idealista from '~/assets/images/partners/idealista.png';
-import indra from '~/assets/images/partners/indra.png';
-import izertis from '~/assets/images/partners/Izertis.png';
-import kairos from '~/assets/images/partners/kairos.png';
-import kaleidos from '~/assets/images/partners/kaleidos.svg';
-import kSchool from '~/assets/images/partners/kSchool.png';
-import stickermule from '~/assets/images/partners/stickermule.png';
-import openbank from '~/assets/images/partners/openbank.jpg';
-import paradigma from '~/assets/images/partners/paradigma.png';
-import seedtag from '~/assets/images/partners/seedtag.png';
-import tecnoFor from '~/assets/images/partners/TecnoFor.png';
-import womenalia from '~/assets/images/partners/womenalia.png';
-import cart from '~/assets/images/partners/cart.png';
-// Use the local path for the logo so the image resolver can load it (keeps original filename with spaces)
 
 const metadata = {
   title: 'IWD 2026 - Women Techmakers Madrid',
@@ -49,6 +21,10 @@ const celonisData = {
   googleMapsLink: 'https://maps.app.goo.gl/39ts3cc8E5rUJsy18',
   description: 'Celonis is a global leader in process mining and execution management software.',
 };
+
+const iwdPartners = (await getCollection('partner'))
+  .filter((p) => p.data.iwdPartner === true)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
 <LayoutIwd metadata={metadata}>
@@ -75,6 +51,16 @@ const celonisData = {
           Únete a nosotras en esta celebración especial donde destacaremos el talento, la innovación y el liderazgo de
           las mujeres en tecnología.
         </p>
+        <div class="mt-8">
+          <a
+            href="https://luma.com/ujpm8lye"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-lg border-2 border-black bg-primary dark:bg-[#165185] dark:border-none px-10 py-5 text-xl font-extrabold uppercase tracking-wide text-white shadow-[4px_4px_0_0_#000] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+          >
+            Me apunto
+          </a>
+        </div>
       </div>
     </Fragment>
 
@@ -186,17 +172,6 @@ const celonisData = {
       alt: 'IWD 2026 Event Details Image',
     }}
   />
-  <div class="mx-auto max-w-7xl px-4 md:px-8 -mt-4 mb-12 flex justify-center">
-    <a
-      href="https://luma.com/ujpm8lye"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-flex items-center justify-center rounded-lg border-2 border-black bg-primary px-10 py-5 text-xl font-extrabold uppercase tracking-wide text-white shadow-[4px_4px_0_0_#000] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900"
-    >
-      Inscripciones
-    </a>
-  </div>
-
   <!-- Seccion Sponsors -->
   <section id="sponsors-partners" class="py-20 bg-[#CAE6FF] dark:bg-[#165185]">
     <div class="mx-auto max-w-7xl px-6">
@@ -214,13 +189,15 @@ const celonisData = {
                      px-4 py-2 text-lg font-semibold text-[#0F7C67] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
           >
             MAIN SPONSOR
-            <img src={medallaOro.src} alt="Gold medal" class="h-7 w-7 shrink-0 object-contain" />
+            <Image src={medallaOro} alt="Gold medal" class="h-7 w-7 shrink-0 object-contain" width={28} height={28} />
           </span>
           <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
-            <img
-              src={celonisLogo.src}
+            <Image
+              src={celonisLogo}
               alt="Celonis"
               class="block mx-auto max-h-14 w-auto max-w-[240px] object-contain md:max-h-16"
+              width={240}
+              height={64}
             />
           </div>
         </div>
@@ -235,13 +212,21 @@ const celonisData = {
                      px-4 py-2 text-lg font-semibold text-[#0F7C67] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
           >
             GOLD SPONSOR
-            <img src={medallaBronce.src} alt="Bronze medal" class="h-7 w-7 shrink-0 object-contain" />
+            <Image
+              src={medallaBronce}
+              alt="Bronze medal"
+              class="h-7 w-7 shrink-0 object-contain"
+              width={28}
+              height={28}
+            />
           </span>
           <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
-            <img
-              src={nextdigital.src}
+            <Image
+              src={nextdigital}
               alt="Next Digital"
-              class="block mx-auto max-h-14 w-auto max-w-[240px] object-contain md:max-h-16"
+              class="block mx-auto max-h-14 max-w-[240px] md:max-h-16"
+              style="object-fit: contain; width: auto;"
+              width={240}
             />
           </div>
         </div>
@@ -249,159 +234,37 @@ const celonisData = {
     </div>
   </section>
 
-  <!-- Seccion Paternern -->
+  <!-- Seccion Partners -->
   <section class="bg-[#54A7ED] py-12 sm:py-16 md:py-20 dark:bg-[#165185]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <!-- Título -->
       <div class="relative mb-10 sm:mb-12 lg:mb-16">
         <h2 class="text-center text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4">Partners</h2>
-        <!-- Línea decorativa -->
         <div class="absolute left-0 top-full mt-4 h-[2px] w-full bg-[#165185] dark:bg-[#54A7ED]"></div>
       </div>
 
-      <!-- Grid de logos -->
       <div
         class="rounded-lg border border-[#2480F0]/40 bg-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-10 dark:border-[#54A7ED]/40 dark:bg-white"
       >
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 sm:gap-x-8 lg:gap-x-10 gap-y-6 sm:gap-y-10 lg:gap-y-12 place-items-center"
-        >
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 sm:gap-x-10 gap-y-8 sm:gap-y-12 place-items-center">
           {
-            [
-              {
-                src: codemotion.src,
-                alt: 'Codemotion',
-              },
-              {
-                src: latinasInTech.src,
-                alt: 'Latinas in Tech Madrid',
-              },
-              {
-                src: sirviendoCodigoLogo.src,
-                alt: 'Sirviendo Codigo',
-              },
-              {
-                src: esw.src,
-                alt: 'ESW',
-              },
-              {
-                src: euroformac.src,
-                alt: 'Euroformac',
-              },
-              {
-                src: playtomic.src,
-                alt: 'Playtomic',
-              },
-              {
-                src: empowerInTech.src,
-                alt: 'Empower in Tech',
-              },
-              {
-                src: mermeladaTech.src,
-                alt: 'Mermelada Tech',
-              },
-
-              {
-                src: audiense.src,
-                alt: 'Audiense',
-              },
-              {
-                src: autentia.src,
-                alt: 'Autentia',
-              },
-              {
-                src: bq.src,
-                alt: 'BQ',
-              },
-              {
-                src: codely.src,
-                alt: 'Codely',
-              },
-              {
-                src: commit.src,
-                alt: 'Commit',
-              },
-              {
-                src: gft.src,
-                alt: 'GFT',
-              },
-              {
-                src: gt.src,
-                alt: 'GT',
-              },
-              {
-                src: idealista.src,
-                alt: 'Idealista',
-              },
-              {
-                src: indra.src,
-                alt: 'Indra',
-              },
-              {
-                src: izertis.src,
-                alt: 'Izertis',
-              },
-              {
-                src: kairos.src,
-                alt: 'Kairos',
-              },
-              {
-                src: kaleidos.src,
-                alt: 'Kaleidos',
-              },
-              {
-                src: kSchool.src,
-                alt: 'KSchool',
-              },
-              {
-                src: stickermule.src,
-                alt: 'Sticker Mule',
-                href: 'https://www.stickermule.com/es/pegatinas-personalizadas',
-                class: 'max-h-20 max-w-[220px]',
-              },
-              {
-                src: openbank.src,
-                alt: 'Openbank',
-              },
-              {
-                src: paradigma.src,
-                alt: 'Paradigma',
-              },
-              {
-                src: seedtag.src,
-                alt: 'Seedtag',
-              },
-              {
-                src: tecnoFor.src,
-                alt: 'TecnoFor',
-              },
-              {
-                src: womenalia.src,
-                alt: 'Womenalia',
-              },
-              {
-                src: cart.src,
-                alt: 'Cart',
-              },
-            ].map((logo) => (
-              <div class="flex h-14 sm:h-20 w-full items-center justify-center">
-                {logo.href ? (
-                  <a href={logo.href} target="_blank" rel="noopener noreferrer" aria-label={logo.alt}>
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      class={`w-auto object-contain ${logo.class ?? 'max-h-12 sm:max-h-16 max-w-[140px] sm:max-w-[180px]'}`}
-                      loading="lazy"
-                    />
-                  </a>
-                ) : (
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    class={`w-auto object-contain ${logo.class ?? 'max-h-12 sm:max-h-16 max-w-[140px] sm:max-w-[180px]'}`}
+            iwdPartners.map((partner) => (
+              <div class="flex h-24 sm:h-28 w-full items-center justify-center px-3 sm:px-4">
+                <a
+                  href={partner.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={partner.data.name}
+                  class="flex items-center justify-center w-full h-full"
+                >
+                  <Image
+                    src={partner.data.image.src}
+                    alt={partner.data.image.alt}
+                    class="max-h-16 sm:max-h-20 max-w-full"
+                    style="object-fit: contain; width: auto;"
+                    width={240}
                     loading="lazy"
                   />
-                )}
+                </a>
               </div>
             ))
           }
