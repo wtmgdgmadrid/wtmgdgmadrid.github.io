@@ -5,6 +5,8 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Image from '~/components/common/Image.astro';
 import C4PSatus from '~/components/C4pSatus.astro';
+import SpeakersIwd from '~/components/widgets/SpeakersIwd.astro';
+import AgendaIwd from '~/components/widgets/AgendaIwd.astro';
 import celonisLogo from '~/assets/images/sponsors/celonis.png';
 import nextdigital from '~/assets/images/sponsors/next-digital.png';
 import medallaOro from '~/assets/images/iwd26/medallaOro.png';
@@ -274,34 +276,10 @@ const iwdPartners = (await getCollection('partner'))
   </section>
 
   <!-- Ponentes Section -->
-  <section
-    id="ponentes"
-    class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-slate-900 dark:to-slate-800"
-  >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">Ponentes</h2>
-      <p class="text-xl text-primary dark:text-blue-300 font-semibold mb-4">🎤 Próximamente</p>
-      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-        Pronto anunciaremos las increíbles mujeres que compartirán su conocimiento y experiencia con nuestra comunidad.
-        ¡Mantente atenta!
-      </p>
-    </div>
-  </section>
+  <SpeakersIwd />
 
   <!-- Agenda Section -->
-  <section
-    id="agenda"
-    class="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900"
-  >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 dark:text-white">Agenda</h2>
-      <p class="text-xl text-primary dark:text-blue-300 font-semibold mb-4">📅 Próximamente</p>
-      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-        La agenda del evento estará disponible próximamente. Prepárate para una jornada llena de charlas técnicas,
-        networking y actividades especiales.
-      </p>
-    </div>
-  </section>
+  <AgendaIwd />
 </LayoutIwd>
 
 <style>

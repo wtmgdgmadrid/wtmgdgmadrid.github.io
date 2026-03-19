@@ -1,0 +1,147 @@
+---
+const speakers = [
+  {
+    id: 'arantcha',
+    name: 'Arantcha Delgado',
+    profession: 'Front-End Web Developer',
+    initials: 'AD',
+    color: '#1ce9b6',
+    talk: 'Más allá del pixel perfect – cuidando la experiencia desde el código frontend',
+    bio: 'Llevo +5 años como desarrolladora frontend con React, Vue y WordPress, creando interfaces que se usan a gusto. Fui librera, así que pienso las pantallas como páginas que se leen fácil: buena estructura, ritmo claro. Quiero dar esta charla porque en frontend hablamos mucho de pixel perfect, pero poco de lo que pasa en el código para cuidar de verdad la experiencia: semántica HTML, estados de carga/error, mensajes que guían. Me hace ilusión compartir trucos prácticos y que juniors y gente con backgrounds distintos vean que su mirada suma y rompe patrones.',
+  },
+  {
+    id: 'victoria',
+    name: 'Victoria Clotet',
+    profession: 'Chief Product Officer',
+    initials: 'VC',
+    color: '#0334ab',
+    talk: 'El poder del open-source y construir en público: De Madrid a Silicon Valley',
+    bio: 'Victoria Clotet es software engineer y product manager apasionada por la IA y el open source. Estudió doble grado en Computer Science y Commerce en la Universidad de Virginia (EE. UU.) y ha desarrollado proyectos combinando tecnología, diseño y producto. Ha formado parte de Founders Inc. en Silicon Valley, Google for Startups Madrid y Makers Fellowship LATAM. Actualmente es CPO en Twintual, startup de IA en España presente en Antena 3, Forbes y La Vanguardia.',
+  },
+  {
+    id: 'maria',
+    name: 'María Rogles',
+    profession: 'Front-End Web Developer',
+    initials: 'MR',
+    color: '#54A7ED',
+    talk: '¿Design System o Disaster System? El cadáver exquisito entre diseño y desarrollo',
+    bio: '¡Hola! Soy María, UI Developer con background en diseño. Estudié Diseño Gráfico y Multimedia y Desarrollo de Aplicaciones Web. He trabajado en startup, agencia de publicidad, diario digital y consultoría IT. Actualmente estoy en Softtek como maquetadora web en el proyecto del Real Madrid. Llevo 10 años en el sector y mi doble perspectiva me permite entender los retos de ambos mundos. Me apasiona cuando diseño y código hablan el mismo idioma.',
+  },
+  {
+    id: 'kelly',
+    name: 'Kelly Cuesta',
+    profession: 'Marketing & DEI Leader in Tech | University Lecturer | Community Founder',
+    initials: 'KC',
+    color: '#e040fb',
+    talk: 'Career Architecture in the AI Era: Tools, Systems & Strategic Visibility',
+    bio: 'Kelly Cuesta is a marketing and DEI leader with over a decade of experience in high-growth tech across EMEA. She has led go-to-market and partner marketing strategies within complex tech ecosystems and is the founder of Latinas in Tech Madrid and Lean In Madrid. Alongside her corporate career, she lectures at university level on branding, digital transformation, and leadership. Kelly is passionate about helping women in tech design intentional, visible, and sustainable careers.',
+  },
+  {
+    id: 'hesun',
+    name: 'He Sun',
+    profession: 'Data & AI Leader',
+    initials: 'HS',
+    color: '#ff6b6b',
+    talk: 'Build a real-time data platform from 0 to 100 million events per day',
+    bio: "I work in Data & AI at Alibaba, supporting global clients such as TikTok, Shein, AliExpress and Temu. I've been in the field for over 10 years, building large-scale data systems that help businesses understand and shape the real world. I believe the future of tech is not only about coding, but about human-centered intelligence — where women bring unique strengths in systems thinking, empathy, and multi-dimensional problem solving.",
+  },
+  {
+    id: 'yoyu',
+    name: 'Yoyu Li',
+    profession: 'Creative Technology Director',
+    initials: 'YL',
+    color: '#ffd600',
+    talk: 'Beyond the Prompt: An Anatomy of an AI-powered Game using Agent Development Kit',
+    bio: "Yoyu Li is the founder of the independent game studio Infinite Whys. She is the producer and narrative designer of Whispers in the West, and a writer and narrative designer behind Reigns: Three Kingdoms. With a background in board games and cloud technology, she's passionate about bringing social elements into games through innovative gameplay.",
+  },
+];
+---
+
+<section
+  id="ponentes"
+  class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-slate-900 dark:to-slate-800"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">Ponentes</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Conoce a las increíbles mujeres que compartirán su conocimiento y experiencia
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {
+        speakers.map((speaker) => (
+          <article class="group flex flex-col bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="relative w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-slate-700">
+              <div
+                class="w-full h-full flex flex-col items-center justify-center"
+                style={`background: linear-gradient(135deg, ${speaker.color}22, ${speaker.color}44);`}
+              >
+                <span class="text-5xl font-bold mb-2" style={`color: ${speaker.color};`}>
+                  {speaker.initials}
+                </span>
+                <span class="text-xs text-gray-500 dark:text-gray-400 italic">Foto próximamente</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col flex-1 p-5 sm:p-6">
+              <div class="mb-3">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1">{speaker.name}</h3>
+                <p class="text-xs font-medium text-primary dark:text-[#1ce9b6] leading-snug">{speaker.profession}</p>
+              </div>
+
+              <div
+                class="mb-4 rounded-lg bg-blue-50 dark:bg-slate-700/60 px-3 py-2.5 border-l-4"
+                style={`border-color: ${speaker.color};`}
+              >
+                <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 leading-snug">🎤 {speaker.talk}</p>
+              </div>
+
+              <div class="flex-1">
+                <div
+                  id={`bio-${speaker.id}`}
+                  class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed overflow-hidden transition-all duration-300"
+                  style="max-height: 4.5rem;"
+                >
+                  {speaker.bio}
+                </div>
+                <button
+                  id={`btn-${speaker.id}`}
+                  type="button"
+                  class="mt-2 text-xs font-semibold text-primary dark:text-[#1ce9b6] hover:underline focus:outline-none"
+                  data-speaker-id={speaker.id}
+                  data-expanded="false"
+                >
+                  Ver más ▾
+                </button>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[id^="btn-"]').forEach((btn) => {
+    const id = btn.dataset.speakerId;
+    if (!id) return;
+    const bioEl = document.getElementById(`bio-${id}`);
+    if (!bioEl) return;
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.dataset.expanded === 'true';
+      if (expanded) {
+        bioEl.style.maxHeight = '4.5rem';
+        btn.textContent = 'Ver más ▾';
+        btn.dataset.expanded = 'false';
+      } else {
+        bioEl.style.maxHeight = bioEl.scrollHeight + 'px';
+        btn.textContent = 'Ver menos ▴';
+        btn.dataset.expanded = 'true';
+      }
+    });
+  });
+</script>
