@@ -247,10 +247,12 @@ const iwdPartners = (await getCollection('partner'))
       <div
         class="rounded-lg border border-[#2480F0]/40 bg-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-10 dark:border-[#54A7ED]/40 dark:bg-white"
       >
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 sm:gap-x-10 gap-y-8 sm:gap-y-12 place-items-center">
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-x-4 sm:gap-x-8 md:gap-x-10 gap-y-6 sm:gap-y-10 place-items-center"
+        >
           {
             iwdPartners.map((partner) => (
-              <div class="flex h-24 sm:h-28 w-full items-center justify-center px-3 sm:px-4">
+              <div class="flex h-20 sm:h-24 md:h-28 w-full items-center justify-center px-2 sm:px-4">
                 <a
                   href={partner.data.url}
                   target="_blank"
@@ -261,9 +263,10 @@ const iwdPartners = (await getCollection('partner'))
                   <Image
                     src={partner.data.image.src}
                     alt={partner.data.image.alt}
-                    class="max-h-16 sm:max-h-20 max-w-full"
-                    style="object-fit: contain; width: auto;"
-                    width={240}
+                    class="max-h-12 sm:max-h-16 md:max-h-20 max-w-full w-auto"
+                    style="object-fit: contain;"
+                    widths={[120, 200, 280]}
+                    sizes="(max-width: 640px) 120px, (max-width: 1024px) 200px, 280px"
                     loading="lazy"
                   />
                 </a>

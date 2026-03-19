@@ -1,4 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import arantchaImg from '~/assets/images/iwd26/speakers/Arantxa Delgado.jpg';
+import victoriaImg from '~/assets/images/iwd26/speakers/Victoria Clotet.jpg';
+import mariaImg from '~/assets/images/iwd26/speakers/María Rogles.jpg';
+import kellyImg from '~/assets/images/iwd26/speakers/Kelly A.png';
+import yoyuImg from '~/assets/images/iwd26/speakers/Yoyu Li.jpg';
+import yuliiaImg from '~/assets/images/iwd26/speakers/Yuliia Tkachova.jpg';
+import marisaImg from '~/assets/images/iwd26/speakers/Marisa Martin Serrano.jpg';
+
 const speakers = [
   {
     id: 'arantcha',
@@ -6,6 +15,7 @@ const speakers = [
     profession: 'Front-End Web Developer',
     initials: 'AD',
     color: '#1ce9b6',
+    photo: arantchaImg,
     talk: 'Más allá del pixel perfect – cuidando la experiencia desde el código frontend',
     bio: 'Llevo +5 años como desarrolladora frontend con React, Vue y WordPress, creando interfaces que se usan a gusto. Fui librera, así que pienso las pantallas como páginas que se leen fácil: buena estructura, ritmo claro. Quiero dar esta charla porque en frontend hablamos mucho de pixel perfect, pero poco de lo que pasa en el código para cuidar de verdad la experiencia: semántica HTML, estados de carga/error, mensajes que guían. Me hace ilusión compartir trucos prácticos y que juniors y gente con backgrounds distintos vean que su mirada suma y rompe patrones.',
   },
@@ -15,6 +25,7 @@ const speakers = [
     profession: 'Chief Product Officer',
     initials: 'VC',
     color: '#0334ab',
+    photo: victoriaImg,
     talk: 'El poder del open-source y construir en público: De Madrid a Silicon Valley',
     bio: 'Victoria Clotet es software engineer y product manager apasionada por la IA y el open source. Estudió doble grado en Computer Science y Commerce en la Universidad de Virginia (EE. UU.) y ha desarrollado proyectos combinando tecnología, diseño y producto. Ha formado parte de Founders Inc. en Silicon Valley, Google for Startups Madrid y Makers Fellowship LATAM. Actualmente es CPO en Twintual, startup de IA en España presente en Antena 3, Forbes y La Vanguardia.',
   },
@@ -24,6 +35,7 @@ const speakers = [
     profession: 'Front-End Web Developer',
     initials: 'MR',
     color: '#54A7ED',
+    photo: mariaImg,
     talk: '¿Design System o Disaster System? El cadáver exquisito entre diseño y desarrollo',
     bio: '¡Hola! Soy María, UI Developer con background en diseño. Estudié Diseño Gráfico y Multimedia y Desarrollo de Aplicaciones Web. He trabajado en startup, agencia de publicidad, diario digital y consultoría IT. Actualmente estoy en Softtek como maquetadora web en el proyecto del Real Madrid. Llevo 10 años en el sector y mi doble perspectiva me permite entender los retos de ambos mundos. Me apasiona cuando diseño y código hablan el mismo idioma.',
   },
@@ -33,6 +45,7 @@ const speakers = [
     profession: 'Marketing & DEI Leader in Tech | University Lecturer | Community Founder',
     initials: 'KC',
     color: '#e040fb',
+    photo: kellyImg,
     talk: 'Career Architecture in the AI Era: Tools, Systems & Strategic Visibility',
     bio: 'Kelly Cuesta is a marketing and DEI leader with over a decade of experience in high-growth tech across EMEA. She has led go-to-market and partner marketing strategies within complex tech ecosystems and is the founder of Latinas in Tech Madrid and Lean In Madrid. Alongside her corporate career, she lectures at university level on branding, digital transformation, and leadership. Kelly is passionate about helping women in tech design intentional, visible, and sustainable careers.',
   },
@@ -51,8 +64,29 @@ const speakers = [
     profession: 'Creative Technology Director',
     initials: 'YL',
     color: '#ffd600',
+    photo: yoyuImg,
     talk: 'Beyond the Prompt: An Anatomy of an AI-powered Game using Agent Development Kit',
     bio: "Yoyu Li is the founder of the independent game studio Infinite Whys. She is the producer and narrative designer of Whispers in the West, and a writer and narrative designer behind Reigns: Three Kingdoms. With a background in board games and cloud technology, she's passionate about bringing social elements into games through innovative gameplay.",
+  },
+  {
+    id: 'yuliia',
+    name: 'Yuliia Tkachova',
+    profession: 'CEO & Co-Founder of Masthead Data',
+    initials: 'YT',
+    color: '#00bcd4',
+    photo: yuliiaImg,
+    talk: 'Getting Started with Google Antigravity',
+    bio: "Yuliia is CEO & Co-Founder of Masthead Data, a data observability platform for enterprise teams using Google Cloud. With over 8 years of experience in Google Cloud ecosystem, she co-architected Masthead's solution, earning BigQuery and MySQL Designated Partner status plus Google Cloud Build Partner recognition. As a recognized thought leader, she regularly publishes strategic insights on Google Cloud Data solutions, previously led the Google Cloud Customer Community's Canadian chapter. Her technical innovation and community leadership have established her as a trusted advisor for organizations scaling data infrastructure on Google Cloud.",
+  },
+  {
+    id: 'marisa',
+    name: 'Marisa Martín Serrano',
+    profession: 'Engineering Manager (Sol. Architect)',
+    initials: 'MM',
+    color: '#ff7043',
+    photo: marisaImg,
+    talk: 'Buscar trabajo en tiempos de crisis (y de IA)',
+    bio: 'Engineering Manager (SW Architect) con más 15 años de experiencia, en muchos roles técnicos y no técnicos, organizaciones, sectores, países… Pero siempre ligada a infraestructura y plataforma. Me encanta todo lo relacionado con plataformas de negocio e ingeniería, sobre todo GreenOps y FinOps, SRE, seguridad… Soy mentora de Step4forward y TechShessions, adoro a mis perritos, me encanta todo lo que tenga que ver con moverse y enredar.',
   },
 ];
 ---
@@ -74,15 +108,25 @@ const speakers = [
         speakers.map((speaker) => (
           <article class="group flex flex-col bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
             <div class="relative w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-slate-700">
-              <div
-                class="w-full h-full flex flex-col items-center justify-center"
-                style={`background: linear-gradient(135deg, ${speaker.color}22, ${speaker.color}44);`}
-              >
-                <span class="text-5xl font-bold mb-2" style={`color: ${speaker.color};`}>
-                  {speaker.initials}
-                </span>
-                <span class="text-xs text-gray-500 dark:text-gray-400 italic">Foto próximamente</span>
-              </div>
+              {speaker.photo ? (
+                <Image
+                  src={speaker.photo}
+                  alt={speaker.name}
+                  class="w-full h-full object-cover object-top"
+                  widths={[400, 800]}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              ) : (
+                <div
+                  class="w-full h-full flex flex-col items-center justify-center"
+                  style={`background: linear-gradient(135deg, ${speaker.color}22, ${speaker.color}44);`}
+                >
+                  <span class="text-5xl font-bold mb-2" style={`color: ${speaker.color};`}>
+                    {speaker.initials}
+                  </span>
+                  <span class="text-xs text-gray-500 dark:text-gray-400 italic">Foto próximamente</span>
+                </div>
+              )}
             </div>
 
             <div class="flex flex-col flex-1 p-5 sm:p-6">
