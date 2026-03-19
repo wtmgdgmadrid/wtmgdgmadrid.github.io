@@ -5,6 +5,7 @@ type TrackItem = {
   speaker?: string;
   title?: string;
   type: 'talk' | 'workshop' | 'mentoria' | 'empty';
+  lang?: 'en';
 };
 
 type AgendaRow = {
@@ -43,6 +44,7 @@ const agenda: AgendaRow[] = [
       duration: '60 min',
       speaker: 'Yuliia Tkachova',
       title: 'Workshop: Getting Started with Google Antigravity',
+      lang: 'en',
     },
     track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #1 · Cyntia' },
   },
@@ -70,6 +72,7 @@ const agenda: AgendaRow[] = [
       duration: '20 min',
       speaker: 'Kelly Cuesta',
       title: 'Career Architecture in the AI Era: Tools, Systems & Strategic Visibility',
+      lang: 'en',
     },
     track2: {
       type: 'workshop',
@@ -86,6 +89,7 @@ const agenda: AgendaRow[] = [
       duration: '40 min',
       speaker: 'He Sun',
       title: 'Build a real-time data platform from 0 to 100 million events per day',
+      lang: 'en',
     },
     track2: { type: 'empty' },
     track3: { type: 'empty' },
@@ -97,6 +101,7 @@ const agenda: AgendaRow[] = [
       duration: '40 min',
       speaker: 'Yoyu Li',
       title: 'Beyond the Prompt: An Anatomy of an AI-powered Game using Agent Development Kit',
+      lang: 'en',
     },
     track2: { type: 'empty' },
     track3: { type: 'empty' },
@@ -156,9 +161,9 @@ function itemBadge(type: TrackItem['type']) {
     </div>
 
     <!-- ===================== DESKTOP: grid table ===================== -->
-    <div class="hidden md:block rounded-2xl overflow-hidden shadow-lg border border-blue-100 dark:border-slate-700">
+    <div class="hidden md:block agenda-table rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700">
       <!-- Header -->
-      <div class="grid grid-cols-[100px_1fr_1fr_1fr] bg-[#0334ab] text-white">
+      <div class="grid grid-cols-[100px_1fr_1fr_1fr] bg-[#0334ab] text-white rounded-t-2xl overflow-hidden">
         <div class="px-4 py-3 text-sm font-bold text-center">Hora</div>
         <div class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🎤 Auditorio</div>
         <div class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🛠️ Talleres</div>
@@ -169,23 +174,31 @@ function itemBadge(type: TrackItem['type']) {
       {
         agenda.map((row) =>
           row.isPlenary ? (
-            <div class="grid grid-cols-[100px_1fr] border-t border-blue-100 dark:border-slate-700 bg-[#CAE6FF] dark:bg-[#165185]">
+            <div
+              class={`grid border-t border-blue-100 dark:border-slate-700 bg-[#CAE6FF] dark:bg-[#165185] ${row.track3 ? 'grid-cols-[100px_1fr_1fr_1fr]' : 'grid-cols-[100px_1fr]'}`}
+            >
               <div class="px-4 py-3 text-sm font-bold text-[#0334ab] dark:text-white text-center flex items-center justify-center">
                 {row.time}
               </div>
-              <div class="px-6 py-3 text-sm font-bold text-[#0334ab] dark:text-white flex items-center border-l border-blue-200 dark:border-slate-600">
+              <div
+                class={`px-6 py-3 text-sm font-bold text-[#0334ab] dark:text-white flex items-center justify-center border-l border-blue-200 dark:border-slate-600 ${row.track3 ? 'col-span-2' : ''}`}
+              >
                 {row.plenaryLabel}
-                {row.track3 && (
-                  <span class={`ml-auto mr-4 rounded-lg border-l-4 px-3 py-2 text-xs ${itemBg(row.track3.type)}`}>
-                    <span
-                      class={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold mr-1 ${itemBadge(row.track3.type)?.cls}`}
-                    >
-                      {itemBadge(row.track3.type)?.label}
-                    </span>
-                    {row.track3.title}
-                  </span>
-                )}
               </div>
+              {row.track3 && (
+                <div class="px-3 py-3 border-l border-blue-200 dark:border-slate-600">
+                  <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
+                    {itemBadge(row.track3.type) && (
+                      <span
+                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
+                      >
+                        {itemBadge(row.track3.type)?.label} · {row.track3.duration}
+                      </span>
+                    )}
+                    <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div class="grid grid-cols-[100px_1fr_1fr_1fr] border-t border-blue-100 dark:border-slate-700 bg-white dark:bg-slate-800/60">
@@ -207,6 +220,9 @@ function itemBadge(type: TrackItem['type']) {
                       <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track1.speaker}</p>
                     )}
                     <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track1.title}</p>
+                    {row.track1.lang === 'en' && (
+                      <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                    )}
                   </div>
                 )}
               </div>
@@ -225,6 +241,9 @@ function itemBadge(type: TrackItem['type']) {
                       <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track2.speaker}</p>
                     )}
                     <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track2.title}</p>
+                    {row.track2.lang === 'en' && (
+                      <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                    )}
                   </div>
                 )}
               </div>
@@ -243,6 +262,9 @@ function itemBadge(type: TrackItem['type']) {
                       <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track3.speaker}</p>
                     )}
                     <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
+                    {row.track3.lang === 'en' && (
+                      <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                    )}
                   </div>
                 )}
               </div>
@@ -261,16 +283,21 @@ function itemBadge(type: TrackItem['type']) {
               <span class="w-14 shrink-0 text-xs font-bold text-[#0334ab] dark:text-[#1ce9b6] text-right">
                 {row.time}
               </span>
-              <div class="flex-1 rounded-xl bg-[#CAE6FF] dark:bg-[#165185] px-4 py-2.5">
-                <p class="text-sm font-bold text-[#0334ab] dark:text-white">{row.plenaryLabel}</p>
+              <div class="flex-1 space-y-2">
+                <div class="rounded-xl bg-[#CAE6FF] dark:bg-[#165185] px-4 py-2.5 text-center">
+                  <p class="text-sm font-bold text-[#0334ab] dark:text-white">{row.plenaryLabel}</p>
+                </div>
                 {row.track3 && (
-                  <div class={`mt-2 rounded-lg border-l-4 px-3 py-2 ${itemBg(row.track3.type)}`}>
-                    <span
-                      class={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold mr-1 ${itemBadge(row.track3.type)?.cls}`}
-                    >
-                      {itemBadge(row.track3.type)?.label}
-                    </span>
-                    <span class="text-xs text-gray-700 dark:text-gray-200">{row.track3.title}</span>
+                  <div class={`rounded-xl border-l-4 p-3 ${itemBg(row.track3.type)}`}>
+                    {itemBadge(row.track3.type) && (
+                      <span
+                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-1.5 ${itemBadge(row.track3.type)?.cls}`}
+                      >
+                        {itemBadge(row.track3.type)?.label}
+                        {row.track3.duration ? ` · ${row.track3.duration}` : ''}
+                      </span>
+                    )}
+                    <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
                   </div>
                 )}
               </div>
@@ -299,6 +326,9 @@ function itemBadge(type: TrackItem['type']) {
                             <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-0.5">{item.speaker}</p>
                           )}
                           <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{item.title}</p>
+                          {item.lang === 'en' && (
+                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                          )}
                         </div>
                       )
                   )}
@@ -310,3 +340,9 @@ function itemBadge(type: TrackItem['type']) {
     </div>
   </div>
 </section>
+
+<style>
+  .agenda-table > div:last-child {
+    border-radius: 0 0 1rem 1rem;
+  }
+</style>
