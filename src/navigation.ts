@@ -9,7 +9,7 @@ export function getHeaderData(lang: Lang = 'es') {
   const p = prefix(lang);
   return {
     links: [
-      { text: t('nav.iwd'), href: '/iwd' },
+      { text: t('nav.iwd'), href: p ? `${p}/iwd` : '/iwd' },
       { text: t('nav.about'), href: `${p}/#nosotras` },
       { text: t('nav.team'), href: `${p}/#team` },
       { text: t('nav.events'), href: `${p}/#eventos` },
