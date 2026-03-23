@@ -70,6 +70,7 @@ const teamCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     bio: z.string(),
+    bioEn: z.string().optional(),
     image: z.object({
       src: z.string(),
       alt: z.string(),

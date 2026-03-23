@@ -2,15 +2,18 @@
 import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 
-const { member } = Astro.props;
+const { member, lang = 'es' } = Astro.props;
 const maxLength = 50;
-const bioRaw = member.bio ? member.bio.trim() : '';
+const displayBio = lang === 'en' && member.bioEn ? member.bioEn : member.bio;
+const bioRaw = displayBio ? displayBio.trim() : '';
 let shortBio = bioRaw;
 let isLong = false;
 if (bioRaw.length > maxLength) {
   shortBio = bioRaw.slice(0, maxLength - 3) + '...';
   isLong = true;
 }
+const labelMore = lang === 'en' ? 'See more' : 'Ver más';
+const labelLess = lang === 'en' ? 'See less' : 'Ver menos';
 const bioId = `bio-text-${member.name.replace(/\s/g, '')}`;
 const btnMoreId = `btn-more-${member.name.replace(/\s/g, '')}`;
 const btnLessId = `btn-less-${member.name.replace(/\s/g, '')}`;
@@ -68,7 +71,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
               class="ml-2 text-blue-600 underline text-sm"
               style="color: var(--aw-color-link);background:none;border:none;padding:0;cursor:pointer;"
               onclick={`
-              document.getElementById('${bioId}').textContent = '${member.bio.replace(/'/g, "\\'")}';
+              document.getElementById('${bioId}').textContent = '${displayBio.replace(/'/g, "\\'")}';
               document.getElementById('${btnMoreId}').style.display = 'none';
               document.getElementById('${btnLessId}').style.display = 'inline';
               var p = document.getElementById('${pId}');
@@ -76,7 +79,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
               p.classList.add('overflow-auto');
             `}
             >
-              Ver más
+              {labelMore}
             </button>
             <button
               id={btnLessId}
@@ -92,7 +95,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
               p.classList.add('overflow-hidden');
             `}
             >
-              Ver menos
+              {labelLess}
             </button>
           </>
         )
