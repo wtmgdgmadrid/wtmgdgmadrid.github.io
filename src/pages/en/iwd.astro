@@ -28,7 +28,7 @@ const iwdPartners = (await getCollection('partner'))
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
-<LayoutIwd metadata={metadata}>
+<LayoutIwd metadata={metadata} lang="en">
   <!-- Hero Section - Save The Date -->
   <Hero>
     <Fragment slot="title">
@@ -330,7 +330,7 @@ const iwdPartners = (await getCollection('partner'))
   <SpeakersIwd lang="en" />
 
   <!-- Agenda Section -->
-  <AgendaIwd />
+  <AgendaIwd lang="en" />
 </LayoutIwd>
 
 <style>
