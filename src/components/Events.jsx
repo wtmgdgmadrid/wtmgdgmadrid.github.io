@@ -3,6 +3,23 @@
 // soporta Web Share API, ofrece compartir nativo en móvil.
 import React from 'react';
 import { isPastEvent } from '../utils/dates';
+
+const EVENTS_I18N = {
+  es: {
+    upcoming: 'Eventos Próximos',
+    subtitle:
+      'No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología.',
+    closed: 'Inscripciones cerradas',
+    register: 'Registrarse',
+  },
+  en: {
+    upcoming: 'Upcoming Events',
+    subtitle:
+      "Don't miss our next gatherings. Join us at events designed to inspire, educate and connect women in tech.",
+    closed: 'Registration closed',
+    register: 'Register',
+  },
+};
 import {
   LinkedinShareButton,
   TwitterShareButton,
@@ -28,15 +45,13 @@ function SocialShare({ url, title }) {
   );
 }
 
-export default function Events({ events }) {
+export default function Events({ events, locale = 'es' }) {
+  const i18n = EVENTS_I18N[locale] ?? EVENTS_I18N.es;
   return (
     <section id="eventos" className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl font-extrabold text-bg-white">Eventos Próximos</h2>
-        <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">
-          No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la
-          comunidad de mujeres en tecnología.
-        </p>
+        <h2 className="text-3xl font-extrabold text-bg-white">{i18n.upcoming}</h2>
+        <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">{i18n.subtitle}</p>
       </div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -55,12 +70,12 @@ export default function Events({ events }) {
                       className="inline-flex items-center px-4 py-1.5 rounded-full text-white text-sm font-semibold shadow-sm"
                       style={{ backgroundColor: 'var(--aw-color-secondary)' }}
                     >
-                      {e.status}
+                      {locale === 'en' ? 'Open Registrations' : e.status}
                     </span>
                   )}
                   {isPast && (
                     <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-400 text-white text-sm font-semibold shadow-sm">
-                      Inscripciones cerradas
+                      {i18n.closed}
                     </span>
                   )}
                   {!isPast && <SocialShare url={e.url} title={e.title} />}
@@ -151,7 +166,7 @@ export default function Events({ events }) {
                     aria-disabled={isPast ? 'true' : 'false'}
                     {...(isPast ? { onClick: (e) => e.preventDefault() } : {})}
                   >
-                    {isPast ? 'Inscripciones cerradas' : e.ctaLabel || 'Registrarse'}
+                    {isPast ? i18n.closed : e.ctaLabel || i18n.register}
                   </a>
                 </div>
               </div>

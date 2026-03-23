@@ -24,6 +24,14 @@ export default defineConfig({
   site: 'https://wtmgdgmadrid.github.io',
   output: 'static',
 
+  i18n: {
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [
     react(),
     tailwind({
