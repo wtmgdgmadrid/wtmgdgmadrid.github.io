@@ -6,6 +6,7 @@ type TrackItem = {
   title?: string;
   type: 'talk' | 'workshop' | 'mentoria' | 'empty';
   lang?: 'en';
+  rowspan?: number;
 };
 
 type AgendaRow = {
@@ -42,11 +43,12 @@ const agenda: AgendaRow[] = [
     track2: {
       type: 'workshop',
       duration: '60 min',
+      rowspan: 2,
       speaker: 'Yuliia Tkachova',
       title: 'Workshop: Getting Started with Google Antigravity',
       lang: 'en',
     },
-    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #1 · Cyntia' },
+    track3: { type: 'empty' },
   },
   {
     time: '17:20',
@@ -57,14 +59,9 @@ const agenda: AgendaRow[] = [
       title: '¿Design System o Disaster System? El cadáver exquisito entre diseño y desarrollo',
     },
     track2: { type: 'empty' },
-    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #2 · Mía' },
+    track3: { type: 'empty' },
   },
-  {
-    time: '18:00',
-    isPlenary: true,
-    plenaryLabel: '☕ Break',
-    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #3 · Aurelia' },
-  },
+  { time: '18:00', isPlenary: true, plenaryLabel: '☕ Break' },
   {
     time: '18:30',
     track1: {
@@ -77,10 +74,17 @@ const agenda: AgendaRow[] = [
     track2: {
       type: 'workshop',
       duration: '60 min',
+      rowspan: 5,
       speaker: 'Marisa Martín Serrano',
       title: 'Workshop: Buscar trabajo en tiempos de crisis (y de IA)',
     },
-    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #4 · Elena' },
+    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #1 · Cyntia' },
+  },
+  {
+    time: '18:45',
+    track1: { type: 'empty' },
+    track2: { type: 'empty' },
+    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #2 · Mía' },
   },
   {
     time: '18:55',
@@ -93,6 +97,18 @@ const agenda: AgendaRow[] = [
     },
     track2: { type: 'empty' },
     track3: { type: 'empty' },
+  },
+  {
+    time: '19:00',
+    track1: { type: 'empty' },
+    track2: { type: 'empty' },
+    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #3 · Aurelia' },
+  },
+  {
+    time: '19:15',
+    track1: { type: 'empty' },
+    track2: { type: 'empty' },
+    track3: { type: 'mentoria', duration: '15 min', title: 'Mentoría Stepforward #4 · Elena' },
   },
   {
     time: '19:40',
@@ -109,6 +125,19 @@ const agenda: AgendaRow[] = [
   { time: '20:25', isPlenary: true, plenaryLabel: '👋 Cierre' },
   { time: '20:30', isPlenary: true, plenaryLabel: '🤝 Networking' },
 ];
+
+// Pre-compute which (rowIdx, trackIdx) cells are covered by a rowspan from above
+const cellsToSkip = new Set<string>();
+agenda.forEach((row, rowIdx) => {
+  if (row.isPlenary) return;
+  [row.track1, row.track2, row.track3].forEach((track, trackIdx) => {
+    if (track?.rowspan && track.rowspan > 1) {
+      for (let r = rowIdx + 1; r < rowIdx + track.rowspan; r++) {
+        cellsToSkip.add(`${r}-${trackIdx}`);
+      }
+    }
+  });
+});
 
 function itemBg(type: TrackItem['type']) {
   switch (type) {
@@ -160,118 +189,136 @@ function itemBadge(type: TrackItem['type']) {
       </span>
     </div>
 
-    <!-- ===================== DESKTOP: grid table ===================== -->
-    <div class="hidden md:block agenda-table rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700">
-      <!-- Header -->
-      <div class="grid grid-cols-[100px_1fr_1fr_1fr] bg-[#0334ab] text-white rounded-t-2xl overflow-hidden">
-        <div class="px-4 py-3 text-sm font-bold text-center">Hora</div>
-        <div class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🎤 Auditorio</div>
-        <div class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🛠️ Talleres</div>
-        <div class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🌱 Mentorías</div>
-      </div>
-
-      <!-- Rows -->
-      {
-        agenda.map((row) =>
-          row.isPlenary ? (
-            <div
-              class={`grid border-t border-blue-100 dark:border-slate-700 bg-[#CAE6FF] dark:bg-[#165185] ${row.track3 ? 'grid-cols-[100px_1fr_1fr_1fr]' : 'grid-cols-[100px_1fr]'}`}
-            >
-              <div class="px-4 py-3 text-sm font-bold text-[#0334ab] dark:text-white text-center flex items-center justify-center">
-                {row.time}
-              </div>
-              <div
-                class={`px-6 py-3 text-sm font-bold text-[#0334ab] dark:text-white flex items-center justify-center border-l border-blue-200 dark:border-slate-600 ${row.track3 ? 'col-span-2' : ''}`}
-              >
-                {row.plenaryLabel}
-              </div>
-              {row.track3 && (
-                <div class="px-3 py-3 border-l border-blue-200 dark:border-slate-600">
-                  <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
-                    {itemBadge(row.track3.type) && (
-                      <span
-                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
-                      >
-                        {itemBadge(row.track3.type)?.label} · {row.track3.duration}
-                      </span>
+    <!-- ===================== DESKTOP: table with rowspan support ===================== -->
+    <div class="hidden md:block rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 overflow-hidden">
+      <table class="w-full border-collapse">
+        <colgroup>
+          <col style="width: 100px" />
+          <col />
+          <col />
+          <col />
+        </colgroup>
+        <thead>
+          <tr class="bg-[#0334ab] text-white">
+            <th class="px-4 py-3 text-sm font-bold text-center">Hora</th>
+            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🎤 Auditorio</th>
+            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🛠️ Talleres</th>
+            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🌱 Mentorías</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            agenda.map((row, rowIdx) =>
+              row.isPlenary ? (
+                <tr>
+                  <td class="px-4 py-3 text-sm font-bold text-[#0334ab] dark:text-white text-center align-middle border-t border-blue-100 dark:border-slate-700 bg-[#CAE6FF] dark:bg-[#165185]">
+                    {row.time}
+                  </td>
+                  <td
+                    colspan={row.track3 ? 2 : 3}
+                    class="px-6 py-3 text-sm font-bold text-[#0334ab] dark:text-white text-center align-middle border-t border-l border-blue-200 dark:border-slate-600 bg-[#CAE6FF] dark:bg-[#165185]"
+                  >
+                    {row.plenaryLabel}
+                  </td>
+                  {row.track3 && (
+                    <td class="px-3 py-3 border-t border-l border-blue-200 dark:border-slate-600 bg-[#CAE6FF] dark:bg-[#165185] align-top">
+                      <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
+                        {itemBadge(row.track3.type) && (
+                          <span
+                            class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
+                          >
+                            {itemBadge(row.track3.type)?.label} · {row.track3.duration}
+                          </span>
+                        )}
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
+                      </div>
+                    </td>
+                  )}
+                </tr>
+              ) : (
+                <tr class="bg-white dark:bg-slate-800/60">
+                  <td class="px-4 py-4 text-sm font-bold text-gray-700 dark:text-gray-300 text-center align-top border-t border-blue-100 dark:border-slate-700">
+                    {row.time}
+                  </td>
+                  {/* Track 1 */}
+                  <td class="px-3 py-3 border-t border-l border-blue-100 dark:border-slate-700 align-top">
+                    {row.track1 && row.track1.type !== 'empty' && (
+                      <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track1.type)}`}>
+                        {itemBadge(row.track1.type) && (
+                          <span
+                            class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track1.type)?.cls}`}
+                          >
+                            {itemBadge(row.track1.type)?.label} · {row.track1.duration}
+                          </span>
+                        )}
+                        {row.track1.speaker && (
+                          <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track1.speaker}</p>
+                        )}
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track1.title}</p>
+                        {row.track1.lang === 'en' && (
+                          <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                        )}
+                      </div>
                     )}
-                    <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          ) : (
-            <div class="grid grid-cols-[100px_1fr_1fr_1fr] border-t border-blue-100 dark:border-slate-700 bg-white dark:bg-slate-800/60">
-              <div class="px-4 py-4 text-sm font-bold text-gray-700 dark:text-gray-300 text-center flex items-start justify-center pt-4">
-                {row.time}
-              </div>
-              {/* Track 1 */}
-              <div class="px-3 py-3 border-l border-blue-100 dark:border-slate-700">
-                {row.track1 && row.track1.type !== 'empty' && (
-                  <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track1.type)}`}>
-                    {itemBadge(row.track1.type) && (
-                      <span
-                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track1.type)?.cls}`}
-                      >
-                        {itemBadge(row.track1.type)?.label} · {row.track1.duration}
-                      </span>
-                    )}
-                    {row.track1.speaker && (
-                      <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track1.speaker}</p>
-                    )}
-                    <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track1.title}</p>
-                    {row.track1.lang === 'en' && (
-                      <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
-                    )}
-                  </div>
-                )}
-              </div>
-              {/* Track 2 */}
-              <div class="px-3 py-3 border-l border-blue-100 dark:border-slate-700">
-                {row.track2 && row.track2.type !== 'empty' && (
-                  <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track2.type)}`}>
-                    {itemBadge(row.track2.type) && (
-                      <span
-                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track2.type)?.cls}`}
-                      >
-                        {itemBadge(row.track2.type)?.label} · {row.track2.duration}
-                      </span>
-                    )}
-                    {row.track2.speaker && (
-                      <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track2.speaker}</p>
-                    )}
-                    <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track2.title}</p>
-                    {row.track2.lang === 'en' && (
-                      <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
-                    )}
-                  </div>
-                )}
-              </div>
-              {/* Track 3 */}
-              <div class="px-3 py-3 border-l border-blue-100 dark:border-slate-700">
-                {row.track3 && row.track3.type !== 'empty' && (
-                  <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
-                    {itemBadge(row.track3.type) && (
-                      <span
-                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
-                      >
-                        {itemBadge(row.track3.type)?.label} · {row.track3.duration}
-                      </span>
-                    )}
-                    {row.track3.speaker && (
-                      <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track3.speaker}</p>
-                    )}
-                    <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
-                    {row.track3.lang === 'en' && (
-                      <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          )
-        )
-      }
+                  </td>
+                  {/* Track 2 — skip if covered by a rowspan from above */}
+                  {!cellsToSkip.has(`${rowIdx}-1`) && (
+                    <td
+                      rowspan={row.track2?.rowspan ?? 1}
+                      class="px-3 py-3 border-t border-l border-blue-100 dark:border-slate-700 align-top"
+                    >
+                      {row.track2 && row.track2.type !== 'empty' && (
+                        <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track2.type)}`}>
+                          {itemBadge(row.track2.type) && (
+                            <span
+                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track2.type)?.cls}`}
+                            >
+                              {itemBadge(row.track2.type)?.label} · {row.track2.duration}
+                            </span>
+                          )}
+                          {row.track2.speaker && (
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track2.speaker}</p>
+                          )}
+                          <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track2.title}</p>
+                          {row.track2.lang === 'en' && (
+                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                          )}
+                        </div>
+                      )}
+                    </td>
+                  )}
+                  {/* Track 3 — skip if covered by a rowspan from above */}
+                  {!cellsToSkip.has(`${rowIdx}-2`) && (
+                    <td
+                      rowspan={row.track3?.rowspan ?? 1}
+                      class="px-3 py-3 border-t border-l border-blue-100 dark:border-slate-700 align-top"
+                    >
+                      {row.track3 && row.track3.type !== 'empty' && (
+                        <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
+                          {itemBadge(row.track3.type) && (
+                            <span
+                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
+                            >
+                              {itemBadge(row.track3.type)?.label} · {row.track3.duration}
+                            </span>
+                          )}
+                          {row.track3.speaker && (
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1">{row.track3.speaker}</p>
+                          )}
+                          <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
+                          {row.track3.lang === 'en' && (
+                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                          )}
+                        </div>
+                      )}
+                    </td>
+                  )}
+                </tr>
+              )
+            )
+          }
+        </tbody>
+      </table>
     </div>
 
     <!-- ===================== MOBILE: vertical timeline ===================== -->
@@ -340,9 +387,3 @@ function itemBadge(type: TrackItem['type']) {
     </div>
   </div>
 </section>
-
-<style>
-  .agenda-table > div:last-child {
-    border-radius: 0 0 1rem 1rem;
-  }
-</style>
