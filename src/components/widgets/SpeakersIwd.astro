@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, type ImageMetadata } from 'astro:assets';
 import arantchaImg from '~/assets/images/iwd26/speakers/Arantxa Delgado.jpg';
 import victoriaImg from '~/assets/images/iwd26/speakers/Victoria Clotet.jpg';
 import mariaImg from '~/assets/images/iwd26/speakers/María Rogles.jpg';
@@ -8,7 +8,25 @@ import yoyuImg from '~/assets/images/iwd26/speakers/Yoyu Li.jpg';
 import yuliiaImg from '~/assets/images/iwd26/speakers/Yuliia Tkachova.jpg';
 import marisaImg from '~/assets/images/iwd26/speakers/Marisa Martin Serrano.jpg';
 
-const speakers = [
+interface SpeakerData {
+  id: string;
+  name: string;
+  profession: string;
+  initials: string;
+  color: string;
+  photo?: ImageMetadata;
+  talk: string;
+  bio: string;
+  bioEn: string;
+}
+
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
+const speakers: SpeakerData[] = [
   {
     id: 'arantcha',
     name: 'Arantcha Delgado',
@@ -18,6 +36,8 @@ const speakers = [
     photo: arantchaImg,
     talk: 'Más allá del pixel perfect – cuidando la experiencia desde el código frontend',
     bio: 'Arantcha lleva +5 años como desarrolladora frontend con React, Vue y WordPress, creando interfaces que se usan a gusto. Fue librera, así que piensa las pantallas como páginas que se leen fácil: buena estructura, ritmo claro. En frontend se habla mucho de pixel perfect, pero poco de lo que pasa en el código para cuidar de verdad la experiencia: semántica HTML, estados de carga/error, mensajes que guían. Le hace ilusión compartir trucos prácticos y que juniors y gente con backgrounds distintos vean que su mirada suma y rompe patrones.',
+    bioEn:
+      'Arantcha has 5+ years as a frontend developer with React, Vue and WordPress, creating interfaces that are enjoyable to use. She was a bookseller, so she thinks about screens like pages that are easy to read: good structure, clear rhythm. In frontend, there is a lot of talk about pixel perfect, but little about what happens in the code to truly care for the experience: HTML semantics, loading/error states, guiding messages. She is excited to share practical tips and help juniors and people from different backgrounds see that their perspective adds value and breaks patterns.',
   },
   {
     id: 'victoria',
@@ -28,6 +48,8 @@ const speakers = [
     photo: victoriaImg,
     talk: 'El poder del open-source y construir en público: De Madrid a Silicon Valley',
     bio: 'Victoria Clotet es software engineer y product manager apasionada por la IA y el open source. Estudió doble grado en Computer Science y Commerce en la Universidad de Virginia (EE. UU.) y ha desarrollado proyectos combinando tecnología, diseño y producto. Ha formado parte de Founders Inc. en Silicon Valley, Google for Startups Madrid y Makers Fellowship LATAM. Actualmente es CPO en Twintual, startup de IA en España presente en Antena 3, Forbes y La Vanguardia.',
+    bioEn:
+      'Victoria Clotet is a software engineer and product manager passionate about AI and open source. She studied a double degree in Computer Science and Commerce at the University of Virginia (USA) and has developed projects combining technology, design and product. She has been part of Founders Inc. in Silicon Valley, Google for Startups Madrid and the Makers Fellowship LATAM. She is currently CPO at Twintual, an AI startup in Spain featured in Antena 3, Forbes and La Vanguardia.',
   },
   {
     id: 'maria',
@@ -38,6 +60,8 @@ const speakers = [
     photo: mariaImg,
     talk: '¿Design System o Disaster System? El cadáver exquisito entre diseño y desarrollo',
     bio: 'María es UI Developer con background en diseño. Estudió Diseño Gráfico y Multimedia y Desarrollo de Aplicaciones Web. Ha trabajado en startup, agencia de publicidad, diario digital y consultoría IT. Actualmente está en Softtek como maquetadora web en el proyecto del Real Madrid. Con 10 años en el sector, su doble perspectiva le permite entender los retos de ambos mundos. Le apasiona cuando diseño y código hablan el mismo idioma.',
+    bioEn:
+      'María is a UI Developer with a background in design. She studied Graphic and Multimedia Design and Web Application Development. She has worked at a startup, advertising agency, digital newspaper and IT consultancy. She is currently at Softtek as a web developer on the Real Madrid project. With 10 years in the industry, her dual perspective allows her to understand the challenges of both worlds. She is passionate about when design and code speak the same language.',
   },
   {
     id: 'kelly',
@@ -48,6 +72,8 @@ const speakers = [
     photo: kellyImg,
     talk: 'Career Architecture in the AI Era: Tools, Systems & Strategic Visibility',
     bio: 'Kelly Cuesta es líder de marketing e inclusión (DEI) con más de una década de experiencia en empresas tecnológicas de alto crecimiento en la región EMEA. Ha liderado estrategias de go-to-market y marketing de partners en ecosistemas tecnológicos complejos, y es fundadora de Latinas in Tech Madrid y Lean In Madrid. Compagina su carrera corporativa con la docencia universitaria en branding, transformación digital y liderazgo. Kelly tiene pasión por ayudar a mujeres en tecnología a diseñar carreras intencionales, visibles y sostenibles.',
+    bioEn:
+      'Kelly Cuesta is a marketing and inclusion (DEI) leader with over a decade of experience at high-growth tech companies in the EMEA region. She has led go-to-market strategies and partner marketing in complex tech ecosystems, and is the founder of Latinas in Tech Madrid and Lean In Madrid. She combines her corporate career with university teaching in branding, digital transformation and leadership. Kelly is passionate about helping women in tech design intentional, visible and sustainable careers.',
   },
   {
     id: 'hesun',
@@ -57,6 +83,8 @@ const speakers = [
     color: '#ff6b6b',
     talk: 'Build a real-time data platform from 0 to 100 million events per day',
     bio: 'He Sun trabaja en Data & IA en Alibaba, dando soporte a clientes globales como TikTok, Shein, AliExpress y Temu. Lleva más de 10 años en el sector construyendo sistemas de datos a gran escala que ayudan a las empresas a comprender y transformar el mundo real. Cree que el futuro de la tecnología no es solo código, sino inteligencia centrada en las personas, donde las mujeres aportan fortalezas únicas en pensamiento sistémico, empatía y resolución multidimensional de problemas.',
+    bioEn:
+      'He Sun works in Data & AI at Alibaba, supporting global clients such as TikTok, Shein, AliExpress and Temu. She has over 10 years in the industry building large-scale data systems that help companies understand and transform the real world. She believes the future of technology is not just code, but people-centred intelligence, where women bring unique strengths in systems thinking, empathy and multi-dimensional problem solving.',
   },
   {
     id: 'yoyu',
@@ -67,6 +95,8 @@ const speakers = [
     photo: yoyuImg,
     talk: 'Beyond the Prompt: An Anatomy of an AI-powered Game using Agent Development Kit',
     bio: 'Yoyu Li es fundadora del estudio independiente de videojuegos Infinite Whys. Es productora y diseñadora narrativa de Whispers in the West, y escritora y diseñadora narrativa de Reigns: Three Kingdoms. Con experiencia en juegos de mesa y tecnología cloud, le apasiona introducir elementos sociales en los videojuegos a través de mecánicas de juego innovadoras.',
+    bioEn:
+      'Yoyu Li is the founder of the independent video game studio Infinite Whys. She is the producer and narrative designer of Whispers in the West, and writer and narrative designer of Reigns: Three Kingdoms. With experience in board games and cloud technology, she is passionate about introducing social elements into video games through innovative game mechanics.',
   },
   {
     id: 'yuliia',
@@ -77,6 +107,8 @@ const speakers = [
     photo: yuliiaImg,
     talk: 'Getting Started with Google Antigravity',
     bio: 'Yuliia Tkachova es CEO y cofundadora de Masthead Data, una plataforma de observabilidad de datos para equipos empresariales que trabajan con Google Cloud. Con más de 8 años de experiencia en el ecosistema de Google Cloud, co-arquitectó la solución de Masthead, logrando el estatus de Partner Designado en BigQuery y MySQL, así como el reconocimiento de Google Cloud Build Partner. Referente reconocida en el sector, publica regularmente análisis estratégicos sobre soluciones de datos en Google Cloud y lideró el capítulo canadiense de la Google Cloud Customer Community. Su innovación técnica y liderazgo comunitario la han consolidado como asesora de confianza para organizaciones que escalan su infraestructura de datos en Google Cloud.',
+    bioEn:
+      'Yuliia Tkachova is CEO and co-founder of Masthead Data, a data observability platform for enterprise teams working with Google Cloud. With over 8 years of experience in the Google Cloud ecosystem, she co-architected the Masthead solution, achieving Designated Partner status in BigQuery and MySQL, as well as recognition as a Google Cloud Build Partner. A recognised thought leader in the industry, she regularly publishes strategic analyses on Google Cloud data solutions and led the Canadian chapter of the Google Cloud Customer Community. Her technical innovation and community leadership have established her as a trusted advisor for organisations scaling their data infrastructure on Google Cloud.',
   },
   {
     id: 'marisa',
@@ -87,6 +119,8 @@ const speakers = [
     photo: marisaImg,
     talk: 'Buscar trabajo en tiempos de crisis (y de IA)',
     bio: 'Marisa es Engineering Manager (SW Architect) con más de 15 años de experiencia en roles técnicos y no técnicos, en diversas organizaciones, sectores y países, siempre ligada a infraestructura y plataforma. Le apasiona todo lo relacionado con plataformas de negocio e ingeniería, especialmente GreenOps, FinOps, SRE y seguridad. Es mentora en Step4forward y TechShessions, adora a sus perritos y le encanta todo lo que tenga que ver con moverse y enredar.',
+    bioEn:
+      'Marisa is an Engineering Manager (SW Architect) with over 15 years of experience in technical and non-technical roles, across various organisations, sectors and countries, always linked to infrastructure and platform. She is passionate about everything related to business and engineering platforms, especially GreenOps, FinOps, SRE and security. She is a mentor at Step4ward and TechShessions, adores her dogs and loves everything related to moving and tinkering.',
   },
 ];
 ---
@@ -97,9 +131,15 @@ const speakers = [
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">Ponentes</h2>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
+        {lang === 'en' ? 'Speakers' : 'Ponentes'}
+      </h2>
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Conoce a las increíbles mujeres que compartirán su conocimiento y experiencia
+        {
+          lang === 'en'
+            ? 'Meet the incredible women who will share their knowledge and experience'
+            : 'Conoce a las increíbles mujeres que compartirán su conocimiento y experiencia'
+        }
       </p>
     </div>
 
@@ -124,7 +164,9 @@ const speakers = [
                   <span class="text-5xl font-bold mb-2" style={`color: ${speaker.color};`}>
                     {speaker.initials}
                   </span>
-                  <span class="text-xs text-gray-500 dark:text-gray-400 italic">Foto próximamente</span>
+                  <span class="text-xs text-gray-500 dark:text-gray-400 italic">
+                    {lang === 'en' ? 'Photo coming soon' : 'Foto próximamente'}
+                  </span>
                 </div>
               )}
             </div>
@@ -148,7 +190,7 @@ const speakers = [
                   class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed overflow-hidden transition-all duration-300"
                   style="max-height: 4.5rem;"
                 >
-                  {speaker.bio}
+                  {lang === 'en' ? speaker.bioEn : speaker.bio}
                 </div>
                 <button
                   id={`btn-${speaker.id}`}
@@ -156,8 +198,10 @@ const speakers = [
                   class="mt-2 text-xs font-semibold text-primary dark:text-[#1ce9b6] hover:underline focus:outline-none"
                   data-speaker-id={speaker.id}
                   data-expanded="false"
+                  data-label-more={lang === 'en' ? 'See more ▾' : 'Ver más ▾'}
+                  data-label-less={lang === 'en' ? 'See less ▴' : 'Ver menos ▴'}
                 >
-                  Ver más ▾
+                  {lang === 'en' ? 'See more ▾' : 'Ver más ▾'}
                 </button>
               </div>
             </div>
@@ -179,11 +223,11 @@ const speakers = [
       const expanded = btn.dataset.expanded === 'true';
       if (expanded) {
         bioEl.style.maxHeight = '4.5rem';
-        btn.textContent = 'Ver más ▾';
+        btn.textContent = btn.dataset.labelMore ?? 'Ver más ▾';
         btn.dataset.expanded = 'false';
       } else {
         bioEl.style.maxHeight = bioEl.scrollHeight + 'px';
-        btn.textContent = 'Ver menos ▴';
+        btn.textContent = btn.dataset.labelLess ?? 'Ver menos ▴';
         btn.dataset.expanded = 'true';
       }
     });

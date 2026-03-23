@@ -1,0 +1,490 @@
+---
+import { getCollection } from 'astro:content';
+import LayoutIwd from '~/layouts/LayoutIwd.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Image from '~/components/common/Image.astro';
+import SpeakersIwd from '~/components/widgets/SpeakersIwd.astro';
+import AgendaIwd from '~/components/widgets/AgendaIwd.astro';
+import celonisLogo from '~/assets/images/sponsors/celonis.png';
+import nextdigital from '~/assets/images/sponsors/next-digital.png';
+import medallaOro from '~/assets/images/iwd26/medallaOro.png';
+import medallaBronce from '~/assets/images/iwd26/medallaBronce.png';
+
+const metadata = {
+  title: 'IWD 2026 - Women Techmakers Madrid',
+  description: "International Women's Day 2026 - Women Techmakers Madrid. Save The Date: April 17, 2026",
+  ignoreTitleTemplate: true,
+};
+
+const celonisData = {
+  name: 'Celonis',
+  googleMapsLink: 'https://maps.app.goo.gl/39ts3cc8E5rUJsy18',
+  description: 'Celonis is a global leader in process mining and execution management software.',
+};
+
+const iwdPartners = (await getCollection('partner'))
+  .filter((p) => p.data.iwdPartner === true)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<LayoutIwd metadata={metadata}>
+  <!-- Hero Section - Save The Date -->
+  <Hero>
+    <Fragment slot="title">
+      International Women's Day
+      <br />
+      <span class="text-primary dark:text-white"> 2026</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="space-y-4">
+        <p class="text-2xl md:text-3xl font-bold text-primary dark:text-blue-300 mb-6">📅 Save The Date</p>
+        <p class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200">
+          April 17, 2026 📍<a
+            href={celonisData.googleMapsLink}
+            target="_blank"
+            rel="noopener"
+            class="text-black hover:underline">{celonisData.name}</a
+          >
+        </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mt-4">
+          Join us in this special celebration where we will highlight the talent, innovation and leadership of women in
+          technology.
+        </p>
+        <div class="mt-8">
+          <a
+            href="https://luma.com/ujpm8lye"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-lg border-2 border-black bg-primary dark:bg-[#165185] dark:border-none px-10 py-5 text-xl font-extrabold uppercase tracking-wide text-white shadow-[4px_4px_0_0_#000] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+          >
+            Register
+          </a>
+        </div>
+      </div>
+    </Fragment>
+
+    <!-- Background: use light/dark utilities defined in tailwind.css -->
+    <div slot="bg">
+      <div class="absolute inset-0 iwd-bg-light dark:iwd-bg-dark" aria-hidden="true"></div>
+    </div>
+
+    <div slot="image" class="flex flex-col justify-center items-center w-full px-4">
+      <!-- Light theme: show first image -->
+      <div class="block dark:hidden w-full max-w-4xl">
+        <Image
+          src="~/assets/images/iwd26/BlackLogoWithBCK.svg"
+          alt="IWD 2026 Logo"
+          class="mx-auto w-full h-auto"
+          width={1024}
+          height={576}
+        />
+      </div>
+      <!-- Dark theme: show second image -->
+      <div class="hidden dark:block w-full max-w-4xl">
+        <Image
+          src="~/assets/images/iwd26/BlueLogoWithBCK.svg"
+          alt="IWD 2026 Logo (blue)"
+          class="mx-auto w-full h-auto"
+          width={1024}
+          height={576}
+        />
+      </div>
+      <div class="w-full max-w-4xl mx-auto mt-6 sm:mt-8 text-center">
+        <div class="flex justify-center">
+          <Image
+            src="~/assets/images/build-with-ia-logo.png"
+            alt="Built with AI - Google"
+            class="h-10 sm:h-14 md:h-16 w-auto max-w-full"
+            width={400}
+            height={64}
+          />
+        </div>
+      </div>
+    </div>
+  </Hero>
+
+  <!-- Countdown Section -->
+  <section
+    id="countdown"
+    class="bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900 py-16 md:py-24"
+  >
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary dark:text-[#1ce9b6] mb-3">
+        April 17, 2026 · Madrid
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">The program is ready!</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        Talks, workshops and mentorships to inspire you. IWD 2026 is just around the corner.
+      </p>
+
+      <!-- Countdown -->
+      <div class="flex justify-center gap-4 sm:gap-8 mb-12">
+        {
+          [
+            { id: 'cd-days', label: 'Days' },
+            { id: 'cd-hours', label: 'Hours' },
+            { id: 'cd-minutes', label: 'Minutes' },
+            { id: 'cd-seconds', label: 'Seconds' },
+          ].map(({ id, label }) => (
+            <div class="flex flex-col items-center">
+              <span
+                id={id}
+                class="text-5xl sm:text-6xl font-extrabold tabular-nums text-[#0334ab] dark:text-[#1ce9b6] leading-none"
+              >
+                --
+              </span>
+              <span class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider">
+                {label}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#ponentes"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-[#0334ab] text-white px-7 py-3 text-sm font-semibold hover:bg-[#0228a0] transition-colors"
+        >
+          🎤 See speakers
+        </a>
+        <a
+          href="#agenda"
+          class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#0334ab] text-[#0334ab] dark:border-[#1ce9b6] dark:text-[#1ce9b6] px-7 py-3 text-sm font-semibold hover:bg-[#0334ab]/10 transition-colors"
+        >
+          📅 See agenda
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function updateCountdown() {
+      const target = new Date('2026-04-17T16:00:00+02:00').getTime();
+      const now = Date.now();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        ['cd-days', 'cd-hours', 'cd-minutes', 'cd-seconds'].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '00';
+        });
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      const pad = (n: number) => String(n).padStart(2, '0');
+
+      const els: Record<string, number> = {
+        'cd-days': days,
+        'cd-hours': hours,
+        'cd-minutes': minutes,
+        'cd-seconds': seconds,
+      };
+      for (const [id, val] of Object.entries(els)) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = pad(val);
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  <!-- Event Details Section -->
+  <Content
+    isReversed
+    tagline="Event Details"
+    title='IWD 2026 - <span class="break-pattern-text inline-block"><span class="break-word-animated" style="animation-delay: 0s;">Break</span> <span class="break-word-animated" style="animation-delay: 0.2s;">the</span> <span class="break-word-animated" style="animation-delay: 0.4s;">pattern</span></span>'
+    items={[
+      {
+        title: 'Date and Time',
+        description: `April 17, 2026 - 📍<a href="${celonisData.googleMapsLink}" target="_blank" rel="noopener" class="text-muted hover:underline">${celonisData.name}</a>`,
+      },
+      {
+        title: 'Format',
+        description: 'In-person event in Madrid with technical talks, networking and special activities',
+      },
+      {
+        title: 'Community',
+        description: 'A safe and inclusive space where all women in technology are welcome',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/iwd26/Background 4.svg',
+      alt: 'IWD 2026 Event Details Image',
+    }}
+  />
+
+  <!-- Sponsors Section -->
+  <section id="sponsors-partners" class="py-20 bg-[#CAE6FF] dark:bg-[#165185]">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-center text-2xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Sponsors</h2>
+
+      <div class="space-y-14">
+        <!-- Main sponsor -->
+        <div
+          class="relative mt-6 rounded-2xl border border-[#54A7ED] p-4
+                bg-white text-center dark:border-[#54A7ED] dark:bg-white"
+        >
+          <span
+            class="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full bg-[#D1ECE3]
+                     px-4 py-2 text-lg font-semibold text-[#0F7C67] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
+          >
+            MAIN SPONSOR
+            <Image src={medallaOro} alt="Gold medal" class="h-7 w-7 shrink-0 object-contain" width={28} height={28} />
+          </span>
+          <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
+            <Image
+              src={celonisLogo}
+              alt="Celonis"
+              class="block mx-auto max-h-14 w-auto max-w-[240px] object-contain md:max-h-16"
+              width={240}
+              height={64}
+            />
+          </div>
+        </div>
+
+        <!-- Gold sponsor -->
+        <div
+          class="relative mt-6 rounded-2xl border border-[#54A7ED] p-4
+                bg-white text-center dark:border-[#54A7ED] dark:bg-white"
+        >
+          <span
+            class="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full bg-[#D1ECE3]
+                     px-4 py-2 text-lg font-semibold text-[#0F7C67] lg:absolute lg:left-6 lg:top-4 lg:mb-0"
+          >
+            GOLD SPONSOR
+            <Image
+              src={medallaBronce}
+              alt="Bronze medal"
+              class="h-7 w-7 shrink-0 object-contain"
+              width={28}
+              height={28}
+            />
+          </span>
+          <div class="grid min-h-[88px] w-full place-items-center lg:min-h-[120px]">
+            <Image
+              src={nextdigital}
+              alt="Next Digital"
+              class="block mx-auto max-h-14 max-w-[240px] md:max-h-16"
+              style="object-fit: contain; width: auto;"
+              width={240}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="bg-[#54A7ED] py-12 sm:py-16 md:py-20 dark:bg-[#165185]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="relative mb-10 sm:mb-12 lg:mb-16">
+        <h2 class="text-center text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4">Partners</h2>
+        <div class="absolute left-0 top-full mt-4 h-[2px] w-full bg-[#165185] dark:bg-[#54A7ED]"></div>
+      </div>
+
+      <div
+        class="rounded-lg border border-[#2480F0]/40 bg-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-10 dark:border-[#54A7ED]/40 dark:bg-white"
+      >
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-x-4 sm:gap-x-8 md:gap-x-10 gap-y-6 sm:gap-y-10 place-items-center"
+        >
+          {
+            iwdPartners.map((partner) => (
+              <div class="flex h-20 sm:h-24 md:h-28 w-full items-center justify-center px-2 sm:px-4">
+                <a
+                  href={partner.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={partner.data.name}
+                  class="flex items-center justify-center w-full h-full"
+                >
+                  <Image
+                    src={partner.data.image.src}
+                    alt={partner.data.image.alt}
+                    class="max-h-12 sm:max-h-16 md:max-h-20 max-w-full w-auto"
+                    style="object-fit: contain;"
+                    widths={[120, 200, 280]}
+                    sizes="(max-width: 640px) 120px, (max-width: 1024px) 200px, 280px"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers Section -->
+  <SpeakersIwd lang="en" />
+
+  <!-- Agenda Section -->
+  <AgendaIwd />
+</LayoutIwd>
+
+<style>
+  /* Animación del logo flotante */
+  @keyframes logoFloat {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+    }
+    50% {
+      transform: translateY(-15px) scale(1.02);
+      filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.5));
+    }
+  }
+
+  .animate-logo-float {
+    animation: logoFloat 4s ease-in-out infinite;
+  }
+
+  /* Animaciones para "Break the Pattern" */
+  @keyframes breakWordPulse {
+    0%,
+    100% {
+      transform: scale(1) translateY(0);
+      text-shadow: 0 0 0 rgba(59, 130, 246, 0);
+      color: inherit;
+    }
+    25% {
+      transform: scale(1.05) translateY(-3px);
+      text-shadow:
+        0 4px 12px rgba(59, 130, 246, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.2);
+      color: rgb(59, 130, 246);
+    }
+    50% {
+      transform: scale(1.1) translateY(-5px);
+      text-shadow:
+        0 6px 20px rgba(59, 130, 246, 0.6),
+        0 0 30px rgba(59, 130, 246, 0.4);
+      color: rgb(37, 99, 235);
+    }
+    75% {
+      transform: scale(1.05) translateY(-3px);
+      text-shadow:
+        0 4px 12px rgba(59, 130, 246, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.2);
+      color: rgb(59, 130, 246);
+    }
+  }
+
+  @keyframes breakWordGlow {
+    0%,
+    100% {
+      text-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      text-shadow:
+        0 0 20px rgba(59, 130, 246, 0.8),
+        0 0 30px rgba(59, 130, 246, 0.5);
+    }
+  }
+
+  .break-pattern-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .break-word-animated {
+    display: inline-block;
+    animation:
+      breakWordPulse 3s ease-in-out infinite,
+      breakWordGlow 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  .break-word-animated:hover {
+    transform: scale(1.15) translateY(-8px) !important;
+    text-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.8),
+      0 0 40px rgba(59, 130, 246, 0.6) !important;
+  }
+
+  .break-pattern-text::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    right: -10px;
+    bottom: -5px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    opacity: 0;
+    animation: borderPulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes borderPulse {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    }
+  }
+
+  .break-word-animated::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: waveExpand 2s ease-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes waveExpand {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.8;
+    }
+    100% {
+      width: 150px;
+      height: 150px;
+      opacity: 0;
+    }
+  }
+
+  .dark .break-word-animated {
+    color: rgb(147, 197, 253);
+  }
+
+  .dark .break-word-animated:hover {
+    color: rgb(191, 219, 254);
+  }
+
+  .dark .break-pattern-text::before {
+    border-color: rgba(147, 197, 253, 0.4);
+    box-shadow: 0 0 30px rgba(147, 197, 253, 0.3);
+  }
+
+  .dark .break-word-animated::after {
+    border-color: rgba(147, 197, 253, 0.6);
+  }
+</style>
