@@ -33,47 +33,47 @@ const sponsors = sponsorEntries
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero image={{ src: '~/assets/images/comunidad.jpg', alt: 'Comunidad' }}>
+  <Hero image={{ src: '~/assets/images/comunidad.jpg', alt: 'Community' }}>
     <Fragment slot="title">
-      Comunidad de <span class="xl:inline">Women Techmakers</span>
-      <span class="text-accent dark:text-white"> Madrid</span>
+      <span class="xl:inline">Women Techmakers</span>
+      <span class="text-accent dark:text-white"> Madrid</span> Community
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="sm:inline">
-        <span class="font-semibold">Women Techmakers Madrid</span> es una comunidad dedicada a potenciar y apoyar a las mujeres
-        en el ámbito tecnológico de la capital española. Nuestro objetivo es crear un ecosistema donde las mujeres sean visibles,
-        tengan una comunidad sólida y acceso a recursos para crecer profesionalmente.</span
+        <span class="font-semibold">Women Techmakers Madrid</span> is a community dedicated to empowering and supporting
+        women in the tech scene of the Spanish capital. Our goal is to create an ecosystem where women are visible, have
+        a strong community, and access to resources to grow professionally.</span
       >
     </Fragment>
   </Hero>
 
   <Features
     id="nosotras"
-    tagline="Nosotras"
-    title="Descubre nuestra comunidad"
+    tagline="About Us"
+    title="Discover our community"
     items={[
       {
-        title: 'Visibilidad y Empoderamiento Local',
-        description: 'Promovemos la presencia y el liderazgo femenino en Madrid. ',
+        title: 'Local Visibility and Empowerment',
+        description: 'We promote female presence and leadership in Madrid.',
         icon: 'tabler:square-number-1',
       },
       {
-        title: 'Eventos y Networking',
+        title: 'Events and Networking',
         description:
-          'Organizamos eventos dinámicos en Madrid, presenciales y virtuales, incluyendo charlas técnicas, talleres y sesiones de networking. Cada actividad busca generar conexiones y abrir puertas a nuevas oportunidades.',
+          'We organize dynamic events in Madrid, both in-person and virtual, including tech talks, workshops and networking sessions. Each activity aims to spark connections and open doors to new opportunities.',
         icon: 'tabler:square-number-2',
       },
       {
-        title: 'Colaboración y Comunidad',
+        title: 'Collaboration and Community',
         description:
-          'Fomentamos un ambiente colaborativo donde las mujeres pueden compartir experiencias, aprender unas de otras y crecer juntas.',
+          'We foster a collaborative environment where women can share experiences, learn from each other, and grow together.',
         icon: 'tabler:square-number-3',
       },
       {
-        title: 'Diversidad e Inclusión',
+        title: 'Diversity and Inclusion',
         description:
-          'Nos comprometemos a crear un espacio inclusivo que celebre la diversidad y apoye a todas las mujeres en tecnología, independientemente de su nivel de experiencia.',
+          'We are committed to creating an inclusive space that celebrates diversity and supports all women in tech, regardless of their experience level.',
         icon: 'tabler:square-number-4',
       },
     ]}
@@ -81,7 +81,7 @@ const sponsors = sponsorEntries
 
   <!-- Team Members -->
 
-  <Features3 id="team" tagline="Nuestro equipo" title="Conoce a nuestras líderes" />
+  <Features3 id="team" tagline="Our team" title="Meet our leaders" />
 
   <div class="max-w-7xl mx-auto px-4 py-8">
     <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr">
@@ -89,65 +89,66 @@ const sponsors = sponsorEntries
     </div>
   </div>
 
-  <!-- Comunidades amigas -->
+  <!-- Partner communities -->
 
   <section id="partners" class="bg-blue-50 dark:bg-slate-800">
-    <h2 class="text-3xl font-bold text-center p-6 dark:text-slate-100">Comunidades amigas</h2>
+    <h2 class="text-3xl font-bold text-center p-6 dark:text-slate-100">Partner Communities</h2>
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <ImageCarousel images={partners} height={300} width={300} slidesPerView={4} />
     </div>
     <div class="flex flex-wrap items-center gap-2 md:gap-1 justify-center mt-8 p-4 bg-secondary text-white">
-      🚀 Si quieres colaborar con nosotras rellena este
+      🚀 If you want to collaborate with us, fill out this
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSeyvwGvyQnnRXp6DTsb2y6PS76ZAvwYX-tAk1ROED48PpuwXA/viewform?usp=header"
         target="_blank"
         rel="noopener"
         class="text-base font-medium text-white hover:underline"
       >
-        formulario de contacto 🚀
+        contact form 🚀
       </a>
     </div>
   </section>
+
   <!-- Sponsors -->
 
   <Features
     id="sponsors"
-    tagline="Conviértete en patrocinador"
-    title="Asóciate con Women Techmakers Madrid y apoya nuestra misión"
+    tagline="Become a sponsor"
+    title="Partner with Women Techmakers Madrid and support our mission"
     items={[
       {
-        title: 'Visibilidad de Marca',
+        title: 'Brand Visibility',
         description:
-          'Asocia tu marca con una causa noble y gana visibilidad entre una audiencia diversa y comprometida en el sector tecnológico de Madrid.',
+          "Associate your brand with a noble cause and gain visibility among a diverse and engaged audience in Madrid's tech sector.",
         icon: 'tabler:globe',
       },
       {
-        title: 'Acceso a Talento',
+        title: 'Access to Talent',
         description:
-          'Conéctate con una red de profesionales talentosas y emergentes en tecnología, facilitando oportunidades de reclutamiento y colaboración.',
+          'Connect with a network of talented and emerging women in tech, facilitating recruitment opportunities and collaboration.',
         icon: 'tabler:wand',
       },
       {
-        title: 'Impacto Social Positivo',
+        title: 'Positive Social Impact',
         description:
-          'Contribuye al empoderamiento de las mujeres en tecnología, promoviendo la diversidad y la inclusión en el sector tecnológico local.',
+          'Contribute to the empowerment of women in tech, promoting diversity and inclusion in the local tech sector.',
         icon: 'tabler:heart',
       },
       {
-        title: 'Oportunidades de Networking',
+        title: 'Networking Opportunities',
         description:
-          'Participa en eventos exclusivos que facilitan conexiones valiosas con líderes de la industria, expertos y otros patrocinadores.',
+          'Participate in exclusive events that facilitate valuable connections with industry leaders, experts and other sponsors.',
         icon: 'tabler:users',
       },
     ]}
   />
 
   <section id="sponsors-who" class="bg-blue-50 dark:bg-slate-800">
-    <h2 class="text-3xl font-bold text-center p-6 dark:text-slate-100">¿Quiénes son nuestros patrocinadores?</h2>
+    <h2 class="text-3xl font-bold text-center p-6 dark:text-slate-100">Who are our sponsors?</h2>
     <h3 class="text-lg text-center p-6 dark:text-slate-300">
-      Agradecemos profundamente el apoyo de las empresas que se han unido a nuestra misión de empoderar a las mujeres en
-      tecnología. Su compromiso nos permite seguir organizando eventos de impacto, ofrecer recursos valiosos y construir
-      una comunidad sólida en Madrid.
+      We deeply appreciate the support of the companies that have joined our mission to empower women in tech. Their
+      commitment allows us to keep organizing impactful events, offer valuable resources and build a strong community in
+      Madrid.
     </h3>
     <div class="max-w-3xl mx-auto">
       <ImageCarousel images={sponsors} height={200} width={200} slidesPerView={3} />
@@ -155,14 +156,14 @@ const sponsors = sponsorEntries
     <div
       class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary dark:bg-secondary mt-8 p-4 text-white"
     >
-      🚀 ¿Quieres ver tu logo aquí?
+      🚀 Want to see your logo here?
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSfYl9_datjfrhqRuYpd8fDEPff77vqQehHg1dsD9AHgiG-6xA/viewform?usp=header"
         target="_blank"
         rel="noopener"
         class="text-base font-medium text-white hover:underline"
       >
-        Contáctanos 🚀
+        Contact us 🚀
       </a>
     </div>
   </section>
@@ -171,58 +172,57 @@ const sponsors = sponsorEntries
 
   <Content
     isReversed
-    tagline="Tú puedes ser nuestra próxima ponente"
-    title="Comparte tu experiencia y conocimientos"
+    tagline="You could be our next speaker"
+    title="Share your experience and knowledge"
     items={[
       {
-        title: 'Inspira a otras mujeres',
-        description: 'Tu historia puede motivar a otras mujeres a seguir sus sueños en el mundo de la tecnología.',
+        title: 'Inspire other women',
+        description: 'Your story can motivate other women to pursue their dreams in the world of technology.',
       },
       {
-        title: 'Desarrolla tus habilidades',
-        description:
-          'Hablar en público es una habilidad valiosa que puede abrirte muchas puertas en tu carrera profesional.',
+        title: 'Develop your skills',
+        description: 'Public speaking is a valuable skill that can open many doors in your professional career.',
       },
       {
-        title: 'Amplía tu red profesional',
+        title: 'Expand your professional network',
         description:
-          'Conectarás con otras profesionales del sector, lo que puede llevar a nuevas oportunidades laborales y colaboraciones.',
+          'You will connect with other professionals in the sector, which can lead to new job opportunities and collaborations.',
       },
       {
-        title: 'Contribuye a la comunidad',
+        title: 'Contribute to the community',
         description:
-          'Al compartir tus conocimientos, estarás ayudando a construir una comunidad más fuerte y diversa en tecnología.',
+          'By sharing your knowledge, you will be helping to build a stronger and more diverse tech community.',
       },
     ]}
     image={{
       src: '~/assets/images/ponente.jpg',
-      alt: 'Imagen de ponente',
+      alt: 'Speaker image',
     }}
   />
   <div class="flex flex-wrap items-center gap-2 md:gap-1 justify-center bg-secondary text-white mt-8 p-4">
-    😎 ¡Anímate a compartir tu historia!
+    😎 Go ahead and share your story!
     <a
       href="https://docs.google.com/forms/d/e/1FAIpQLSc5G_ML-8d5ObPFxmgG6nHHcOmsZ-3OBWVoQIMHhSSDlpikow/viewform?usp=header"
       target="_blank"
       rel="noopener"
       class="text-base font-medium text-white hover:underline"
     >
-      Rellena nuestro formulario de ponentes 😎
+      Fill in our speakers form 😎
     </a>
   </div>
 
-  <!-- Proximos Eventos ****************** -->
-  <Events client:load events={events} locale="es" />
+  <!-- Upcoming Events ****************** -->
+  <Events client:load events={events} locale="en" />
 
-  <!-- Contacto RRSS -->
+  <!-- Contact RRSS -->
   <section id="contactos">
     <Content
-      title="Contacta con nosotras"
+      title="Contact us"
       items={[
         {
           icon: 'tabler:mail',
-          title: 'Envíanos un Correo',
-          description: 'Para consultas, sugerencias o simplemente para saludar, no dudes en escribirnos a:',
+          title: 'Send us an Email',
+          description: 'For inquiries, suggestions or just to say hello, feel free to write to us at:',
           action: {
             label: 'womentechmakersmadrid@gmail.com',
             href: 'mailto:womentechmakersmadrid@gmail.com',
@@ -230,9 +230,9 @@ const sponsors = sponsorEntries
         },
         {
           icon: 'tabler:brand-linkedin',
-          title: 'Conéctate en LinkedIn',
+          title: 'Connect on LinkedIn',
           description:
-            'Mantente al tanto de nuestras últimas novedades, eventos y oportunidades, y únete a nuestra comunidad activa en:',
+            'Stay up to date with our latest news, events and opportunities, and join our active community at:',
           action: {
             label: 'www.linkedin.com/in/wtmmadrid',
             href: 'https://www.linkedin.com/in/wtmmadrid/',
@@ -240,8 +240,8 @@ const sponsors = sponsorEntries
         },
         {
           icon: 'tabler:brand-instagram',
-          title: 'Búscanos en Instagram',
-          description: 'Allí subimos nuestras mejores fotos sobre los eventos y reels chulos',
+          title: 'Find us on Instagram',
+          description: 'We share our best event photos and cool reels there',
           action: {
             label: '@wtmmadrid',
             href: 'https://www.instagram.com/wtmmadrid/',
@@ -249,8 +249,8 @@ const sponsors = sponsorEntries
         },
         {
           icon: 'tabler:brand-x',
-          title: 'Síguenos en X',
-          description: 'En X informamos acerca de nuestros últimos encuentros',
+          title: 'Follow us on X',
+          description: 'On X we share updates about our latest meetups',
           action: {
             label: '@WTMMadrid',
             href: 'https://x.com/WTMMadrid',
@@ -259,49 +259,50 @@ const sponsors = sponsorEntries
       ]}
       image={{
         src: '~/assets/images/WTM-contacto.jpg',
-        alt: 'Imagen de grupo de personas en un evento de WTM Madrid',
+        alt: 'Group photo from a WTM Madrid event',
       }}
     />
   </section>
-  <!-- Eventos anteriores ****************** -->
+
+  <!-- Past events gallery ****************** -->
   <section id="eventos-anteriores" class="p-12">
-    <h1 class="text-4xl font-bold text-center mb-8 dark:text-slate-100">Galería de eventos anteriores</h1>
+    <h1 class="text-4xl font-bold text-center mb-8 dark:text-slate-100">Past Events Gallery</h1>
     <ImageCarousel
       images={[
         {
           image: {
             src: '~/assets/images/events/ponencia.jpg',
-            alt: 'Ponente dando una charla en el evento Women Techmakers Madrid',
+            alt: 'Speaker giving a talk at a Women Techmakers Madrid event',
           },
         },
         {
           image: {
             src: '~/assets/images/events/publico.jpg',
-            alt: 'Público asistente escuchando una charla en Women Techmakers Madrid',
+            alt: 'Audience listening to a talk at Women Techmakers Madrid',
           },
         },
         {
           image: {
             src: '~/assets/images/events/acreditaciones.jpg',
-            alt: 'Voluntaria preparando acreditaciones en la entrada del evento Women Techmakers Madrid',
+            alt: 'Volunteer preparing credentials at the entrance of Women Techmakers Madrid',
           },
         },
         {
           image: {
             src: '~/assets/images/events/dinosaurio.jpg',
-            alt: 'Animación con disfraz de dinosaurio en el evento Women Techmakers Madrid',
+            alt: 'Dinosaur costume animation at a Women Techmakers Madrid event',
           },
         },
         {
           image: {
             src: '~/assets/images/events/grupo.jpg',
-            alt: 'Grupo de mujeres asistentes al evento',
+            alt: 'Group of women attendees at the event',
           },
         },
       ]}
     />
   </section>
 
-  <!-- Feedback y Testimonios ************** -->
+  <!-- Feedback and Testimonials ************** -->
   <Testimonios />
 </Layout>

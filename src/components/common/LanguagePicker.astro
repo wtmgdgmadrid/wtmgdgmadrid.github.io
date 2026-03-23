@@ -1,0 +1,16 @@
+---
+import { getLangFromUrl, getAlternateLocaleUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const alternateUrl = getAlternateLocaleUrl(Astro.url.pathname, lang === 'es' ? 'en' : 'es');
+---
+
+<a
+  href={alternateUrl}
+  title={t('lang.switchTo')}
+  class="inline-flex items-center justify-center text-xs font-semibold px-2 py-1 rounded border border-current opacity-60 hover:opacity-100 transition-opacity leading-none"
+  aria-label={t('lang.switchTo')}
+>
+  {t('lang.label')}
+</a>
