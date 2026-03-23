@@ -2,11 +2,14 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
-import { headerData, footerData } from '~/navigation-iwd';
+import { getHeaderData, getFooterData } from '~/navigation-iwd';
 import { ClientRouter } from 'astro:transitions';
 
 // Accept the same `metadata` prop as PageLayout so pages can pass title/description
-const { metadata } = Astro.props;
+const { metadata, lang = 'es' } = Astro.props;
+
+const headerData = getHeaderData(lang);
+const footerData = getFooterData(lang);
 ---
 
 <Layout metadata={metadata}>

@@ -1,4 +1,10 @@
 ---
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
 type TrackItem = {
   time?: string;
   duration?: string;
@@ -13,14 +19,15 @@ type AgendaRow = {
   time: string;
   isPlenary?: boolean;
   plenaryLabel?: string;
+  plenaryLabelEn?: string;
   track1?: TrackItem;
   track2?: TrackItem;
   track3?: TrackItem;
 };
 
 const agenda: AgendaRow[] = [
-  { time: '15:30', isPlenary: true, plenaryLabel: '📋 Registro' },
-  { time: '16:00', isPlenary: true, plenaryLabel: '🎉 Apertura' },
+  { time: '15:30', isPlenary: true, plenaryLabel: '📋 Registro', plenaryLabelEn: '📋 Registration' },
+  { time: '16:00', isPlenary: true, plenaryLabel: '🎉 Apertura', plenaryLabelEn: '🎉 Opening' },
   {
     time: '16:10',
     track1: {
@@ -61,7 +68,7 @@ const agenda: AgendaRow[] = [
     track2: { type: 'empty' },
     track3: { type: 'empty' },
   },
-  { time: '18:00', isPlenary: true, plenaryLabel: '☕ Break' },
+  { time: '18:00', isPlenary: true, plenaryLabel: '☕ Break', plenaryLabelEn: '☕ Break' },
   {
     time: '18:30',
     track1: {
@@ -122,8 +129,8 @@ const agenda: AgendaRow[] = [
     track2: { type: 'empty' },
     track3: { type: 'empty' },
   },
-  { time: '20:25', isPlenary: true, plenaryLabel: '👋 Cierre' },
-  { time: '20:30', isPlenary: true, plenaryLabel: '🤝 Networking' },
+  { time: '20:25', isPlenary: true, plenaryLabel: '👋 Cierre', plenaryLabelEn: '👋 Closing' },
+  { time: '20:30', isPlenary: true, plenaryLabel: '🤝 Networking', plenaryLabelEn: '🤝 Networking' },
 ];
 
 // Pre-compute which (rowIdx, trackIdx) cells are covered by a rowspan from above
@@ -152,14 +159,14 @@ function itemBg(type: TrackItem['type']) {
   }
 }
 
-function itemBadge(type: TrackItem['type']) {
+function itemBadge(type: TrackItem['type'], pageLang: 'es' | 'en' = 'es') {
   switch (type) {
     case 'talk':
-      return { label: 'Charla', cls: 'bg-[#1ce9b6] text-[#0d3d30]' };
+      return { label: pageLang === 'en' ? 'Talk' : 'Charla', cls: 'bg-[#1ce9b6] text-[#0d3d30]' };
     case 'workshop':
-      return { label: 'Taller', cls: 'bg-[#54A7ED] text-white' };
+      return { label: pageLang === 'en' ? 'Workshop' : 'Taller', cls: 'bg-[#54A7ED] text-white' };
     case 'mentoria':
-      return { label: 'Mentoría', cls: 'bg-[#c084fc] text-white' };
+      return { label: pageLang === 'en' ? 'Mentorship' : 'Mentoría', cls: 'bg-[#c084fc] text-white' };
     default:
       return null;
   }
@@ -173,19 +180,21 @@ function itemBadge(type: TrackItem['type']) {
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-12 md:mb-16">
       <h2 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">Agenda</h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400">17 de abril de 2026 · Celonis, Madrid</p>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        {lang === 'en' ? 'April 17, 2026 · Celonis, Madrid' : '17 de abril de 2026 · Celonis, Madrid'}
+      </p>
     </div>
 
     <!-- Track legend -->
     <div class="flex flex-wrap justify-center gap-3 mb-8 md:mb-12">
       <span class="flex items-center gap-2 rounded-full px-4 py-1.5 bg-[#1ce9b6] text-[#0d3d30] text-sm font-semibold">
-        🎤 Charla · Auditorio
+        {lang === 'en' ? '🎤 Talk · Auditorium' : '🎤 Charla · Auditorio'}
       </span>
       <span class="flex items-center gap-2 rounded-full px-4 py-1.5 bg-[#54A7ED] text-white text-sm font-semibold">
-        🛠️ Taller · Talleres
+        {lang === 'en' ? '🛠️ Workshop · Workshops' : '🛠️ Taller · Talleres'}
       </span>
       <span class="flex items-center gap-2 rounded-full px-4 py-1.5 bg-[#c084fc] text-white text-sm font-semibold">
-        🌱 Mentoría · Stepforward
+        🌱 Mentorship · Stepforward
       </span>
     </div>
 
@@ -200,10 +209,16 @@ function itemBadge(type: TrackItem['type']) {
         </colgroup>
         <thead>
           <tr class="bg-[#0334ab] text-white">
-            <th class="px-4 py-3 text-sm font-bold text-center">Hora</th>
-            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🎤 Auditorio</th>
-            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🛠️ Talleres</th>
-            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">🌱 Mentorías</th>
+            <th class="px-4 py-3 text-sm font-bold text-center">{lang === 'en' ? 'Time' : 'Hora'}</th>
+            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">
+              {lang === 'en' ? '🎤 Auditorium' : '🎤 Auditorio'}
+            </th>
+            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">
+              {lang === 'en' ? '🛠️ Workshops' : '🛠️ Talleres'}
+            </th>
+            <th class="px-4 py-3 text-sm font-bold text-center border-l border-white/20">
+              {lang === 'en' ? '🌱 Mentorships' : '🌱 Mentorías'}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -218,16 +233,16 @@ function itemBadge(type: TrackItem['type']) {
                     colspan={row.track3 ? 2 : 3}
                     class="px-6 py-3 text-sm font-bold text-[#0334ab] dark:text-white text-center align-middle border-t border-l border-blue-200 dark:border-slate-600 bg-[#CAE6FF] dark:bg-[#165185]"
                   >
-                    {row.plenaryLabel}
+                    {lang === 'en' ? (row.plenaryLabelEn ?? row.plenaryLabel) : row.plenaryLabel}
                   </td>
                   {row.track3 && (
                     <td class="px-3 py-3 border-t border-l border-blue-200 dark:border-slate-600 bg-[#CAE6FF] dark:bg-[#165185] align-top">
                       <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
-                        {itemBadge(row.track3.type) && (
+                        {itemBadge(row.track3.type, lang) && (
                           <span
-                            class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
+                            class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type, lang)?.cls}`}
                           >
-                            {itemBadge(row.track3.type)?.label} · {row.track3.duration}
+                            {itemBadge(row.track3.type, lang)?.label} · {row.track3.duration}
                           </span>
                         )}
                         <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
@@ -244,11 +259,11 @@ function itemBadge(type: TrackItem['type']) {
                   <td class="px-3 py-3 border-t border-l border-blue-100 dark:border-slate-700 align-top">
                     {row.track1 && row.track1.type !== 'empty' && (
                       <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track1.type)}`}>
-                        {itemBadge(row.track1.type) && (
+                        {itemBadge(row.track1.type, lang) && (
                           <span
-                            class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track1.type)?.cls}`}
+                            class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track1.type, lang)?.cls}`}
                           >
-                            {itemBadge(row.track1.type)?.label} · {row.track1.duration}
+                            {itemBadge(row.track1.type, lang)?.label} · {row.track1.duration}
                           </span>
                         )}
                         {row.track1.speaker && (
@@ -256,7 +271,9 @@ function itemBadge(type: TrackItem['type']) {
                         )}
                         <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track1.title}</p>
                         {row.track1.lang === 'en' && (
-                          <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                          <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">
+                            · {lang === 'en' ? 'Delivered in English' : 'Impartida en inglés'}
+                          </p>
                         )}
                       </div>
                     )}
@@ -269,11 +286,11 @@ function itemBadge(type: TrackItem['type']) {
                     >
                       {row.track2 && row.track2.type !== 'empty' && (
                         <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track2.type)}`}>
-                          {itemBadge(row.track2.type) && (
+                          {itemBadge(row.track2.type, lang) && (
                             <span
-                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track2.type)?.cls}`}
+                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track2.type, lang)?.cls}`}
                             >
-                              {itemBadge(row.track2.type)?.label} · {row.track2.duration}
+                              {itemBadge(row.track2.type, lang)?.label} · {row.track2.duration}
                             </span>
                           )}
                           {row.track2.speaker && (
@@ -281,7 +298,9 @@ function itemBadge(type: TrackItem['type']) {
                           )}
                           <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track2.title}</p>
                           {row.track2.lang === 'en' && (
-                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">
+                              · {lang === 'en' ? 'Delivered in English' : 'Impartida en inglés'}
+                            </p>
                           )}
                         </div>
                       )}
@@ -295,11 +314,11 @@ function itemBadge(type: TrackItem['type']) {
                     >
                       {row.track3 && row.track3.type !== 'empty' && (
                         <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
-                          {itemBadge(row.track3.type) && (
+                          {itemBadge(row.track3.type, lang) && (
                             <span
-                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type)?.cls}`}
+                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type, lang)?.cls}`}
                             >
-                              {itemBadge(row.track3.type)?.label} · {row.track3.duration}
+                              {itemBadge(row.track3.type, lang)?.label} · {row.track3.duration}
                             </span>
                           )}
                           {row.track3.speaker && (
@@ -307,7 +326,9 @@ function itemBadge(type: TrackItem['type']) {
                           )}
                           <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{row.track3.title}</p>
                           {row.track3.lang === 'en' && (
-                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">
+                              · {lang === 'en' ? 'Delivered in English' : 'Impartida en inglés'}
+                            </p>
                           )}
                         </div>
                       )}
@@ -332,15 +353,17 @@ function itemBadge(type: TrackItem['type']) {
               </span>
               <div class="flex-1 space-y-2">
                 <div class="rounded-xl bg-[#CAE6FF] dark:bg-[#165185] px-4 py-2.5 text-center">
-                  <p class="text-sm font-bold text-[#0334ab] dark:text-white">{row.plenaryLabel}</p>
+                  <p class="text-sm font-bold text-[#0334ab] dark:text-white">
+                    {lang === 'en' ? (row.plenaryLabelEn ?? row.plenaryLabel) : row.plenaryLabel}
+                  </p>
                 </div>
                 {row.track3 && (
                   <div class={`rounded-xl border-l-4 p-3 ${itemBg(row.track3.type)}`}>
-                    {itemBadge(row.track3.type) && (
+                    {itemBadge(row.track3.type, lang) && (
                       <span
-                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-1.5 ${itemBadge(row.track3.type)?.cls}`}
+                        class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-1.5 ${itemBadge(row.track3.type, lang)?.cls}`}
                       >
-                        {itemBadge(row.track3.type)?.label}
+                        {itemBadge(row.track3.type, lang)?.label}
                         {row.track3.duration ? ` · ${row.track3.duration}` : ''}
                       </span>
                     )}
@@ -361,11 +384,11 @@ function itemBadge(type: TrackItem['type']) {
                     (item) =>
                       item && (
                         <div class={`rounded-xl border-l-4 p-3 ${itemBg(item.type)}`}>
-                          {itemBadge(item.type) && (
+                          {itemBadge(item.type, lang) && (
                             <span
-                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-1.5 ${itemBadge(item.type)?.cls}`}
+                              class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-1.5 ${itemBadge(item.type, lang)?.cls}`}
                             >
-                              {itemBadge(item.type)?.label}
+                              {itemBadge(item.type, lang)?.label}
                               {item.duration ? ` · ${item.duration}` : ''}
                             </span>
                           )}
@@ -374,7 +397,9 @@ function itemBadge(type: TrackItem['type']) {
                           )}
                           <p class="text-xs text-gray-700 dark:text-gray-300 leading-snug">{item.title}</p>
                           {item.lang === 'en' && (
-                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">· Impartida en inglés</p>
+                            <p class="text-xs italic text-gray-600 dark:text-gray-300 mt-1.5">
+                              · {lang === 'en' ? 'Delivered in English' : 'Impartida en inglés'}
+                            </p>
                           )}
                         </div>
                       )

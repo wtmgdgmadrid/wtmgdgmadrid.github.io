@@ -2,7 +2,15 @@
 // Mostramos un botón que copia el enlace al portapapeles y, si el navegador
 // soporta Web Share API, ofrece compartir nativo en móvil.
 import React from 'react';
-import { isPastEvent } from '../utils/dates';
+import { isPastEvent, parseSpanishDate } from '../utils/dates';
+
+function formatDate(dateStr, locale) {
+  if (!dateStr) return dateStr;
+  if (locale !== 'en') return dateStr;
+  const date = parseSpanishDate(dateStr);
+  if (!date) return dateStr;
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 
 const EVENTS_I18N = {
   es: {
@@ -103,7 +111,7 @@ export default function Events({ events, locale = 'es' }) {
                           d="M8 7V3m8 4V3M5 8h14M5 21h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z"
                         />
                       </svg>
-                      <span>{e.date}</span>
+                      <span>{formatDate(e.date, locale)}</span>
                     </li>
                   )}
                   {e.time && (
@@ -166,7 +174,7 @@ export default function Events({ events, locale = 'es' }) {
                     aria-disabled={isPast ? 'true' : 'false'}
                     {...(isPast ? { onClick: (e) => e.preventDefault() } : {})}
                   >
-                    {isPast ? i18n.closed : e.ctaLabel || i18n.register}
+                    {isPast ? i18n.closed : locale === 'en' ? i18n.register : e.ctaLabel || i18n.register}
                   </a>
                 </div>
               </div>
