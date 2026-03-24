@@ -3,7 +3,6 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import { getHeaderData, getFooterData } from '~/navigation-iwd';
-import { ClientRouter } from 'astro:transitions';
 
 // Accept the same `metadata` prop as PageLayout so pages can pass title/description
 const { metadata, lang = 'es' } = Astro.props;
@@ -15,16 +14,23 @@ const footerData = getFooterData(lang);
 <Layout metadata={metadata}>
   <!-- IWD header (uses navigation-iwd) -->
   <Header {...headerData} isSticky showToggleTheme />
-  <ClientRouter fallback="swap" />
 
-  <main>
-    <div
-      class="iwd-layout-root pt-20 min-h-[calc(100vh-4rem-4rem)] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
-      style="--aw-color-iwd-bg-light: #ffffff; --aw-color-iwd-bg-dark: #0334ab; --aw-color-primary: #1ce9b6; --aw-color-text-page: #000000;"
-    >
-      <slot />
-    </div>
+  <main class="iwd-page pt-20">
+    <slot />
   </main>
 
   <Footer {...footerData} />
 </Layout>
+
+<style is:global>
+  /* IWD theme color overrides */
+  .iwd-page {
+    --aw-color-primary: #1ce9b6;
+    --aw-color-text-page: #000000;
+  }
+
+  /* Offset sticky header when scrolling to anchor sections */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+</style>

@@ -5,10 +5,10 @@ export function getHeaderData(lang: Lang = 'es') {
   return {
     links: [
       { text: 'Home', href: lang === 'en' ? '/en' : '/' },
-      { text: 'Sponsors & Partners', href: `${base}/iwd#sponsors-partners` },
-      { text: lang === 'en' ? 'Speakers' : 'Ponentes', href: `${base}/iwd#ponentes` },
-      { text: 'Agenda', href: `${base}/iwd#agenda` },
-      { text: lang === 'en' ? 'Mentorships' : 'Mentorías', href: `${base}/iwd#mentorias` },
+      { text: 'Sponsors & Partners', href: '#sponsors-partners' },
+      { text: lang === 'en' ? 'Speakers' : 'Ponentes', href: '#ponentes' },
+      { text: 'Agenda', href: '#agenda' },
+      { text: lang === 'en' ? 'Mentorships' : 'Mentorías', href: '#mentorias' },
     ],
   };
 }
