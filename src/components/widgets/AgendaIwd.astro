@@ -81,17 +81,11 @@ const agenda: AgendaRow[] = [
     track2: {
       type: 'workshop',
       duration: '60 min',
-      rowspan: 5,
+      rowspan: 2,
       speaker: 'Marisa Martín Serrano',
       title: 'Workshop: Buscar trabajo en tiempos de crisis (y de IA)',
     },
-    track3: { type: 'mentoria', duration: '60 min', rowspan: 5, title: 'Mentorías Step4ward' },
-  },
-  {
-    time: '18:45',
-    track1: { type: 'empty' },
-    track2: { type: 'empty' },
-    track3: { type: 'empty' },
+    track3: { type: 'mentoria', duration: '60 min', rowspan: 2, title: 'Mentorías Step4ward' },
   },
   {
     time: '18:55',
@@ -102,18 +96,6 @@ const agenda: AgendaRow[] = [
       title: 'Build a real-time data platform from 0 to 100 million events per day',
       lang: 'en',
     },
-    track2: { type: 'empty' },
-    track3: { type: 'empty' },
-  },
-  {
-    time: '19:00',
-    track1: { type: 'empty' },
-    track2: { type: 'empty' },
-    track3: { type: 'empty' },
-  },
-  {
-    time: '19:15',
-    track1: { type: 'empty' },
     track2: { type: 'empty' },
     track3: { type: 'empty' },
   },
@@ -282,10 +264,18 @@ function itemBadge(type: TrackItem['type'], pageLang: 'es' | 'en' = 'es') {
                   {!cellsToSkip.has(`${rowIdx}-1`) && (
                     <td
                       rowspan={row.track2?.rowspan ?? 1}
-                      class="px-3 py-3 border-t border-l border-blue-100 dark:border-slate-700 align-top"
+                      class={`border-t border-l border-blue-100 dark:border-slate-700 align-top ${
+                        (row.track2?.rowspan ?? 1) > 1 ? 'relative p-0' : 'px-3 py-3'
+                      }`}
                     >
                       {row.track2 && row.track2.type !== 'empty' && (
-                        <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track2.type)}`}>
+                        <div
+                          class={`border-l-4 p-3 ${itemBg(row.track2.type)} ${
+                            (row.track2?.rowspan ?? 1) > 1
+                              ? 'absolute inset-3 h-[calc(100%-1.5rem)] rounded-xl'
+                              : 'rounded-xl h-full'
+                          }`}
+                        >
                           {itemBadge(row.track2.type, lang) && (
                             <span
                               class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track2.type, lang)?.cls}`}
@@ -310,10 +300,18 @@ function itemBadge(type: TrackItem['type'], pageLang: 'es' | 'en' = 'es') {
                   {!cellsToSkip.has(`${rowIdx}-2`) && (
                     <td
                       rowspan={row.track3?.rowspan ?? 1}
-                      class="px-3 py-3 border-t border-l border-blue-100 dark:border-slate-700 align-top"
+                      class={`border-t border-l border-blue-100 dark:border-slate-700 align-top ${
+                        (row.track3?.rowspan ?? 1) > 1 ? 'relative p-0' : 'px-3 py-3'
+                      }`}
                     >
                       {row.track3 && row.track3.type !== 'empty' && (
-                        <div class={`rounded-xl border-l-4 p-3 h-full ${itemBg(row.track3.type)}`}>
+                        <div
+                          class={`border-l-4 p-3 ${itemBg(row.track3.type)} ${
+                            (row.track3?.rowspan ?? 1) > 1
+                              ? 'absolute inset-3 h-[calc(100%-1.5rem)] rounded-xl'
+                              : 'rounded-xl h-full'
+                          }`}
+                        >
                           {itemBadge(row.track3.type, lang) && (
                             <span
                               class={`inline-block rounded-full px-2 py-0.5 text-xs font-bold mb-2 ${itemBadge(row.track3.type, lang)?.cls}`}
