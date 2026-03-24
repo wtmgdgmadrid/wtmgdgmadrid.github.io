@@ -6,6 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import Image from '~/components/common/Image.astro';
 import SpeakersIwd from '~/components/widgets/SpeakersIwd.astro';
 import AgendaIwd from '~/components/widgets/AgendaIwd.astro';
+import MentorshipIwd from '~/components/widgets/MentorshipIwd.astro';
 import celonisLogo from '~/assets/images/sponsors/celonis.png';
 import nextdigital from '~/assets/images/sponsors/next-digital.png';
 import medallaOro from '~/assets/images/iwd26/medallaOro.png';
@@ -331,6 +332,9 @@ const iwdPartners = (await getCollection('partner'))
 
   <!-- Agenda Section -->
   <AgendaIwd lang="en" />
+
+  <!-- Mentorship Section -->
+  <MentorshipIwd lang="en" />
 </LayoutIwd>
 
 <style>

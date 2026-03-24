@@ -1,0 +1,83 @@
+---
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
+const t = {
+  es: {
+    tag: 'Mentorías',
+    title: 'Mentorías 1:1',
+    subtitle: '18:30 – 19:30 · Stepforward',
+    description:
+      'Sesiones de mentoría individualizada donde podrás conectar con profesionales referentes del sector tecnológico. Un espacio para resolver tus dudas, obtener orientación personalizada y dar el siguiente paso en tu carrera.',
+    comingSoonLabel: 'Próximamente',
+    comingSoonText:
+      'El formulario de inscripción para mentees estará disponible muy pronto. ¡Estate atenta!',
+    features: [
+      { icon: '🕐', label: '1 slot disponible', detail: '18:30 – 19:30' },
+      { icon: '🌱', label: 'Mentoría 1:1', detail: 'Con profesionales del sector' },
+      { icon: '📍', label: 'Presencial', detail: 'Celonis, Madrid' },
+    ],
+  },
+  en: {
+    tag: 'Mentorships',
+    title: '1:1 Mentorships',
+    subtitle: '18:30 – 19:30 · Stepforward',
+    description:
+      'Individual mentorship sessions where you can connect with leading professionals in the tech industry. A space to get your questions answered, receive personalised guidance, and take the next step in your career.',
+    comingSoonLabel: 'Coming soon',
+    comingSoonText: 'The sign-up form for mentees will be available very soon. Stay tuned!',
+    features: [
+      { icon: '🕐', label: '1 slot available', detail: '18:30 – 19:30' },
+      { icon: '🌱', label: '1:1 mentorship', detail: 'With industry professionals' },
+      { icon: '📍', label: 'In-person', detail: 'Celonis, Madrid' },
+    ],
+  },
+};
+
+const copy = lang === 'en' ? t.en : t.es;
+---
+
+<section id="mentorias" class="py-16 md:py-24 bg-gradient-to-b from-[#f5e8ff] to-white dark:from-[#1a0a2e] dark:to-slate-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="inline-block rounded-full bg-[#c084fc] text-white text-sm font-semibold px-4 py-1.5 mb-4">
+        🌱 {copy.tag}
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-3 dark:text-white">{copy.title}</h2>
+      <p class="text-lg font-semibold text-[#7c3aed] dark:text-[#c084fc]">{copy.subtitle}</p>
+    </div>
+
+    <!-- Description + features -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-[#e9d5ff] dark:border-[#4c1d95] p-8 mb-8">
+      <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-8">
+        {copy.description}
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {
+          copy.features.map((f) => (
+            <div class="flex flex-col items-center text-center rounded-xl bg-[#f5e8ff] dark:bg-[#2a1040] border border-[#e9d5ff] dark:border-[#6d28d9] p-4">
+              <span class="text-2xl mb-2">{f.icon}</span>
+              <p class="text-sm font-bold text-gray-800 dark:text-gray-100">{f.label}</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{f.detail}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Coming soon form placeholder -->
+    <div class="rounded-2xl border-2 border-dashed border-[#c084fc] dark:border-[#7c3aed] bg-[#faf5ff] dark:bg-[#1e0a35] p-8 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#c084fc] text-white text-xs font-bold px-4 py-1.5 mb-4 uppercase tracking-wider">
+        ⏳ {copy.comingSoonLabel}
+      </div>
+      <p class="text-gray-600 dark:text-gray-400 text-sm max-w-sm mx-auto">
+        {copy.comingSoonText}
+      </p>
+    </div>
+  </div>
+</section>

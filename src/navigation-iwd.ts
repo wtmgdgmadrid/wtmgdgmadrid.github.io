@@ -8,6 +8,7 @@ export function getHeaderData(lang: Lang = 'es') {
       { text: 'Sponsors & Partners', href: `${base}/iwd#sponsors-partners` },
       { text: lang === 'en' ? 'Speakers' : 'Ponentes', href: `${base}/iwd#ponentes` },
       { text: 'Agenda', href: `${base}/iwd#agenda` },
+      { text: lang === 'en' ? 'Mentorships' : 'Mentorías', href: `${base}/iwd#mentorias` },
     ],
   };
 }
