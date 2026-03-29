@@ -12,9 +12,8 @@ const t = {
     subtitle: '18:30 – 19:30 · Step4ward',
     description:
       'Sesiones de mentoría individualizada donde podrás conectar con profesionales referentes del sector tecnológico. Un espacio para resolver tus dudas, obtener orientación personalizada y dar el siguiente paso en tu carrera.',
-    comingSoonLabel: 'Próximamente',
-    comingSoonText:
-      'El formulario de inscripción para mentees estará disponible muy pronto. ¡Estate atenta!',
+    formLabel: '¡Apúntate como mentee!',
+    formUrl: 'https://forms.gle/p6gTiamB9tcJQy6w8',
     features: [
       { icon: '🕐', label: '1 slot disponible', detail: '18:30 – 19:30' },
       { icon: '🌱', label: 'Mentoría 1:1', detail: 'Con profesionales del sector' },
@@ -27,8 +26,8 @@ const t = {
     subtitle: '18:30 – 19:30 · Step4ward',
     description:
       'Individual mentorship sessions where you can connect with leading professionals in the tech industry. A space to get your questions answered, receive personalised guidance, and take the next step in your career.',
-    comingSoonLabel: 'Coming soon',
-    comingSoonText: 'The sign-up form for mentees will be available very soon. Stay tuned!',
+    formLabel: 'Sign up as a mentee!',
+    formUrl: 'https://forms.gle/p6gTiamB9tcJQy6w8',
     features: [
       { icon: '🕐', label: '1 slot available', detail: '18:30 – 19:30' },
       { icon: '🌱', label: '1:1 mentorship', detail: 'With industry professionals' },
@@ -70,14 +69,16 @@ const copy = lang === 'en' ? t.en : t.es;
       </div>
     </div>
 
-    <!-- Coming soon form placeholder -->
-    <div class="rounded-2xl border-2 border-dashed border-[#c084fc] dark:border-[#7c3aed] bg-[#faf5ff] dark:bg-[#1e0a35] p-8 text-center">
-      <div class="inline-flex items-center gap-2 rounded-full bg-[#c084fc] text-white text-xs font-bold px-4 py-1.5 mb-4 uppercase tracking-wider">
-        ⏳ {copy.comingSoonLabel}
-      </div>
-      <p class="text-gray-600 dark:text-gray-400 text-sm max-w-sm mx-auto">
-        {copy.comingSoonText}
-      </p>
+    <!-- Form CTA -->
+    <div class="text-center">
+      <a
+        href={copy.formUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-full bg-[#7c3aed] text-white px-8 py-4 text-base font-semibold hover:bg-[#6d28d9] transition-colors shadow-md"
+      >
+        🌱 {copy.formLabel}
+      </a>
     </div>
   </div>
 </section>
