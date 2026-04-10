@@ -1,4 +1,10 @@
 ---
+import Image from '~/components/common/Image.astro';
+import elena from '~/assets/images/iwd26/mentorships/IMG_4896 - Elena Guidi.jpeg';
+import mia from '~/assets/images/testimonios/mia.jpg';
+import aurelia from '~/assets/images/iwd26/mentorships/Foto_Aurélia EMOND - aurelia emond.png';
+import cynthia from '~/assets/images/iwd26/mentorships/20260402_184945 - Cyn Vaalmi.jpg';
+
 export interface Props {
   lang?: 'es' | 'en';
 }
@@ -19,6 +25,71 @@ const t = {
       { icon: '🌱', label: 'Mentoría 1:1', detail: 'Con profesionales del sector' },
       { icon: '📍', label: 'Presencial', detail: 'Celonis, Madrid' },
     ],
+    verticalsTitle: 'Elige tu vertical',
+    verticalsSubtitle: 'Especialidades diseñadas para potenciar cada etapa de tu crecimiento profesional.',
+    mentorsTitle: 'Conoce a nuestras mentoras',
+    mentorsSubtitle: 'Líderes en la industria comprometidas con tu ascenso.',
+    profileLabel: 'LinkedIn',
+    ctaTitle: '¡Te esperamos! 💜',
+    ctaText: 'Da el siguiente paso en tu carrera con el acompañamiento de expertas que ya recorrieron el camino.',
+    ctaButton: 'Agendar mi mentoría',
+    verticals: [
+      {
+        icon: '🤝🏻',
+        title: 'Coaching',
+        description: 'Descubre tu potencial y define objetivos claros para tu evolución personal y profesional.',
+      },
+      {
+        icon: '🔄',
+        title: 'Cambio de carrera / Tech',
+        description: 'Estrategias efectivas para pivotar tu carrera hacia un futuro tecnológico con confianza.',
+      },
+      {
+        icon: '💻',
+        title: 'Tecnología',
+        description: 'Mentoría técnica profunda en desarrollo, arquitectura software, sistemas y datos.',
+      },
+      {
+        icon: '📊',
+        title: 'Gestión (Management)',
+        description: 'Liderazgo de equipos, gestión de proyectos y toma de decisiones con habilidades directivas.',
+      },
+    ],
+    mentors: [
+      {
+        name: 'Elena Quidi',
+        role: 'Senior Tech Lead',
+        description:
+          'Especialista en escalabilidad de sistemas y liderazgo técnico. Con más de 10 años en el sector, guía a mujeres en su transición a roles de liderazgo.',
+        image: elena,
+        linkedinUrl: 'https://www.linkedin.com/in/elena-guidi-dev/',
+      },
+      {
+        name: 'Mia Salazar',
+        role: 'Product Strategist',
+        description:
+          'Experta en metodologías ágiles y visión de producto. Ayuda a emprendedoras a definir su propuesta de valor y escalar sus negocios digitales.',
+        image: mia,
+        linkedinUrl: 'https://www.linkedin.com/in/miasalazar/',
+      },
+      {
+        name: 'Aurélia Emond',
+        role: 'Career Coach Internacional',
+        description:
+          'Psicóloga organizacional con foco en desarrollo de carrera. Aurélia se especializa en acompañar transiciones laborales complejas.',
+        image: aurelia,
+        linkedinUrl:
+          'https://www.linkedin.com/in/aurelia-emond-digitaltransformation-agile-organizationalmanagement/',
+      },
+      {
+        name: 'Cynthia Vázquez Almisa',
+        role: 'Líder de equipos tech',
+        description:
+          'Líder de equipos de ingeniería en empresas Fortune 500. Mentora experta en gestión de conflictos y cultura organizacional de alto impacto.',
+        image: cynthia,
+        linkedinUrl: 'https://www.linkedin.com/in/cynthia-vazquez-almisa/',
+      },
+    ],
   },
   en: {
     tag: 'Mentorships',
@@ -33,6 +104,71 @@ const t = {
       { icon: '🌱', label: '1:1 mentorship', detail: 'With industry professionals' },
       { icon: '📍', label: 'In-person', detail: 'Celonis, Madrid' },
     ],
+    verticalsTitle: 'Choose your track',
+    verticalsSubtitle: 'Specialties designed to support each stage of your professional growth.',
+    mentorsTitle: 'Meet our mentors',
+    mentorsSubtitle: 'Industry leaders committed to your growth.',
+    profileLabel: 'LinkedIn',
+    ctaTitle: 'We are waiting for you! 💜',
+    ctaText: 'Take the next step in your career with the support of experts who have already walked the path.',
+    ctaButton: 'Book my mentorship',
+    verticals: [
+      {
+        icon: '🤝🏻',
+        title: 'Coaching',
+        description: 'Discover your potential and define clear goals for your personal and professional growth.',
+      },
+      {
+        icon: '🔄',
+        title: 'Career Change / Tech',
+        description: 'Effective strategies to pivot your career toward a tech future with confidence.',
+      },
+      {
+        icon: '💻',
+        title: 'Technology',
+        description: 'Deep technical mentoring in development, software architecture, systems and data.',
+      },
+      {
+        icon: '📊',
+        title: 'Management',
+        description: 'Team leadership, project management and decision-making with strong managerial skills.',
+      },
+    ],
+    mentors: [
+      {
+        name: 'Elena Quidi',
+        role: 'Senior Tech Lead',
+        description:
+          'Specialist in systems scalability and technical leadership. With more than 10 years in the industry, she guides women into leadership roles.',
+        image: elena,
+        linkedinUrl: 'https://www.linkedin.com/in/elena-guidi-dev/',
+      },
+      {
+        name: 'Mia Salazar',
+        role: 'Product Strategist',
+        description:
+          'Expert in agile methodologies and product vision. She helps founders define their value proposition and scale digital businesses.',
+        image: mia,
+        linkedinUrl: 'https://www.linkedin.com/in/miasalazar/',
+      },
+      {
+        name: 'Aurélia Emond',
+        role: 'International Career Coach',
+        description:
+          'Organisational psychologist focused on career development. Aurélia specialises in supporting complex career transitions.',
+        image: aurelia,
+        linkedinUrl:
+          'https://www.linkedin.com/in/aurelia-emond-digitaltransformation-agile-organizationalmanagement/',
+      },
+      {
+        name: 'Cynthia Vázquez Almisa',
+        role: 'Tech Team Lead',
+        description:
+          'Engineering leader in Fortune 500 companies. Mentor specialised in conflict management and high-impact organisational culture.',
+        image: cynthia,
+        linkedinUrl: 'https://www.linkedin.com/in/cynthia-vazquez-almisa/',
+      },
+    ],
   },
 };
 
@@ -41,7 +177,6 @@ const copy = lang === 'en' ? t.en : t.es;
 
 <section id="mentorias" class="py-16 md:py-24 bg-gradient-to-b from-[#f5e8ff] to-white dark:from-[#1a0a2e] dark:to-slate-900">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <!-- Header -->
     <div class="text-center mb-12">
       <span class="inline-block rounded-full bg-[#c084fc] text-white text-sm font-semibold px-4 py-1.5 mb-4">
         🌱 {copy.tag}
@@ -50,7 +185,6 @@ const copy = lang === 'en' ? t.en : t.es;
       <p class="text-lg font-semibold text-[#7c3aed] dark:text-[#c084fc]">{copy.subtitle}</p>
     </div>
 
-    <!-- Description + features -->
     <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-[#e9d5ff] dark:border-[#4c1d95] p-8 mb-8">
       <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-8">
         {copy.description}
@@ -69,16 +203,81 @@ const copy = lang === 'en' ? t.en : t.es;
       </div>
     </div>
 
-    <!-- Form CTA -->
-    <div class="text-center">
+    <div class="mt-16">
+      <div class="text-center mb-10">
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white">{copy.verticalsTitle}</h3>
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">{copy.verticalsSubtitle}</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        {
+          copy.verticals.map((vertical) => (
+            <article class="rounded-2xl border border-[#ece2ff] bg-white p-6 shadow-sm dark:border-[#3f2465] dark:bg-slate-800">
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#f2e9ff] text-lg font-semibold text-[#8b5cf6] dark:bg-[#2a1040] dark:text-[#d8b4fe]">
+                {vertical.icon}
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{vertical.title}</h4>
+              <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">{vertical.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-20">
+      <div class="mb-10">
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-gray-900 dark:text-white">{copy.mentorsTitle}</h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">{copy.mentorsSubtitle}</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          copy.mentors.map((mentor) => (
+            <article class="rounded-2xl border border-[#f0e8ff] bg-[#fcf9ff] p-5 shadow-sm dark:border-[#3f2465] dark:bg-[#1d1430]">
+              <div class="flex items-start gap-5">
+                <Image
+                  src={mentor.image}
+                  alt={mentor.name}
+                  class="h-24 w-24 rounded-2xl object-cover shadow-sm sm:h-28 sm:w-28"
+                  widths={[160, 224, 320]}
+                  sizes="(max-width: 640px) 96px, 112px"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-900 dark:text-white">{mentor.name}</h4>
+                  <p class="mt-1 inline-block rounded-md bg-[#ede9fe] px-2 py-1 text-xs font-medium text-[#7c3aed] dark:bg-[#2a1040] dark:text-[#d8b4fe]">
+                    {mentor.role}
+                  </p>
+                  <p class="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-300">{mentor.description}</p>
+                  <a
+                    href={mentor.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-4 inline-flex rounded-md bg-[#f3efff] px-3 py-1.5 text-xs font-medium text-[#6d28d9] hover:bg-[#ebe2ff] dark:bg-[#2a1040] dark:text-[#d8b4fe]"
+                  >
+                    {copy.profileLabel}
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-20 rounded-[2rem] bg-gradient-to-r from-[#6d28d9] to-[#8b5cf6] px-6 py-12 text-center shadow-[0_20px_40px_rgba(124,58,237,0.22)]">
+      <h3 class="text-4xl font-bold text-white">{copy.ctaTitle}</h3>
+      <p class="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/85 md:text-base">{copy.ctaText}</p>
       <a
         href={copy.formUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 rounded-full bg-[#7c3aed] text-white px-8 py-4 text-base font-semibold hover:bg-[#6d28d9] transition-colors shadow-md"
+        class="mt-8 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#6d28d9] hover:bg-[#f6f1ff]"
       >
-        🌱 {copy.formLabel}
+        {copy.ctaButton}
       </a>
     </div>
+
   </div>
 </section>
