@@ -26,6 +26,7 @@ export const ui = {
       'No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología.',
     'events.closed': 'Inscripciones cerradas',
     'events.register': 'Registrarse',
+    'events.soldOut': 'Agotado',
     // Language picker
     'lang.label': 'EN',
     'lang.switchTo': 'Switch to English',
@@ -50,6 +51,7 @@ export const ui = {
       "Don't miss our next gatherings. Join us at events designed to inspire, educate and connect women in tech.",
     'events.closed': 'Registration closed',
     'events.register': 'Register',
+    'events.soldOut': 'Sold Out',
     // Language picker
     'lang.label': 'ES',
     'lang.switchTo': 'Cambiar a Español',

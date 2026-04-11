@@ -19,6 +19,7 @@ const EVENTS_I18N = {
       'No te pierdas nuestras próximas citas. Te esperamos en eventos diseñados para inspirar, formar y conectar a la comunidad de mujeres en tecnología.',
     closed: 'Inscripciones cerradas',
     register: 'Registrarse',
+    soldOut: 'Agotado',
   },
   en: {
     upcoming: 'Upcoming Events',
@@ -26,6 +27,7 @@ const EVENTS_I18N = {
       "Don't miss our next gatherings. Join us at events designed to inspire, educate and connect women in tech.",
     closed: 'Registration closed',
     register: 'Register',
+    soldOut: 'Sold Out',
   },
 };
 import {
@@ -66,14 +68,21 @@ export default function Events({ events, locale = 'es' }) {
         {events.map((e, idx) => {
           // Determina si el evento es pasado usando util
           const isPast = e.date ? isPastEvent(e.date) : false;
+          const isSoldOut = e.soldOut === true;
+          const isDisabled = isPast || isSoldOut;
           return (
             <article
               key={`${e.title}-${idx}`}
-              className="relative bg-white rounded-3xl p-8 shadow-sm ring-1 ring-black/5 hover:shadow-md transition flex flex-col justify-between h-full"
+              className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm ring-1 ring-black/5 dark:ring-white/10 hover:shadow-md transition flex flex-col justify-between h-full"
             >
               <div className="flex flex-col gap-2 flex-grow">
                 <div className="flex items-center justify-between min-h-[40px]">
-                  {e.status === 'Inscripciones Abiertas' && !isPast && (
+                  {isSoldOut && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-500 dark:bg-amber-600 text-white text-sm font-semibold shadow-sm">
+                      {i18n.soldOut}
+                    </span>
+                  )}
+                  {!isSoldOut && e.status === 'Inscripciones Abiertas' && !isPast && (
                     <span
                       className="inline-flex items-center px-4 py-1.5 rounded-full text-white text-sm font-semibold shadow-sm"
                       style={{ backgroundColor: 'var(--aw-color-secondary)' }}
@@ -81,21 +90,21 @@ export default function Events({ events, locale = 'es' }) {
                       {locale === 'en' ? 'Open Registrations' : e.status}
                     </span>
                   )}
-                  {isPast && (
-                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-400 text-white text-sm font-semibold shadow-sm">
+                  {!isSoldOut && isPast && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-400 dark:bg-gray-600 text-white text-sm font-semibold shadow-sm">
                       {i18n.closed}
                     </span>
                   )}
-                  {!isPast && <SocialShare url={e.url} title={e.title} />}
+                  {!isDisabled && <SocialShare url={e.url} title={e.title} />}
                 </div>
 
                 <h3
-                  className={`${isPast ? 'mt-2' : 'mt-5'} text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900`}
+                  className={`${isDisabled ? 'mt-2' : 'mt-5'} text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white`}
                 >
                   {e.title}
                 </h3>
 
-                <ul className="mt-6 space-y-5 text-[1.125rem] text-slate-600">
+                <ul className="mt-6 space-y-5 text-[1.125rem] text-slate-600 dark:text-slate-300">
                   {e.date && (
                     <li className="flex items-center gap-3">
                       <svg
@@ -163,18 +172,30 @@ export default function Events({ events, locale = 'es' }) {
 
               <div className="mt-8 flex-shrink-0">
                 <div
-                  className={`p-1 rounded-full ring-2 ${isPast ? 'ring-gray-400/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
+                  className={`p-1 rounded-full ring-2 ${isSoldOut ? 'ring-amber-400/90 dark:ring-amber-500/90' : isPast ? 'ring-gray-400/90 dark:ring-gray-600/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
                 >
                   <a
-                    href={isPast ? undefined : e.url}
+                    href={isDisabled ? undefined : e.url}
                     target="_blank"
                     rel="noopener"
-                    className={`block w-full text-center rounded-full py-4 font-semibold transition ${isPast ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-70' : 'text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90'}`}
-                    tabIndex={isPast ? -1 : 0}
-                    aria-disabled={isPast ? 'true' : 'false'}
-                    {...(isPast ? { onClick: (e) => e.preventDefault() } : {})}
+                    className={`block w-full text-center rounded-full py-4 font-semibold transition ${
+                      isSoldOut
+                        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 cursor-not-allowed opacity-80'
+                        : isPast
+                          ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed opacity-70'
+                          : 'text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90'
+                    }`}
+                    tabIndex={isDisabled ? -1 : 0}
+                    aria-disabled={isDisabled ? 'true' : 'false'}
+                    {...(isDisabled ? { onClick: (e) => e.preventDefault() } : {})}
                   >
-                    {isPast ? i18n.closed : locale === 'en' ? i18n.register : e.ctaLabel || i18n.register}
+                    {isSoldOut
+                      ? i18n.soldOut
+                      : isPast
+                        ? i18n.closed
+                        : locale === 'en'
+                          ? i18n.register
+                          : e.ctaLabel || i18n.register}
                   </a>
                 </div>
               </div>
