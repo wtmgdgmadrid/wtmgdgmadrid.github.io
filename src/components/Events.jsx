@@ -53,19 +53,28 @@ function SocialShare({ url, title }) {
   );
 }
 
-export default function Events({ events, locale = 'es' }) {
+export default function Events({ events, locale = 'es', showHeader = true }) {
   const i18n = EVENTS_I18N[locale] ?? EVENTS_I18N.es;
+  if (!events?.length) return null;
   return (
-    <section id="eventos" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl font-extrabold text-bg-white">{i18n.upcoming}</h2>
-        <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">{i18n.subtitle}</p>
-      </div>
+    <section
+      id={showHeader ? 'eventos' : undefined}
+      data-events
+      className={showHeader ? 'py-20 px-6' : 'pb-20 pt-4 px-6'}
+    >
+      {showHeader && (
+        <div className="max-w-7xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-extrabold text-bg-white">{i18n.upcoming}</h2>
+          <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">{i18n.subtitle}</p>
+        </div>
+      )}
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {events.map((e, idx) => {
           // Determina si el evento es pasado usando util
           const isPast = e.date ? isPastEvent(e.date) : false;
+          const hasUrl = Boolean(e.url);
+          const disabled = isPast || !hasUrl;
           return (
             <article
               key={`${e.title}-${idx}`}
@@ -86,7 +95,12 @@ export default function Events({ events, locale = 'es' }) {
                       {i18n.closed}
                     </span>
                   )}
-                  {!isPast && <SocialShare url={e.url} title={e.title} />}
+                  {!isPast && !hasUrl && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-sky-500 text-white text-sm font-semibold shadow-sm">
+                      {e.status}
+                    </span>
+                  )}
+                  {!isPast && hasUrl && <SocialShare url={e.url} title={e.title} />}
                 </div>
 
                 <h3
@@ -163,18 +177,24 @@ export default function Events({ events, locale = 'es' }) {
 
               <div className="mt-8 flex-shrink-0">
                 <div
-                  className={`p-1 rounded-full ring-2 ${isPast ? 'ring-gray-400/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
+                  className={`p-1 rounded-full ring-2 ${disabled ? 'ring-gray-400/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
                 >
                   <a
-                    href={isPast ? undefined : e.url}
+                    href={disabled ? undefined : e.url}
                     target="_blank"
                     rel="noopener"
-                    className={`block w-full text-center rounded-full py-4 font-semibold transition ${isPast ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-70' : 'text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90'}`}
-                    tabIndex={isPast ? -1 : 0}
-                    aria-disabled={isPast ? 'true' : 'false'}
-                    {...(isPast ? { onClick: (e) => e.preventDefault() } : {})}
+                    className={`block w-full text-center rounded-full py-4 font-semibold transition ${disabled ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-70' : 'text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90'}`}
+                    tabIndex={disabled ? -1 : 0}
+                    aria-disabled={disabled ? 'true' : 'false'}
+                    {...(disabled ? { onClick: (e) => e.preventDefault() } : {})}
                   >
-                    {isPast ? i18n.closed : locale === 'en' ? i18n.register : e.ctaLabel || i18n.register}
+                    {isPast
+                      ? i18n.closed
+                      : !hasUrl
+                        ? e.ctaLabel
+                        : locale === 'en'
+                          ? i18n.register
+                          : e.ctaLabel || i18n.register}
                   </a>
                 </div>
               </div>

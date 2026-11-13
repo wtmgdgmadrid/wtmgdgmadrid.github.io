@@ -1,5 +1,7 @@
 ---
 import '@fontsource-variable/inter';
+import '@fontsource-variable/inter-tight';
+import '@fontsource/instrument-serif/400-italic.css';
 
 // 'DM Sans'
 // Nunito
@@ -20,51 +22,82 @@ import '@fontsource-variable/inter';
 ---
 
 <style is:inline>
+  /* Branding Merge Generations (brand book): navy, lima, azul cielo, lavanda */
   :root {
-    --aw-font-sans: 'Inter Bold';
-    --aw-font-serif: 'Inter Bold';
-    --aw-font-heading: 'Inter Bold';
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Instrument Serif';
+    --aw-font-heading: 'Inter Tight Variable', 'Inter Variable';
 
-    --aw-color-primary: rgb(15 24 103);
-    --aw-color-secondary: rgb(0, 102, 85);
-    --aw-color-accent: rgb(14, 24, 89);
-    --aw-color-link: rgb(15 24 103);
-    --aw-color-link-dark: rgb(202 230 255);
+    --aw-color-navy: rgb(28 22 80);
+    --aw-color-lime: rgb(223 235 154);
+    --aw-color-sky: rgb(188 214 247);
+    --aw-color-lavender: rgb(228 225 243);
+    --aw-color-cream: rgb(249 244 237);
+    --aw-color-coral: rgb(232 150 152);
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(202 230 255);
+    --aw-color-primary: var(--aw-color-navy);
+    --aw-color-secondary: var(--aw-color-navy);
+    --aw-color-accent: var(--aw-color-navy);
+    --aw-color-link: var(--aw-color-navy);
+    --aw-color-link-dark: var(--aw-color-sky);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-text-heading: rgb(22 18 61);
+    --aw-color-text-default: rgb(22 18 61);
+    --aw-color-text-muted: rgb(74 69 112);
+    --aw-color-bg-page: var(--aw-color-cream);
+
+    --aw-color-bg-page-dark: rgb(28 22 80);
 
     ::selection {
-      background-color: lavender;
+      background-color: rgb(223 235 154);
+      color: rgb(28 22 80);
     }
   }
 
   .dark {
     --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-serif: 'Instrument Serif';
+    --aw-font-heading: 'Inter Tight Variable', 'Inter Variable';
 
-    --aw-color-primary: rgb(1 97 239);
-    /* --aw-color-secondary: rgb(1 84 207); */
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: var(--aw-color-sky);
+    --aw-color-accent: var(--aw-color-lime);
     --aw-color-link: var(--aw-color-link-dark);
 
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    --aw-color-text-heading: rgb(255 255 255);
+    --aw-color-text-default: rgb(228 225 243);
+    --aw-color-text-muted: rgb(228 225 243 / 70%);
+    --aw-color-bg-page: rgb(28 22 80);
 
     /* IWD 2026 Break the pattern theme */
     --aw-color-iwd-bg-dark: rgb(3 52 171);
     --aw-color-iwd-bg-light: rgb(255 255 255);
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(223 235 154);
+      color: rgb(28 22 80);
     }
+  }
+
+  /* Titulares: grotesca negra y apretada (Inter Tight 800, tracking -0.045em) */
+  html h1,
+  html h2,
+  html h3 {
+    font-family: var(--aw-font-heading);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  /* Voz humana: serif itálica sobre el titular */
+  .font-script {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgb(188 214 247);
+    outline-offset: 2px;
   }
 </style>

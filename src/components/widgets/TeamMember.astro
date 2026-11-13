@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 
 const { member, lang = 'es' } = Astro.props;
-const maxLength = 50;
+const maxLength = 110;
 const displayBio = lang === 'en' && member.bioEn ? member.bioEn : member.bio;
 const bioRaw = displayBio ? displayBio.trim() : '';
 let shortBio = bioRaw;
@@ -21,46 +21,24 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
 ---
 
 <article
-  class="flex flex-col items-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-md p-3 sm:p-6 h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-100 dark:hover:shadow-slate-700/50"
+  class="group flex flex-col h-full p-2 rounded-2xl bg-white border border-[#E4E1F3] shadow-sm dark:bg-[#28216C] dark:border-white/10 dark:shadow-none transition-shadow duration-300 hover:shadow-lg"
 >
-  <div class="flex flex-col items-center w-full">
-    <div class="mb-3 sm:mb-4 flex justify-center">
-      <Image
-        class="rounded-xl border-2 border-blue-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 w-auto h-auto max-w-[240px] sm:max-w-[280px] max-h-[320px] sm:max-h-[360px] object-contain"
-        width={280}
-        height={350}
-        widths={[200, 280, 350]}
-        sizes="(max-width: 639px) 240px, (max-width: 1023px) 220px, 280px"
-        loading="lazy"
-        format="webp"
-        quality={85}
-        {...member.image}
-      />
-    </div>
-    <h2 class="text-lg sm:text-xl font-bold text-center mb-1.5 sm:mb-2 dark:text-slate-100 leading-tight">
+  <Image
+    class="w-full h-auto aspect-[4/5] object-cover !object-top rounded-xl ring-2 ring-transparent group-hover:ring-[#DFEB9A] transition"
+    width={560}
+    height={700}
+    widths={[200, 280, 350, 560]}
+    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1279px) 30vw, 22vw"
+    loading="lazy"
+    format="webp"
+    quality={85}
+    {...member.image}
+  />
+  <div class="flex flex-col flex-1 px-3 sm:px-4 pt-4 pb-3">
+    <h2 class="text-xl sm:text-2xl text-[#1C1650] dark:text-white">
       {member.name}
     </h2>
-  </div>
-  <style>
-    /* Scrollbar delgado y discreto solo para la bio */
-    .bio-scrollbar {
-      scrollbar-width: thin;
-      scrollbar-color: #94a3b8 #e5e7eb;
-    }
-    .bio-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      background: #e5e7eb;
-    }
-    .bio-scrollbar::-webkit-scrollbar-thumb {
-      background: #94a3b8;
-      border-radius: 4px;
-    }
-  </style>
-  <div class="relative w-full">
-    <p
-      id={pId}
-      class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm text-center rounded-md px-2 sm:px-3 py-1.5 sm:py-2 min-h-[50px] sm:min-h-[80px] max-h-[100px] sm:max-h-[140px] overflow-hidden transition-all bio-scrollbar leading-relaxed"
-    >
+    <p id={pId} class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-[#E4E1F3]/80">
       <span id={bioId}>{shortBio}</span>
       {
         isLong && (
@@ -68,32 +46,26 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
             <button
               id={btnMoreId}
               type="button"
-              class="ml-2 text-blue-600 underline text-sm"
+              class="ml-1 underline underline-offset-2 text-sm font-medium"
               style="color: var(--aw-color-link);background:none;border:none;padding:0;cursor:pointer;"
               onclick={`
               document.getElementById('${bioId}').textContent = '${displayBio.replace(/'/g, "\\'")}';
               document.getElementById('${btnMoreId}').style.display = 'none';
               document.getElementById('${btnLessId}').style.display = 'inline';
-              var p = document.getElementById('${pId}');
-              p.classList.remove('overflow-hidden');
-              p.classList.add('overflow-auto');
-            `}
+                          `}
             >
               {labelMore}
             </button>
             <button
               id={btnLessId}
               type="button"
-              class="ml-2 text-blue-600 underline text-sm"
+              class="ml-1 underline underline-offset-2 text-sm font-medium"
               style="display:none;background:none;border:none;padding:0;cursor:pointer;"
               onclick={`
               document.getElementById('${bioId}').textContent = '${shortBio.replace(/'/g, "\\'")}';
               document.getElementById('${btnLessId}').style.display = 'none';
               document.getElementById('${btnMoreId}').style.display = 'inline';
-              var p = document.getElementById('${pId}');
-              p.classList.remove('overflow-auto');
-              p.classList.add('overflow-hidden');
-            `}
+                          `}
             >
               {labelLess}
             </button>
@@ -101,8 +73,7 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
         )
       }
     </p>
-  </div>
-  <footer class="flex gap-2 sm:gap-4 mt-2 sm:mt-4">
+    <footer class="flex gap-2 mt-auto pt-5">
     {
       member.social.twitter && (
         <a
@@ -111,9 +82,9 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
           rel="noopener"
           aria-label="X"
           title="X"
-          class="rounded-full bg-blue-50 dark:bg-slate-700 p-1.5 sm:p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
         >
-          <Icon name="tabler:brand-x" class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 dark:text-blue-300" />
+          <Icon name="tabler:brand-x" class="w-5 h-5" />
         </a>
       )
     }
@@ -125,9 +96,9 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
           rel="noopener"
           aria-label="LinkedIn"
           title="LinkedIn"
-          class="rounded-full bg-blue-50 dark:bg-slate-700 p-1.5 sm:p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
         >
-          <Icon name="tabler:brand-linkedin" class="w-5 h-5 sm:w-6 sm:h-6 text-blue-700 dark:text-blue-400" />
+          <Icon name="tabler:brand-linkedin" class="w-5 h-5" />
         </a>
       )
     }
@@ -139,11 +110,12 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
           rel="noopener"
           aria-label="Bluesky"
           title="Bluesky"
-          class="rounded-full bg-blue-50 dark:bg-slate-700 p-1.5 sm:p-2 hover:bg-blue-100 dark:hover:bg-slate-600 transition"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
         >
-          <Icon name="tabler:brand-bluesky" class="w-5 h-5 sm:w-6 sm:h-6 text-slate-700 dark:text-slate-200" />
+          <Icon name="tabler:brand-bluesky" class="w-5 h-5" />
         </a>
       )
     }
-  </footer>
+    </footer>
+  </div>
 </article>
