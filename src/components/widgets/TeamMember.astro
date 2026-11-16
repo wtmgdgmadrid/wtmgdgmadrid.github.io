@@ -74,48 +74,48 @@ const pId = `bio-p-${member.name.replace(/\s/g, '')}`;
       }
     </p>
     <footer class="flex gap-2 mt-auto pt-5">
-    {
-      member.social.twitter && (
-        <a
-          href={member.social.twitter}
-          target="_blank"
-          rel="noopener"
-          aria-label="X"
-          title="X"
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
-        >
-          <Icon name="tabler:brand-x" class="w-5 h-5" />
-        </a>
-      )
-    }
-    {
-      member.social.linkedin && (
-        <a
-          href={member.social.linkedin}
-          target="_blank"
-          rel="noopener"
-          aria-label="LinkedIn"
-          title="LinkedIn"
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
-        >
-          <Icon name="tabler:brand-linkedin" class="w-5 h-5" />
-        </a>
-      )
-    }
-    {
-      member.social.bluesky && (
-        <a
-          href={member.social.bluesky}
-          target="_blank"
-          rel="noopener"
-          aria-label="Bluesky"
-          title="Bluesky"
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
-        >
-          <Icon name="tabler:brand-bluesky" class="w-5 h-5" />
-        </a>
-      )
-    }
+      {
+        member.social.twitter && (
+          <a
+            href={member.social.twitter}
+            target="_blank"
+            rel="noopener"
+            aria-label="X"
+            title="X"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
+          >
+            <Icon name="tabler:brand-x" class="w-5 h-5" />
+          </a>
+        )
+      }
+      {
+        member.social.linkedin && (
+          <a
+            href={member.social.linkedin}
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
+          >
+            <Icon name="tabler:brand-linkedin" class="w-5 h-5" />
+          </a>
+        )
+      }
+      {
+        member.social.bluesky && (
+          <a
+            href={member.social.bluesky}
+            target="_blank"
+            rel="noopener"
+            aria-label="Bluesky"
+            title="Bluesky"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1650] text-white hover:bg-[#3a2fa0] dark:bg-[#DFEB9A] dark:text-[#1C1650] dark:hover:bg-white transition-colors focus-visible:outline-offset-2"
+          >
+            <Icon name="tabler:brand-bluesky" class="w-5 h-5" />
+          </a>
+        )
+      }
     </footer>
   </div>
 </article>
