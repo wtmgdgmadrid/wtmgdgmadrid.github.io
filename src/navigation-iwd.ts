@@ -1,7 +1,6 @@
 type Lang = 'es' | 'en';
 
 export function getHeaderData(lang: Lang = 'es') {
-  const base = lang === 'en' ? '/en' : '';
   return {
     links: [
       { text: 'Home', href: lang === 'en' ? '/en' : '/' },

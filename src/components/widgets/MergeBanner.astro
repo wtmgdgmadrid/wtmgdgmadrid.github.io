@@ -1,0 +1,91 @@
+---
+// Save the date de Merge Generations. Maquetado en HTML (no imagen) para que el
+// texto sea nítido, accesible y se reordene en móvil sin recortes.
+const logos = [
+  { src: '/images/merge/wtm.png', alt: 'Women Techmakers Madrid', w: 162, h: 149 },
+  { src: '/images/merge/power-to-code.webp', alt: 'Power to Code y Technovation Girls', w: 280, h: 290 },
+  { src: '/images/merge/alumnae.webp', alt: 'Alumnae Power to Code', w: 220, h: 235 },
+  { src: '/images/merge/industriales.webp', alt: 'Industriales ETSII UPM', w: 260, h: 215 },
+];
+---
+
+<section aria-label="Merge Generations, Save the Date" class="px-4 sm:px-6 pt-10 md:pt-12 pb-12 md:pb-20">
+  <div
+    class="mx-auto max-w-6xl grid gap-8 lg:gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] items-stretch rounded-[2rem] bg-[#1C1650] p-6 sm:p-10 lg:p-12"
+  >
+    <div class="flex flex-col justify-between gap-12 md:gap-20 py-2 lg:py-6 text-center items-center">
+      <div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs sm:text-sm font-extrabold uppercase"
+        >
+          <span class="rounded-lg border-2 border-[#BCD6F7] px-3 py-2 text-[#BCD6F7]">Women Techmakers Madrid</span>
+          <svg
+            class="w-8 h-4 text-white"
+            viewBox="0 0 32 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="M1 8h30M5 4 1 8l4 4M27 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span class="rounded-lg bg-[#DFEB9A] px-3 py-2 text-[#1C1650]">Technovation Girls Madrid</span>
+        </div>
+
+        <h2 class="mt-10 md:mt-14 text-white !leading-[0.9]">
+          <span class="font-script block text-[#DFEB9A] text-[clamp(2.25rem,6vw,4.5rem)] !leading-none mb-1 md:mb-2">
+            Merge Generations
+          </span>
+          <span class="block text-[clamp(3.25rem,9.5vw,7.5rem)] font-semibold tracking-[-0.035em]">Save the Date</span>
+        </h2>
+      </div>
+
+      <div class="text-[#E4E1F3]">
+        <a
+          href="https://luma.com/nl5i4n2r"
+          target="_blank"
+          rel="noopener"
+          class="mb-8 inline-flex items-center gap-2 rounded-full bg-[#DFEB9A] px-7 py-4 text-sm sm:text-base font-extrabold uppercase text-[#1C1650] transition hover:bg-white focus-visible:bg-white"
+        >
+          Inscripciones
+          <svg
+            class="w-4 h-4"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M2 8h12M9 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+        <p class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+          Viernes 11 de diciembre · 16:00 – 20:30 h
+        </p>
+        <p class="mt-1 text-lg sm:text-xl">
+          ETSII · UPM, Madrid · <span class="text-[#BCD6F7]">7 charlas · networking</span>
+        </p>
+      </div>
+    </div>
+
+    <ul
+      class="grid grid-cols-2 gap-x-4 gap-y-6 content-center rounded-3xl bg-white p-6 sm:p-8 lg:grid-cols-1 lg:gap-y-8 lg:py-10"
+      aria-label="Organizan"
+    >
+      {
+        logos.map((l) => (
+          <li class="flex items-center justify-center">
+            <img
+              src={l.src}
+              alt={l.alt}
+              width={l.w}
+              height={l.h}
+              loading="lazy"
+              class="h-20 sm:h-24 lg:h-[5.5rem] w-auto max-w-full object-contain"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

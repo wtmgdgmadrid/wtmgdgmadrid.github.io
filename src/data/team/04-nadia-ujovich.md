@@ -9,5 +9,5 @@ social:
   twitter: 'https://www.twitter.com/in/Nujovich'
   linkedin: 'https://www.linkedin.com/in/nadiaujovich/'
   bluesky: 'https://bsky.app/profile/nujovich.bsky.social'
-order: 4
+order: 3
 ---

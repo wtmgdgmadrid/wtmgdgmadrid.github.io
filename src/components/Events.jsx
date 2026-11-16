@@ -55,21 +55,29 @@ function SocialShare({ url, title }) {
   );
 }
 
-export default function Events({ events, locale = 'es' }) {
+export default function Events({ events, locale = 'es', showHeader = true }) {
   const i18n = EVENTS_I18N[locale] ?? EVENTS_I18N.es;
+  if (!events?.length) return null;
   return (
-    <section id="eventos" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl font-extrabold text-bg-white">{i18n.upcoming}</h2>
-        <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">{i18n.subtitle}</p>
-      </div>
+    <section
+      id={showHeader ? 'eventos' : undefined}
+      data-events
+      className={showHeader ? 'py-20 px-6' : 'pb-20 pt-4 px-6'}
+    >
+      {showHeader && (
+        <div className="max-w-7xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-extrabold text-bg-white">{i18n.upcoming}</h2>
+          <p className="mt-4 text-lg text-bg-white/90 max-w-2xl mx-auto">{i18n.subtitle}</p>
+        </div>
+      )}
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {events.map((e, idx) => {
           // Determina si el evento es pasado usando util
           const isPast = e.date ? isPastEvent(e.date) : false;
           const isSoldOut = e.soldOut === true;
-          const isDisabled = isPast || isSoldOut;
+          const hasUrl = Boolean(e.url);
+          const isDisabled = isPast || isSoldOut || !hasUrl;
           return (
             <article
               key={`${e.title}-${idx}`}
@@ -93,6 +101,11 @@ export default function Events({ events, locale = 'es' }) {
                   {!isSoldOut && isPast && (
                     <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-400 dark:bg-gray-600 text-white text-sm font-semibold shadow-sm">
                       {i18n.closed}
+                    </span>
+                  )}
+                  {!isPast && !hasUrl && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-sky-500 text-white text-sm font-semibold shadow-sm">
+                      {e.status}
                     </span>
                   )}
                   {!isDisabled && <SocialShare url={e.url} title={e.title} />}
@@ -172,7 +185,7 @@ export default function Events({ events, locale = 'es' }) {
 
               <div className="mt-8 flex-shrink-0">
                 <div
-                  className={`p-1 rounded-full ring-2 ${isSoldOut ? 'ring-amber-400/90 dark:ring-amber-500/90' : isPast ? 'ring-gray-400/90 dark:ring-gray-600/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
+                  className={`p-1 rounded-full ring-2 ${isSoldOut ? 'ring-amber-400/90 dark:ring-amber-500/90' : isPast || !hasUrl ? 'ring-gray-400/90 dark:ring-gray-600/90' : 'ring-emerald-400/90'} min-h-[72px] flex items-center justify-center`}
                 >
                   <a
                     href={isDisabled ? undefined : e.url}
@@ -181,7 +194,7 @@ export default function Events({ events, locale = 'es' }) {
                     className={`block w-full text-center rounded-full py-4 font-semibold transition ${
                       isSoldOut
                         ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 cursor-not-allowed opacity-80'
-                        : isPast
+                        : isPast || !hasUrl
                           ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed opacity-70'
                           : 'text-white bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500 hover:opacity-95 active:opacity-90'
                     }`}
@@ -193,9 +206,11 @@ export default function Events({ events, locale = 'es' }) {
                       ? i18n.soldOut
                       : isPast
                         ? i18n.closed
-                        : locale === 'en'
-                          ? i18n.register
-                          : e.ctaLabel || i18n.register}
+                        : !hasUrl
+                          ? e.ctaLabel
+                          : locale === 'en'
+                            ? i18n.register
+                            : e.ctaLabel || i18n.register}
                   </a>
                 </div>
               </div>
